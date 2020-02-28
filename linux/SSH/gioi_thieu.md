@@ -40,6 +40,7 @@ Public key có thể được chia sẻ và phân tán rộng rãi bởi nó đ�
 Khi có client muốn xác thực bằng SSH keys, server có thể test xem client đó có giữ private key hay không. Nếu client chứng minh được nó có private key thì kết nối có thể được thiết lập.
 
 Hình dưới đây mô tả quá trình xác thực giữa server và client:
+
 ![Imgur](https://i.imgur.com/AE9p6IY.png)
 ## Các kỹ thuật mã hóa trong SSH
 SSH có ưu điểm vượt trội so với các giao thức cũ là khả năng truyền tải dữ liệu bảo mật giữa client và host và khả năng mã hoá. Host đại diện cho sự kết nối giữa máy chủ từ xa client điều này có nghĩa là máy tính của bạn với mục đích truy cập tới host. Để mã hoá qua SSH sử dụng 3 kỹ thuật sau đây:

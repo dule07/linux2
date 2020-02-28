@@ -1,15 +1,18 @@
 # Lab
 ## Mô hình
+
 ![Imgur](https://i.imgur.com/DO43Dod.png)
 Kết nối SSH một host CentOS7#1 (Client) đến máy CentOS7#2 (Server) có địa chỉ là 10.10.10.250. Trước khi kết nối SSH cần ping được đến máy đó.
 ### Thực hiện kết nối bằng mật khẩu
 Từ host CentOS7#1, thực hiện kết nối bằng cách gõ cú pháp
 
     ssh <người dùng>@<địa chỉ ip>
+
 ![Imgur](https://i.imgur.com/ZpB6pYZ.png)
 Vì đây là kết nối lần đầu tiên nên máy sẽ hỏi muốn tiếp tục hay không. Gõ yes để tiếp tục.
 ### Thực hiện kết nối bằng key pair
 Đôi khi việc sử dụng password để đăng nhập sẽ khiến bạn mất công nhớ mật khẩu và tiềm ẩn khả năng bị tấn công cao. Vì vậy, bạn có thể thực hiện việc kết nối thông qua sử dụng cơ chế key pairs.
+
 ![Imgur](https://i.imgur.com/PlNvlSv.png)
 Cơ bản thì ở máy khách sẽ tiến hành tạo cặp key là private key và public key, sau đó sẽ gửi key public tới máy chủ và giữ lại private key. Khi muốn thực hiện đăng nhập từ xa, máy khách sẽ gửi yêu cầu kèm key private tới máy chủ. Máy chủ sẽ tiến hành kiểm tra private key có trùng với public Key không. Nếu có thì sẽ đăng nhập thành công.
 
@@ -18,6 +21,7 @@ Cơ bản thì ở máy khách sẽ tiến hành tạo cặp key là private key
 Đầu tiên, tiến hành tạo SSH key trên máy Client
 
     ssh-keygen
+
 ![Imgur](https://i.imgur.com/09jF8bG.png)
 Lập tức trên terminal xuất hiện một số yêu cầu sau:
 
@@ -39,6 +43,7 @@ Công cụ ssh-copy-id thường có sẵn trên nhiều hệ điều hành . N�
 Sử dụng tiện ích ssh-copy-id, gõ lệnh
 
     ssh-copy-id <người dùng>@<địa chỉ ip>
+
 ![Imgur](https://i.imgur.com/9KqoBEx.png)
 Trên Terminal sẽ hiện một loạt các dòng lệnh, trong đó có các yêu cầu sau.
 
@@ -88,11 +93,13 @@ Trên terminal của máy chủ (hoặc máy khách đã SSH) gõ:
 cd /root
 ll -a
 ```
+
 ![Imgur](https://i.imgur.com/SQ9ZpGB.png)
 
 Có thể thấy có 1 thư mục tên là .ssh được tạo ra được cấp quyền là 700
 
 Di chuyển tới thư mục .ssh:
+
 ![Imgur](https://i.imgur.com/nYNUDs0.png)
 
 Ta thấy có 2 file ở trong thư mục này với các chức năng sau:
@@ -109,6 +116,7 @@ Trên Server , mở file cấu hình sshd :
     : set nu
 
 Ở dòng 65, sửa phần PasswordAuthentication thành no:
+
 ![Imgur](https://i.imgur.com/D8ApT2P.png)
 
 Restart dịch vụ SSH :
