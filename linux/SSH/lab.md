@@ -2,6 +2,7 @@
 ## Mô hình
 
 ![Imgur](https://i.imgur.com/DO43Dod.png)
+
 Kết nối SSH một host CentOS7#1 (Client) đến máy CentOS7#2 (Server) có địa chỉ là 10.10.10.250. Trước khi kết nối SSH cần ping được đến máy đó.
 ### Thực hiện kết nối bằng mật khẩu
 Từ host CentOS7#1, thực hiện kết nối bằng cách gõ cú pháp
@@ -9,11 +10,13 @@ Từ host CentOS7#1, thực hiện kết nối bằng cách gõ cú pháp
     ssh <người dùng>@<địa chỉ ip>
 
 ![Imgur](https://i.imgur.com/ZpB6pYZ.png)
+
 Vì đây là kết nối lần đầu tiên nên máy sẽ hỏi muốn tiếp tục hay không. Gõ yes để tiếp tục.
 ### Thực hiện kết nối bằng key pair
 Đôi khi việc sử dụng password để đăng nhập sẽ khiến bạn mất công nhớ mật khẩu và tiềm ẩn khả năng bị tấn công cao. Vì vậy, bạn có thể thực hiện việc kết nối thông qua sử dụng cơ chế key pairs.
 
 ![Imgur](https://i.imgur.com/PlNvlSv.png)
+
 Cơ bản thì ở máy khách sẽ tiến hành tạo cặp key là private key và public key, sau đó sẽ gửi key public tới máy chủ và giữ lại private key. Khi muốn thực hiện đăng nhập từ xa, máy khách sẽ gửi yêu cầu kèm key private tới máy chủ. Máy chủ sẽ tiến hành kiểm tra private key có trùng với public Key không. Nếu có thì sẽ đăng nhập thành công.
 
 ### **Bước 1**: Tạo key pairs
@@ -23,14 +26,15 @@ Cơ bản thì ở máy khách sẽ tiến hành tạo cặp key là private key
     ssh-keygen
 
 ![Imgur](https://i.imgur.com/09jF8bG.png)
+
 Lập tức trên terminal xuất hiện một số yêu cầu sau:
 
     Enter file in which to save the key (/root/.ssh/id_rsa): 
-Ở đây ta điền tên của file key. Thư mục lưu trữ file key đó là thư mục /root/.ssh/. Nếu không nhập bất cứ gì, tên file sẽ mặc định là id_rsa.
+Ở đây ta điền tên của file key. Thư mục lưu trữ file key đó là thư mục `/root/.ssh/`. Nếu không nhập bất cứ gì, tên file sẽ mặc định là `id_rsa`.
 
 Sau đó ta nhập password và xác nhận password cho key. 
 
-Mặc định , lệnh ssh-keygen sẽ tạo ra 1 cặp RSA key pair 2048-bit , gần như đáp ứng đủ mọi trường hợp . Nếu muốn cặp key phức tạp hơn , có thể tạo key với độ dài 4096-bit bằng option -b 4096
+Mặc định , lệnh ssh-keygen sẽ tạo ra 1 cặp RSA key pair 2048-bit , gần như đáp ứng đủ mọi trường hợp . Nếu muốn cặp key phức tạp hơn , có thể tạo key với độ dài 4096-bit bằng `option -b 4096`
 
 Như vậy, ta đã tạo xong key trên máy Client. Bây giờ tiến hành gửi key public tới máy chủ.
 
@@ -38,33 +42,35 @@ Như vậy, ta đã tạo xong key trên máy Client. Bây giờ tiến hành g�
 #### Cách 1: Dùng ssh-copy-id
 Cách nhanh nhất để copy Public Key trên CentOS là sử dụng tiện ích ssh-copy-id vì nó khá đơn giản . Nếu không có sẵn ssh-copy-id , cần phải copy 1 cách thủ công .
 
-Công cụ ssh-copy-id thường có sẵn trên nhiều hệ điều hành . Nếu dùng cách này , cần có kết nối SSH bằng mật khẩu từ client đến Server :
+Công cụ `ssh-copy-id` thường có sẵn trên nhiều hệ điều hành . Nếu dùng cách này , cần có kết nối SSH bằng mật khẩu từ client đến Server :
 
-Sử dụng tiện ích ssh-copy-id, gõ lệnh
+Sử dụng tiện ích `ssh-copy-id`, gõ lệnh
 
     ssh-copy-id <người dùng>@<địa chỉ ip>
 
 ![Imgur](https://i.imgur.com/9KqoBEx.png)
+
 Trên Terminal sẽ hiện một loạt các dòng lệnh, trong đó có các yêu cầu sau.
 
     Are you sure you want to continue connecting (yes/no)?
 Máy yêu cầu cần xác thực bạn có muốn tiếp tục kết nối hay không. Gõ yes.
 
 Tiếp theo , công cụ sẽ dò quét file id_rsa.pub trên máy vừa tạo ra . Nếu tìm thấy , nó sẽ hỏi mật khẩu của user SSH :
+
     root@10.10.10.250's password: 
     
-Nhập mật khẩu và gõ ENTER . Công cụ sẽ kết nối tới Server bằng tài khoản được cung cấp . Sau đó nó sẽ copy nội dung file ~/.ssh/id_rsa.pub vào 1 file tên là authorized_keys trong thư mục ~/.ssh của Server .Vậy là ta đã hoàn thành xong việc gửi public key tới Server.
+Nhập mật khẩu và gõ ENTER . Công cụ sẽ kết nối tới Server bằng tài khoản được cung cấp . Sau đó nó sẽ copy nội dung file `~/.ssh/id_rsa.pub` vào 1 file tên là `authorized_keys` trong thư mục `~/.ssh của Server`. Vậy là ta đã hoàn thành xong việc gửi public key tới Server.
 #### Cách 2: Copy Public Key sử dụng SSH
 Nếu không có sẵn tiện ích ssh-copy-id , có thể sử dụng phương pháp truyền thống để copy public key sang Server.
 
 Sử dụng lệnh pipe sau:
 
     cat ~/.ssh/id_rsa.pub | ssh root@10.10.10.250 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
-Sau khi nhập password , nội dung file id_rsa.pub sẽ được copy sang file ~/.ssh/authorized_keys.
+Sau khi nhập password , nội dung file `id_rsa.pub` sẽ được copy sang file `~/.ssh/authorized_keys`.
 #### Cách 3: Copy thủ công
 Nếu không có cách nào để truy cập Server qua SSH , có thể thực hiện copy thủ công qua USB hay bất cứ cách nào khác .
 
-Xem nội dung file id_rsa.pub và copy :
+Xem nội dung file `id_rsa.pub` và copy :
 
     cat ~/.ssh/id_rsa.pub
 Truy cập máy Server:
