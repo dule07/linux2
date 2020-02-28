@@ -13,24 +13,21 @@ SSH có hỗ trợ sử dụng cặp khóa Private Key và Public Key được c
 - Tuy nhiên trong trường hợp Private Key bị lộ, bạn vẫn khá an toàn vì đối phương không có passphrase thì vẫn chưa thể làm được gì, tuy nhiên đó chỉ là tạm thời. Bạn cần truy cập server thông qua cách trực tiếp hoặc qua VNC của nhà cung cấp nếu đó là một VPS để thay đổi lại bộ khóa.
 
 ## Cơ chế hoạt động
-SSH hoạt động bởi 3 bước cơ bản là: định danh host, mã hoá và cuối cùng là chứng thực.
+Một phiên làm việc của SSH đều phải trải qua 4 bước:
 
-**Bước 1**: Định danh host được hiểu là máy khách-máy tính điều khiển: Xác minh định danh của hệ thống tham gia làm việc SSH
+Thiết lập kết nối ban đầu (SSH-TRANS)
+Tiến hành xác thực (SSH-AUTH)
+Mở phiên kết nối để thực hiện các dịch vụ (SSH-CONN)
+Chạy các ứng dụng SSH (Có thể là SSH-SFTP, SCP)
+SSH-TRANS: là khối xây dựng cơ bản cung cấp kết nối ban đầu, ghi chép giao thức, xác thực server, mã hóa cơ bản và bảo toàn dữ liệu. Sau khi thiết lập kết nối, client có một kết nối độc lập và bảo mật
 
-Quá trình trao đổi khoá được thực hiện qua việc định danh host. Từng máy điều khiển SSH có duy nhất một khoá định danh. Có 2 phần ở khoá là public key và khoá private key. Khoá public được dùng bằng public key và chỉ có thể giải mã bằng private key. Nếu ở máy chủ có bất cứ thay đổi nào như: thay đổi của chương trình SSH, hệ điều hành thay đổi, thay đổi ở khoá định danh. Để đăng nhập vào máy chủ, người dùng sử dụng SSH, máy chủ cũng được thông báo về sự thay đổi này. Máy chủ sẽ gửi public key của máy chủ khi một phiên làm việc SSH của hai hệ thống được bắt đầu. Mã hoá khoá và một khoá phiên ngẫu nhiên được tạo ra từ máy khách bằng public key của máy chủ sau đấy gửi cho máy chủ. Bằng private key của mình máy chủ sẽ giải mã và sau đó nhận được khoá phiên. Khoá phiên này cũng đồng thời là khoá sử dụng với mục đích trao đổi dữ liệu giữa hai máy. Toàn bộ quá trình này cũng được coi như là các bước nhận diện máy khách và máy chủ. Kiểu mã hoá an toàn tập tim trên đường truyền này của SSH cũng giống với cơ chế của SSL.
+Sau đó, client dùng SSH-AUTH để xác thực đến server. SSH-AUTH yêu cầu một phương thức: Public key với thuật toán DSA. Ngoài ra, sử dụng mật khẩu và hostbased
 
-**Bước 2**: Mã hoá dữ liệu: Thiết lập kênh làm việc mã hoá
+Sau khi xác thực, SSH client yêu cầu SSH-CONN để cung cấp một kênh riêng biệt qua SSH-TRANS
 
-Quá trình trao đổi dữ liệu hoạt động thông qua giải mã/mã hoá làm bước trung gian. Đây đồng nghĩa với việc dự liệu nhận và gửi trên đường truyền đều được giải mã và mã hoá theo thoả thuận trước đây giữa khách và máy chủ. Máy khách sẽ thường được quyết định lựa chọn các cơ chế mã hoá. Ba cơ chế mã hoá thông dụng là: Blowfish, IDEA và 3DES. Máy khách và máy chủ trao đổi mã hoá cho nhau khi chọn cơ chế mã hoá. Việc trao đổi khoá mã hoá đó luôn được bảo mật thông qua định danh kín của các máy. Thông tin trên đường truyền trao đổi khó có thể bị giải mã và đánh cắp bởi vì những kẻ tấn công sẽ không biết khoá mã hoá. Sau đây là các thuật toán mã hoá:
+Ngoài ra, còn cung cấp các dịch vụ như Remote Login and Command Execution, agent fowarding, files transfer, TCP port fowarding, X fowarding,...
 
-- Blowfish: Bảo mật và tốc độ nhanh, các phương pháp mã hoá còn hạn chế nhưng vẫn đang được cải tiến
-- Arcfour: nhanh, có xảy ra vấn đề bảo mật
-- 3DES: được mặc định là phương pháp mã hoá cho SSH
-- IDEA:  phương pháp này nhanh hơn 3DES, nhưng lại hoạt động chậm hơn Blowfih và Arcfour
-
-**Bước 3**: Giải mã và chứng thực: xác minh quyền đăng nhập hệ thống của người dùng
-
-Ở 3 bước hoạt động của SSH thì đây là bước kết thúc. Tại đây, kênh trao đổi đã được bảo mật. Từng lượt truy cập và định danh của người dùng được cung cấp theo nhiều cách đa dạng khác khau. Ví dụ như kiểu chứng thực rhosts được dùng nhưng không phải có sẵn, chỉ có mục đích kiểm tra định danh của máy khách được liệt kê theo địa chỉ IP và DNS (file rhost). Định danh người dùng qua việc xác thực mật khẩu là cách được nhiều người dùng, bên cạnh đó cũng có cách khác như xác thực RSA, dùng ssh-agent và ssh-keygen để xác thực những cặp khoá. 
+Cuối cùng, một ứng dụng có thể sử dụng SSH-SFTP hoặc SCP truyền file hoặc thao tác remote từ xa
 
 ## SSH key pair
 SSH key pairs là một cặp khóa được mã hóa có thể được dùng để xác thực giữa client và server. Mỗi một cặp khóa sẽ có public key và private key. Private key được giữ ở phía client và phải được bảo mật tuyệt đối. Nếu có được private key, attackers hoàn toàn có thể truy cập vào server. Cũng vì thế nó được mã hóa với passphrase.
