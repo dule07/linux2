@@ -1,4 +1,4 @@
-#Linux basic security
+# Linux basic security
 
 Mặc định, Linux có vài loại tài khoản để cô lập các quy trình và lượng công việc.
 - root
