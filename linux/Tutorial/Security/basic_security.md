@@ -112,3 +112,5 @@ Tiến hành SSH vào Server
 Nếu có mật khẩu bạn phải nhập mật khẩu
 
 ![Imgur](https://i.imgur.com/jWidVh4.png)
+
+Như vậy là đã hoàn thành SSH đến Server.
