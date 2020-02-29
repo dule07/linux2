@@ -107,7 +107,7 @@ Lưu lại dưới dạng .ppk
 
 Tiến hành SSH vào Server 
 
-[Imgur](https://i.imgur.com/onslD8O.png)
+![Imgur](https://i.imgur.com/onslD8O.png)
 
 Nếu có mật khẩu bạn phải nhập mật khẩu
 
