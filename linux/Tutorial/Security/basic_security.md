@@ -87,7 +87,7 @@ Trên máy client, dùng private key để đăng nhập vào máy server
 
 ![Imgur](https://i.imgur.com/vQNhfyh.png)
 
-Trên Client Windows, sử dụng công cụ puttygen hoặc Mobakkeygen để tạo khóa theo định dạng phù hợp và sử dụng ứng dụng Putty hoặc MobaXterm để đăng nhập vào Server. Lưu ý rằng mỗi người dùng muốn đăng nhập phải có cặp khóa riêng.
+Trên Client Windows, sử dụng công cụ puttygen hoặc Mobakeygen để tạo khóa theo định dạng phù hợp và sử dụng ứng dụng Putty hoặc MobaXterm để đăng nhập vào Server. Lưu ý rằng mỗi người dùng muốn đăng nhập phải có cặp khóa riêng.
 
 Sử dụng Mobakeygen:
 
