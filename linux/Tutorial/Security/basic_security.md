@@ -50,7 +50,7 @@ Uncomment bằng cách xóa ký tự `#` ở đầu dòng thứ 2. Điều này 
 Nếu cấu hình đúng, dòng cuối cùng sẽ hiển thị `root`.
 
 Một vài bản phân phối Linux khuyến cáo ta thêm một file vào thư mục `/etc/sudoers.d` với tên trùng với tên user. File này chứa cấu hình sudo của từng người dùng và người dùng không được chạm vào file cấu hình chính trừ các thay đổi ảnh hưởng đến tất cả người dùng.
-## Cô lập quá trình(process isolation)
+## Cô lập quá trình (process isolation)
 Linux được coi là an toàn hơn so với nhiều hệ điều hành khác vì các quá trình được cô lập tự nhiên với nhau. Một quá trình thường không thể truy cập tài nguyên của quá trình khác, ngay cả khi quá trình đó đang chạy với cùng đặc quyền người dùng. Các cơ chế bảo mật bổ sung đã được giới thiệu gần đây để tạo ra rủi ro nhỏ hơn nữa là:
 - Control group: Cho phép người quản lý hệ thống nhóm các quá trình và liên kết các tài nguyên cho mỗi nhóm (cgroup)
 - Linux containers: làm cho nó có thể chạy nhiều container hệ thống linux bị cô lập trên một hệ thống.
