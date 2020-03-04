@@ -194,3 +194,5 @@ Bạn cần phân quyền thư mục wordpress cho user apache để user này �
     [root@localhost ~]# chmod -R 755 /var/www/html/*
 
 Như vậy là bạn đã có thể tiến hành upload ảnh và đăng bài viết lên trang wordpress của mình.
+
+![Imgur](https://i.imgur.com/80J2Faq.png)
