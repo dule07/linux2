@@ -43,9 +43,9 @@ Với mô hình này gói tin bên trong VM đi ra ngoài mạng sẽ đi từ V
 
 ## 3. Chức năng của một switch ảo do Linux bridge tạo ra
 
-- STP: là tính năng chống loop gói tin trong switch
+- STP (Spanning Tree Protocol): là tính năng chống loop gói tin trong switch
 - VLan: là tính năng rất quan trọng trong một switch
-- FDB: là tính năng chuyển gói tin theo database được xây dựng giúp tăng tốc độ của switch
+- FDB (Forwarding Database): là tính năng chuyển gói tin theo database được xây dựng giúp tăng tốc độ của switch
 
 ## 4. Tạo và quản lí Linux bridge
 
@@ -124,5 +124,39 @@ Mô hình ta vừa tạo như sau:
 ![Imgur](https://i.imgur.com/Q9V1Euv.png)
 
 ![Imgur](https://i.imgur.com/jPXcOnN.png)
+
+Cũng với sơ đồ mạng trên, đứng ở máy VM1 ping đến máy VM2 và bắt gói tin ở các điểm eth0-VM1, vnet0, testbr1, ens33, vnet1, eth0-VM2.
+
+Kết quả:
+
+Tại eth0 của VM1
+
+![Imgur](https://i.imgur.com/kRmZdZ2.png)
+
+Tại vnet0 của KVM
+
+![Imgur](https://i.imgur.com/kzJAKW0.png)
+
+Tại testbr1 của KVM
+
+![Imgur](https://i.imgur.com/tzapilP.png)
+
+Tại ens33 của KVM
+
+![Imgur](https://i.imgur.com/TS6uPei.png)
+
+Tại vnet1 của KVM
+
+![Imgur](https://i.imgur.com/eROkrkN.png)
+
+Tại eth0 của VM2
+
+![Imgur](https://i.imgur.com/KRBxuEC.png)
+
+Có thể thấy đường đi của gói tin khi ping từ VM1 đến VM2 như sau:
+
+eth0(VM1) -> tap vnet0 -> linux bridge testbr1 -> tap vnet1 -> eth0(VM2)
+
+Không đi qua ens33
 
 Tham khảo: https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/KVM/kvm

@@ -1,6 +1,6 @@
 # Phân tích đường đi các gói tin với các chế độ card mạng trong KVM
 
-## 1. Bridge
+## 1. Bridge (Làm rõ trong phần Linux Bridge)
 ## 2. Host-only
 
 Với mô hình mạng Host-Only thì các VM chỉ có thể giao tiếp với nhau qua 1 switch ảo, và không thể ra ngoài in internet
