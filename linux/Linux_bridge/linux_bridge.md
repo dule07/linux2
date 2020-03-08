@@ -127,7 +127,7 @@ Mô hình ta vừa tạo như sau:
 
 Cũng với sơ đồ mạng trên, đứng ở máy VM1 ping đến máy VM2 và bắt gói tin ở các điểm eth0-VM1, vnet0, testbr1, ens33, vnet1, eth0-VM2.
 
-Kết quả:
+**Kết quả**:
 
 Tại eth0 của VM1
 
