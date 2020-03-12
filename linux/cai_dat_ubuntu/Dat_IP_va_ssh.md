@@ -86,6 +86,7 @@ Kiểm tra tên card mạng bằng câu lệnh ifconfig. Card mạng dưới đ�
 Cấu hình static IP bằng cách chỉnh sửa file sau:
 
 Vào thư mục `/etc/netplan/` sẽ thấy một file `.yaml`
+
 ![Imgur](https://i.imgur.com/coW8mnk.png)
 
 Sửa nội dung file này thành 
@@ -116,6 +117,7 @@ Cấu hình. Mở file `/etc/ssh/sshd_config`
 Sau khi mở file sshd_config bạn tìm đến dòng `#Port 22`. Bỏ dấu `#` và cấu hình cổng mình muốn. Ở đây tôi đổi thành 2234.
 
 Tìm đến dòng `#PasswordAuthenticatiton yes` xóa dấu `#`.
+
 Sửa dòng #PermitRootLogin thành `#PermitRootLogin yes`.
 
 Lưu lại và thoát.
