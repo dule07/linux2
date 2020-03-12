@@ -106,6 +106,8 @@ Kiểm tra lại IP bằng các lệnh
 
 Nếu cảm thấy không quen dùng `netplan`. Ta hoàn toàn có thể cài đặt `ifupdown` và cấu hình IP như cách thông thường.
 
+    # apt-get install -y ifupdown
+
 ## Cấu hình SSH trên Ubuntu
 
 Cài đặt Open-SSH
