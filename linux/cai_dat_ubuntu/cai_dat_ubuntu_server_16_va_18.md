@@ -1,5 +1,17 @@
 # Cài đặt Ubuntu Server 16, Ubuntu Server 18, Ubuntu Server 20.04 (bản develop)
 
+## Giới thiệu Ubuntu
+
+Ubuntu là một hệ điều hành máy tính dựa trên Debian GNU/Linux, một bản phân phối Linux thông dụng, là bản phân phối Linux thông dụng nhất cho máy tính để bàn (chiếm khoảng 30% số bản Linux được cài đặt trên máy tính để bàn năm 2007).
+
+Ubuntu là phần mềm mã nguồn mở tự do, có nghĩa là người dùng được tự do chạy, sao chép, phân phối, nghiên cứu, thay đổi và cải tiến phần mềm theo điều khoản của giấy phép GNU GPL. Ubuntu được tài trợ bởi Canonical Ltd (chủ sở hữu là một người Nam Phi Mark Shuttleworth). Thay vì bán Ubuntu, Canonical tạo ra doanh thu bằng cách bán hỗ trợ kĩ thuật. Bằng việc để cho Ubuntu tự do và mở mã nguồn, Canonical có thể tận dụng tài năng của những nhà phát triển ở bên ngoài trong các thành phần cấu tạo của Ubuntu mà không cần phải tự mình phát triển.
+
+Các phiên bản Ubuntu được đặt tên theo dạng YY.MM (tên), trong đó Y tương ứng với năm phát hành, và MM tương ứng với tháng phát hành.
+
+Ubuntu cũng có những phiên bản hỗ trợ dài hạn "Long Term Support", hỗ trợ ít nhất 3 năm và phiên bản gần nhất là 18.04 hỗ trợ 10 năm đối với cả máy để bàn và máy chủ. Phiên bản 20.04 dự kiến sẽ ra mắt ngày 23/04/2020. 
+
+Xem thêm: https://vi.wikipedia.org/wiki/Ubuntu
+
 ## Cài đặt Ubuntu Server 16
 
 ### Chuẩn bị
@@ -188,3 +200,18 @@ Vậy là đã thành công cài đặt Ubuntu server 18.04.
 
 ## Cài đặt Ubuntu Server 20.04
 
+Link tải:
+
+http://cdimage.ubuntu.com/ubuntu-server/daily-live/current/
+
+Nếu gặp lỗi sau trong quá trình cài
+
+![Imgur](https://i.imgur.com/WiCJf8q.png)
+
+Vào mục help ở góp phải bên trên, chọn Toggle color on/off
+
+![Imgur](https://i.imgur.com/eJ5fnrl.png)
+
+![Imgur](https://i.imgur.com/sye2dpS.png)
+
+Thực hiện các bước tương tự như cài đặt Ubuntu 18.
