@@ -8,7 +8,7 @@ Ubuntu là phần mềm mã nguồn mở tự do, có nghĩa là người dùng 
 
 Các phiên bản Ubuntu được đặt tên theo dạng YY.MM (tên), trong đó Y tương ứng với năm phát hành, và MM tương ứng với tháng phát hành.
 
-Ubuntu cũng có những phiên bản hỗ trợ dài hạn "Long Term Support", hỗ trợ ít nhất 3 năm và phiên bản gần nhất là 18.04 hỗ trợ 10 năm đối với cả máy để bàn và máy chủ. Phiên bản 20.04 dự kiến sẽ ra mắt ngày 23/04/2020. 
+Ubuntu cũng có những phiên bản hỗ trợ dài hạn "Long Term Support", hỗ trợ ít nhất 3 năm và phiên bản 18.04 LTS hỗ trợ 10 năm đối với cả máy để bàn và máy chủ. Phiên bản 20.04 dự kiến sẽ ra mắt ngày 23/04/2020. 
 
 Xem thêm: https://vi.wikipedia.org/wiki/Ubuntu
 
