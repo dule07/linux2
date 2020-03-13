@@ -1,4 +1,4 @@
-# Cài đặt Ubuntu Server 16 và Ubuntu Server 18
+# Cài đặt Ubuntu Server 16, Ubuntu Server 18, Ubuntu Server 20.04 (bản develop)
 
 ## Cài đặt Ubuntu Server 16
 
@@ -185,3 +185,6 @@ Sau khi hoàn tất cài đặt. Nhấn Reboot.
 ![Imgur](https://i.imgur.com/a8GewY2.png)
 
 Vậy là đã thành công cài đặt Ubuntu server 18.04.
+
+## Cài đặt Ubuntu Server 20.04
+
