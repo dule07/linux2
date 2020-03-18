@@ -113,40 +113,45 @@ Cấu hình nginx virtual hosts
 
 Thay đổi thông tin như bên dưới:  
 
+![Imgur](https://i.imgur.com/l1vtEMF.png)
+
 ```
-# The default server
-#
 server {
-    listen       80;
-    server_name 10.10.34.171;
-
-    location / {
-        root   /usr/share/nginx/html;
-        index index.php index.html index.htm;
-        try_files $uri $uri/ /index.php?q=$uri&$args;
-    }
-
-    error_page  404              /404.html;
-    location = /404.html {
-        root   /usr/share/nginx/html;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    location ~ \.php$ {
-        root           /usr/share/nginx/html;
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
+ listen 80;
+ server_name 10.10.34.171;
+ 
+ # note that these lines are originally from the "location /" block
+ root /usr/share/nginx/html;
+ index index.php index.html index.htm;
+ 
+ location / {
+ try_files $uri $uri/ =404;
+ }
+ error_page 404 /404.html;
+ error_page 500 502 503 504 /50x.html;
+ location = /50x.html {
+ root /usr/share/nginx/html;
+ }
+ 
+ location ~ \.php$ {
+ try_files $uri =404;
+ fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+ fastcgi_index index.php;
+ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+ include fastcgi_params;
+ }
 }
 ```
+
+
+
+Xác minh các tập tin cấu hình
+
+    #nginx -t
+
+Nếu cấu hình đúng thì xuất hiện kết quả
+
+![Imgur](https://i.imgur.com/OhpR952.png)
 
 Restart Nginx
 
