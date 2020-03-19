@@ -95,7 +95,7 @@ SSH vào máy DB server và xem log SSH để biết IP Client 2 kết nối
 
 IP ở đây là IP gateway 10.10.34.1
 
-Từ máy DB server, thực hiện tạo user demo1, demo2 và phân quyền trên tất cả database
+Từ máy DB server, thực hiện tạo user demo1, demo2 và phân toàn quyền cho 2 user này trên tất cả database
 
     # mysql -u root -p
     >create user 'demo1'@'10.10.34.173' identified by '123qwe';
@@ -106,11 +106,11 @@ Từ máy DB server, thực hiện tạo user demo1, demo2 và phân quyền tr�
     >FLUSH PRIVILEGES;
     >exit
 
-Bind-address 2 máy Clien 1 và 2
+Tiến hành Bind-address
 
     #nano /etc/my.cnf.d/server.cnf
 
-![Imgur](https://i.imgur.com/w98vAZJ.png)
+Thêm dòng `bind-address=0.0.0.0` vào cuối file 
 
 Từ Client 1, truy cập vào DB
 
