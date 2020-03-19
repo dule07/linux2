@@ -154,13 +154,13 @@ Copy file config mặc định
 
     # cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
 
-Copy tất cả các file trong thư mục wordpress vào `/var/www/wordpress`
+Copy tất cả các file trong thư mục wordpress vào `/var/www/html`
 
-    # cp -a /tmp/wordpress/. /var/www/wordpress
+    # cp -a /tmp/wordpress/. /var/www/html
 
 Update quyền sở hữu thư mục
 
-    # chown -R www-data:www-data /var/www/wordpress
+    # chown -R www-data:www-data /var/www/html
 
 Phân quyền cho thư mục wordpress và các file
 
