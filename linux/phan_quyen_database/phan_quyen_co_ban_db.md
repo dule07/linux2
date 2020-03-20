@@ -71,13 +71,17 @@ Vào file `/etc/my.cnf.d/server.cnf`
 
 Nếu muốn tất cả mọi người có thể truy cập vào database
 
-`bind-address=0.0.0.0`
+Thêm dòng `bind-address=0.0.0.0` vào dưới mục `[mariadb]`
 
 Sau khi thay đổi, khởi động lại dịch vụ mariadb 
 
     # systemctl restart mariadb 
 
 ### Demo 
+
+Mô hình
+
+![Imgur](https://i.imgur.com/i7zVRjD.png)
 
 Database server: 10.10.34.171 (CentOS 7)
 
@@ -138,6 +142,8 @@ Tạo 1 session mới, nhấn vào New:
 - User/Password: User/Password đã tạo cho CLient 2 ở trên (demo2/123qwe)
 - Port: 3306 (Port của dịch vụ MySQL database system)
 
-Điền xong nhấn Open
+Điền xong nhấn Open sẽ xuất hiện giao diện
 
 ![Imgur](https://i.imgur.com/8JrqyZy.png)
+
+Các database nằm ở bên tay trái, thực hiện quản lý DB ở đây.
