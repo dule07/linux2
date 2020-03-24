@@ -18,8 +18,7 @@ Khi vào phòng sẽ thấy giao diện như trong hình
 
 ![Imgur](https://i.imgur.com/xVXrijt.png)
 
-
-Chọn phần microphone để tham gia phòng họp.
+Chọn phần **Microphone** để có thể sử dụng microphone trong phòng.
 
 Ta cần phải cho phép trình duyệt sử dụng microphone của mình. Nhấn **Allow**
 
@@ -29,11 +28,11 @@ Hệ thống sẽ tiến hành kiểm tra microphoen của bạn
 
 ![Imgur](https://i.imgur.com/xXJssyV.png)
 
-Nếu đã nghe thấy âm thanh, chọn Yes. Nếu không nghe thấy âm thanh, chọn No. 
+Nếu đã nghe thấy âm thanh, chọn **Yes**. Nếu không nghe thấy âm thanh, chọn **No**. 
 
 ![Imgur](https://i.imgur.com/wjP81BW.png)
 
-Ở đây, nếu xong bước này mà bạn vẫn chưa nghe thấy hoặc người khác không nghe thấy bạn nói gì. Hãy kiểm tra lại volume. Nếu vẫn không được. Vào phần **Microphone setup** tại mục **Speech** trong phần **Settings** của Windows để cài đặt lại microphone của bạn.
+Ở đây, nếu xong bước này mà bạn vẫn chưa nghe thấy hoặc người khác không nghe thấy bạn nói gì. Hãy kiểm tra lại volume. Nếu vẫn không được. Vào phần **Microphone setup** tại mục **Speech** trong phần **Settings** của Windows 10 để cài đặt lại microphone của bạn.
 
 ![Imgur](https://i.imgur.com/lOIsTMq.png)
 
@@ -57,7 +56,7 @@ Có thể dùng mục Public chat để trao đổi với mọi người trong p
 
 ![Imgur](https://i.imgur.com/9i3SvJJ.png)
 
-Sinh viên có thể đặt các trạng thái như giơ tay, tạm vắng, vỗ tay, vui vẻ, v.v bằng cách click vào profile của bảng thân và chọn Set status.
+Sinh viên có thể đặt các trạng thái như giơ tay, tạm vắng, vỗ tay, vui vẻ, v.v bằng cách click vào profile của bản thân và chọn **Set status**.
 
 ![Imgur](https://i.imgur.com/2uOdY5U.png)
 
@@ -85,7 +84,6 @@ Có thể xem các phím tắt khác bằng cách click vào biểu tượng 3 c
 Có thể sử dụng phần **Shared note** để chia sẻ link tài liệu hoặc truy cập vào link tài liệu do người khác chia sẻ. Hoặc có thể dùng nó như một note để làm việc nhóm.
 
 ![Imgur](https://i.imgur.com/d454PMN.png)
-
 
 ### Hoạt động nhóm
 

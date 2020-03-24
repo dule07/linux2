@@ -497,6 +497,8 @@ Có rất nhiều hoạt động trong khóa học mà giáo viên có thể th�
 
 - Click vào ô với biểu tượng mũi tên hướng xuống để chọn file bài tập và tải lên, sau đó click **Save changes**.
 
+![Imgur](https://i.imgur.com/zFytjzI.png)
+
 - Thao tác chọn file như mô tả trong hình bên dưới
 
 ![Imgur](https://i.imgur.com/GYYPjWm.png)
