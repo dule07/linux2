@@ -488,9 +488,12 @@ Có rất nhiều hoạt động trong khóa học mà giáo viên có thể th�
 
 - Click vào bài học Hello word để xem bài học. Thông báo của giáo viên đối với bài học hiển thị bên dưới, giáo viên có thể post thêm một file hướng dẫn sinh viên.
 
-![Imgur](https://i.imgur.com/UsKcAWN.png)
+![Imgur](https://i.imgur.com/N6WWzXE.png)
+
 
 - Thông tin về thời hạn nộp bài hiển thị bên dưới. Ở ví dụ này, sinh viên này vẫn chưa nộp bài, chưa được chấm điểm, và còn hơn 6 ngày để hoàn thành và nộp bài tập. Có thể nộp bài theo yêu cầu cụ thể của giáo viên hoặc click vào nút **Add submission** để nộp bài.
+
+![Imgur](https://i.imgur.com/UsKcAWN.png)
 
 - Click vào ô với biểu tượng mũi tên hướng xuống để chọn file bài tập và tải lên, sau đó click **Save changes**.
 
