@@ -86,7 +86,7 @@ Kết quả
 
 ![Imgur](https://i.imgur.com/vxbkVcf.png)
 
-### Tạo khóa học
+### Tạo khóa học mới
 
 Để tạo 1 khóa học mới, click chuột vào
 
@@ -393,13 +393,7 @@ Sau khi cài đặt xong. Chọn Save and return to course hoặc Save and displ
 
 ![Imgur](https://i.imgur.com/R7lvdr2.png)
 
-### Tạo bài kiểm tra
-
-
-
-Tạo xong có thể tải kết quả của học sinh về 
-
-
+### Tạo bài kiểm tra (Quiz)
 
 
 
@@ -414,19 +408,122 @@ Tạo xong có thể tải kết quả của học sinh về
 
 ## Thao tác của người dùng
 
+### Đăng nhập
+
+Sau khi nhận được tên đăng nhập và mật khẩu. Truy cập vào trang Moodle của nhà trường. Sẽ thấy giao diện tương tự như sau:
+
+![Imgur](https://i.imgur.com/SwbxodQ.png)
+
+Nhấn vào nút **Login** tại góc phải phía trên màn hình. Sẽ thấy giao diện như sau:
+
+![Imgur](https://i.imgur.com/ClAkvb2.png)
+
+Điền tên đăng nhập và mật khẩu rồi nhấn **Log in**.
+
 ### Giao diện người dùng
 
-Sau khi đăng nhập, ở phần Dashboard, các user sẽ thấy các khóa học gần nhất họ đã tham gia. Các khóa học mà họ đang theo. 
+Giao diện sau khi đăng nhập
 
-### Đổi mật khẩu 
+![Imgur](https://i.imgur.com/EX4KwBq.png)
+
+Giao diện hiển thị có thể khác nhau tùy theo theme được cài đặt nhưng thông thường sẽ có kết cấu như sau:
+
+Bên phía tay trái có thể sử dụng để xem Dashboard, trang chính, lịch, file cá nhân và thông tin các khóa học của bản thân. 
+
+![Imgur](https://i.imgur.com/WEPjXeF.png)
+
+Ngay trung tâm sẽ là những thông tin được hiển thị trên Dashboard: Các khóa học đã được thêm gần đây và Tổng quan các khóa học.
+
+![Imgur](https://i.imgur.com/A3QcXJK.png)
+
+Phía tay phải sẽ có hiển thị các block với các thông tin như: Các công việc cần hoàn thành trong thời gian sắp tới, File cá nhân, số lượng người dùng đang online, lịch, các sự kiện sắp diễn ra, v.v...
+
+Các block này được người quản trị quản lý (thêm vào hoặc gỡ bỏ).
+
+![Imgur](https://i.imgur.com/QdlWBIX.png)
+
+### Hướng dẫn đổi mật khẩu 
+
+Nếu muốn đuổi mật khẩu, ta thực hiện theo các bước sau đây.
 
 Click vào profile ở góc phải màn hình > Preferences > Change password trong phần User account.
 
-![Imgur](https://i.imgur.com/utGYyAA.png)
+![Imgur](https://i.imgur.com/AGxTkcU.png)
 
+Xác nhận mật khẩu cũ, nhập mật khẩu mới 2 lần và nhấn **Saves change**.
 
+**Lưu ý:** Mật khẩu cần có ít nhất 8 ký tự, có chữ hoa, chữ thường, số, ký tự đặc biệt.
 
+![Imgur](https://i.imgur.com/7Fr1vM7.png)
 
+### Thao tác trong khóa học
 
+Các khóa học mà sinh viên đã theo học sẽ xuất hiện tại Site home (Trang chính).
 
+![Imgur](https://i.imgur.com/bPI3H67.png)
 
+Chọn vào khóa học mong muốn để xem các hoạt động bên trong khóa học đó, ở đây tôi chọn khóa Lập trình cơ sở.
+
+Giao diện sẽ tương tự như sau
+
+![Imgur](https://i.imgur.com/swxyULu.png)
+
+Các hoạt động của khóa học (do giảng viên biên soạn) sẽ hiển thị rõ ràng trong khóa học.
+
+![Imgur](https://i.imgur.com/Tf7TELF.png)
+
+Có rất nhiều hoạt động trong khóa học mà giáo viên có thể thêm. Ví dụ ở khóa học này có một số hoạt động cơ bản như: Tải giáo trình, diễn đàn để sinh viên trao đổi, bài học Hello world, kiểm tra tuần 1, khảo sát sau khi học 1 tuần.
+
+- Click vào mục thông báo để xem thông báo của khóa học này.
+
+![Imgur](https://i.imgur.com/5mXngHj.png)
+
+- Click vào Giáo trình, trình duyệt của bạn sẽ tự động tải file giáo trình về máy.
+
+- Click vào diễn đàn để trao đổi với các sinh viên khác và giảng viên. Giao diện diễn đàn như sau:
+
+![Imgur](https://i.imgur.com/7Kin1uz.png)
+
+#### Thao tác trong bài học
+
+- Click vào bài học Hello word để xem bài học. Thông báo của giáo viên đối với bài học hiển thị bên dưới, giáo viên có thể post thêm một file hướng dẫn sinh viên.
+
+![Imgur](https://i.imgur.com/UsKcAWN.png)
+
+- Thông tin về thời hạn nộp bài hiển thị bên dưới. Ở ví dụ này, sinh viên này vẫn chưa nộp bài, chưa được chấm điểm, và còn hơn 6 ngày để hoàn thành và nộp bài tập. Có thể nộp bài theo yêu cầu cụ thể của giáo viên hoặc click vào nút **Add submission** để nộp bài.
+
+- Click vào ô với biểu tượng mũi tên hướng xuống để chọn file bài tập và tải lên, sau đó click **Save changes**.
+
+- Thao tác chọn file như mô tả trong hình bên dưới
+
+![Imgur](https://i.imgur.com/GYYPjWm.png)
+
+#### Làm bài kiểm tra
+
+- Click vào Kiểm tra tuần 1 để làm bài kiểm tra tuần 1. Click vào **Attempt quiz** để thực hiện bài kiểm tra. 
+
+![Imgur](https://i.imgur.com/S4e0J6d.png)
+
+**Lưu ý:** Đến thời điểm giảng viên chỉ định sinh viên mới có thể tham gia làm bài kiểm tra. Chú ý vào thời gian làm bài và số lần có thể làm bài kiểm tra.
+
+- Ở ví dụ này. Sau khi click vào **Attempt quiz**. Xuất hiện thông báo bạn có 15 phút để làm bài. Click **Start attempt** để bắt đẩu làm bài kiểm tra.
+
+![Imgur](https://i.imgur.com/qpn5uvL.png)
+
+- Giao diện làm bài kiểm tra sẽ tương tự như sau:
+
+![Imgur](https://i.imgur.com/YFhm4gj.png)
+
+- Sau khi làm hết các câu hỏi mà vẫn còn thời gian sẽ thấy giao diện sau:
+
+![Imgur](https://i.imgur.com/NjfkoXH.png)
+
+- Click vào **Return to attempt** để sửa đổi câu trả lời. Hoặc Click **Submit all and finish** để nộp bài.
+
+- Cảnh báo nhận được khi bạn nộp bài
+
+![Imgur](https://i.imgur.com/J13Gfdv.png)
+
+- Sau khi nộp bài, bạn có thể thấy số điểm của mình. Đáp án các câu trả lời.
+
+![Imgur](https://i.imgur.com/VJbgMIl.png)
