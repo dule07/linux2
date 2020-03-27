@@ -8,7 +8,7 @@ Trước hết bạn cài đặt redmine theo như hướng dẫn [**ở đây**
 
 Bạn cần có sẵn một domain. Bạn có thể tham khảo mua [**tại đây**](https://nhanhoa.com/)
 
-Trong hướng dẫn dưới đây là domain : workfromehome.vn
+Trong hướng dẫn dưới đây chúng tôi sử dụng domain : workfromehome.vn
 
 ### Các bước thực hiện trỏ subdomain
 
