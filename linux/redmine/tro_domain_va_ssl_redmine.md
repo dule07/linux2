@@ -1,61 +1,46 @@
-# Hướng dẫn trỏ subdomain và cài đặt SSL bằng let's encrypt trên Redmine
-
-## 1. Trỏ sub domain cho server Redmine
+# Hướng dẫn cài đặt SSL bằng let's encrypt cho Redmine server
 
 ### Chuẩn bị
 
 Trước hết bạn cài đặt redmine theo như hướng dẫn [**ở đây**](https://news.cloud365.vn/huong-dan-cai-dat-redmine-tren-centos-7/)
 
-Bạn cần có sẵn một domain. Bạn có thể tham khảo mua [**tại đây**](https://nhanhoa.com/)
+Trong hướng dẫn dưới đây chúng tôi sử dụng domain: `workfromehome.vn`. Trong bài này, tôi đã tạo subdomain `redmine.workfromehome.vn` cho domain `workfromehome.vn` trỏ về IP của máy cài dịch vụ Redmine.
 
-Trong hướng dẫn dưới đây chúng tôi sử dụng domain : workfromehome.vn
+## 1. Khắc phục lỗi hiển thị IP server sau khi trỏ domain
 
-### Các bước thực hiện trỏ subdomain
+Sau khi bạn trỏ domain về IP của mình. Nếu bạn truy cập vào domain và gặp trường hợp trên thanh địa chỉ của trình duyệt không hiển thị tên domain mà hiển thị IP của server như trong hình sau.
 
-Đầu tiên truy cập vào trang zonedns.vn
+![Imgur](https://i.imgur.com/LOtYkND.png)
 
-![Imgur](https://i.imgur.com/t91EsMs.png)
+Bạn thực hiện theo như hướng dẫn bên dưới để khắc phục.
 
-Nhập thông tin đăng nhập domain của bạn
+Đầu tiên, vào thư mục `/etc/httpd/conf.d`. Thư mục này đặt các file cấu hình Virtual host của bạn.
 
-![Imgur](https://i.imgur.com/K8kIhlO.png)
+    # cd /etc/httpd/conf.d
 
-Nếu muốn trỏ domain vào một IP public cụ thể. Cách đơn giản nhất là bạn kéo xuống cuối trang. Click vào ô `Tạo record mặc định theo IP`. Sau đó nhập IP vào là xong.
+Tại đây có một số file `.conf`.
 
-![Imgur](https://i.imgur.com/9BeSrg6.png)
+Nếu bạn đã thực [hiện theo bài hướng dẫn trước](https://news.cloud365.vn/huong-dan-cai-dat-redmine-tren-centos-7/). Bạn tiếp tục thực hiện như sau:
 
-Nếu bạn muốn trỏ subdomain cho domain của bạn thì thực hiện tương tự như ví dụ dưới đây.
+Đổi tên file `passenger.conf` thành `redmine.conf`
 
-Ở ví dụ này tôi sẽ tạo subdomain với tên "redmine.workfromehome.vn" cho domain "workfromehome.vn".
+    # mv passenger.conf redmine.conf
 
-![Imgur](https://i.imgur.com/aH8w74w.png)
+Sau đó chỉnh sửa nội dung file `redmine.conf`
 
-Bạn cần phải thêm bản ghi mới với tên = subdomain và trỏ IP để Domain của bạn có thể nhận được subdomain. Vào phần Tạo Record:
+    # nano redmine.conf
 
-+ Gõ tên subdomain vào ô tên Record
-+ Chọn Record A
-+ Điền IP của Server cần trỏ đến
-+ Bấm vào Tạo Record để hoàn tất việc tạo subdomain
+Tại dòng: Servername "IP của bạn". 
 
-Sau khi hoàn tất 2 bước trên thì subdomain : "redmine.workfromehome.vn" đã được tạo và trỏ về Server IP đã điền, khi đó các Record của Domain sẽ có dạng như hình dưới:
+![Imgur](https://i.imgur.com/Z3ZPLwL.png)
 
-![Imgur](https://i.imgur.com/TW8ljBx.png)
+Sửa lại thành: Servername "tên domain của bạn".
 
-Kiểm tra việc trỏ subdomain bằng trang [MXToolBox](https://mxtoolbox.com/)
+![Imgur](https://i.imgur.com/wyTVE7Y.png)
 
-![Imgur](https://i.imgur.com/hK7QYBC.png)
+Bây giờ, khi bạn truy cập vào domain của mình, nó sẽ không hiển thị IP server của bạn nữa. 
 
-Click vào ô "DNS lookup"
-
-![Imgur](https://i.imgur.com/yhTIbfB.png)
-
-Điền subdomain "redmine.workfromehome.vn" và click vào ô "DNS lookup"
-
-Hiển thị kết quả như sau tức là đã thành công.
-
-![Imgur](https://i.imgur.com/GCDT81p.png)
-
-Như vậy là đã hoàn thành việc trỏ subdomain cho trang redmine của ta.
+![Imgur](https://i.imgur.com/yoUAq2x.png)
 
 ## 2. Cài đặt SSL bằng let's encrypt trên Redmine
 
