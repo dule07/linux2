@@ -156,20 +156,20 @@ Copy file config mặc định
 
 Copy tất cả các file trong thư mục wordpress vào `/var/www/html`
 
-    # cp -a /tmp/wordpress/. /var/www/html
+    # cp -R /tmp/wordpress/* /var/www/html/
 
 Update quyền sở hữu thư mục
 
-    # chown -R www-data:www-data /var/www/html
+    # chown -R www-data:www-data /var/www/html/
 
 Phân quyền cho thư mục wordpress và các file
 
-    # find /var/www/wordpress/ -type d -exec chmod 750 {} \;
-    # find /var/www/wordpress/ -type f -exec chmod 640 {} \;
+    # find /var/www/ -type d -exec chmod 750 {} \;
+    # find /var/www/ -type f -exec chmod 640 {} \;
 
 Chỉnh sửa file cấu hình `wp-config.php`. 
 
-    # nano /var/www/wordpress/wp-config.php
+    # nano /var/www/html/wp-config.php
 
 Sửa lại ở các dòng thành này
 
@@ -193,7 +193,7 @@ Lưu và thoát.
 
 ### Cài đặt giao diện
 
-Trên trình duyệt gõ địa chỉ IP server vào thành URL.
+Trên trình duyệt gõ IP/wp-admin server vào thanh URL.
 
 Nhập các thông tin cần thiết rồi click Install WordPress.
 
