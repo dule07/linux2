@@ -162,11 +162,6 @@ Update quyền sở hữu thư mục
 
     # chown -R www-data:www-data /var/www/html/
 
-Phân quyền cho thư mục wordpress và các file
-
-    # find /var/www/ -type d -exec chmod 750 {} \;
-    # find /var/www/ -type f -exec chmod 640 {} \;
-
 Chỉnh sửa file cấu hình `wp-config.php`. 
 
     # nano /var/www/html/wp-config.php
@@ -190,6 +185,11 @@ define('FS_METHOD', 'direct');
 ```
 
 Lưu và thoát.
+
+Xóa trang index mặc định của apache
+
+    # cd  /var/www/html
+    # rm index.html
 
 ### Cài đặt giao diện
 
