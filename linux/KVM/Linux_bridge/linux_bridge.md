@@ -56,8 +56,8 @@ Tạo bridge và tiến hành set IP, rồi gắn card mạng vào nó
 # nmcli con mod testbr1 ipv4.addresses192.168.10.10/24 ipv4.method manual
 # nmcli con mod testbr1 ipv4.gateway 192.168.10.2
 # nmcli con mod testbr1 ipv4.dns 8.8.8.8
-nmcli con del ens33
-# nmcl con add type bridge-slave autoconnect yes con-name ens33 ifname master testbr1
+# nmcli con del ens33
+# nmcl con add type bridge-slave autoconnect yes con-name ens33 ifname ens33 master testbr1
 ```
 
 Sau đó tiến hành reboot lại máy.
