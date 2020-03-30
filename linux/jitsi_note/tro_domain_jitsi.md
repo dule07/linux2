@@ -25,7 +25,7 @@ IP public được đặt cho VPS.
 - [Cài đặt Jitsi trên Ubuntu 18.04 LTS Step by step](https://news.cloud365.vn/huong-dan-cai-dat-jitsi-meet-tren-ubuntu-18-04-lts/).
 - [Cài đặt sử dụng template Jitsi của Cloud365](https://support.cloud365.vn/cloud-app/su-dung-template-jitsi-tai-cloud365/).
 
-## Thực hiện 
+## Thực hiện
 
 Đầu tiên truy cập vào trang zonedns.vn
 
@@ -35,7 +35,7 @@ Nhập thông tin đăng nhập domain của bạn
 
 ![Imgur](https://i.imgur.com/K8kIhlO.png)
 
-Nếu muốn trỏ domain vào một IP public cụ thể. Cách đơn giản nhất là bạn kéo xuống cuối trang. Click vào ô `Tạo record mặc định theo IP`. Sau đó nhập IP vào là xong.
+Nếu muốn trỏ domain vào một IP public cụ thể. Cách đơn giản nhất là bạn kéo xuống cuối trang. Click vào ô `Tạo record mặc định theo IP`. Sau đó nhập IP public của bạn vào là xong.
 
 ![Imgur](https://i.imgur.com/9BeSrg6.png)
 
@@ -48,8 +48,9 @@ Nếu bạn muốn trỏ subdomain cho domain của bạn thì thực hiện tư
 Bạn cần phải thêm bản ghi mới với tên = subdomain và trỏ IP để Domain của bạn có thể nhận được subdomain. Vào phần Tạo Record:
 
 + Gõ tên subdomain vào ô tên Record
-+ Chọn Record A
-+ Điền IP của Server cần trỏ đến
++ Loại Record: chọn bản ghi A
++ Điền IP public của Server cần trỏ đến
++ Giá trị TTL : Thời gian tồn tại của record cấu hình tên miền được nhớ với máy chủ DNS trung gian. Ở đây, ta để là 300.
 + Bấm vào Tạo Record để hoàn tất việc tạo subdomain
 
 Sau khi hoàn tất 2 bước trên thì subdomain : "jitsi.workfromehome.vn" đã được tạo và trỏ về Server IP đã điền, khi đó các Record của Domain sẽ có dạng như hình dưới:
