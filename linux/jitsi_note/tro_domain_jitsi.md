@@ -1,6 +1,6 @@
 # Hướng dẫn cấu hình domain cho hệ thống Jitsi
 
-## Chuẩn bị
+## Yêu cầu
 
 1. Sở hữu một domain
 
@@ -43,7 +43,7 @@ Nếu bạn muốn trỏ subdomain cho domain của bạn thì thực hiện tư
 
 Ở ví dụ này tôi sẽ tạo subdomain với tên "jitsi.workfromehome.vn" cho domain "workfromehome.vn".
 
-![Imgur](https://i.imgur.com/aH8w74w.png)
+![Imgur](https://i.imgur.com/iMlagtv.png)
 
 Bạn cần phải thêm bản ghi mới với tên = subdomain và trỏ IP để Domain của bạn có thể nhận được subdomain. Vào phần Tạo Record:
 
@@ -59,9 +59,13 @@ Sau khi hoàn tất 2 bước trên thì subdomain : "jitsi.workfromehome.vn" đ
 
 Giá trị bị che mờ ở cột **Value** là địa chỉ IP public của bạn.
 
-Kiểm tra việc trỏ subdomain bằng trang [MXToolBox](https://mxtoolbox.com/)
+Kiểm tra lại việc trỏ subdomain bằng cách truy cập vào trang [MXToolBox](https://mxtoolbox.com/)
 
 Click vào ô "DNS lookup"
+
+![Imgur](https://i.imgur.com/hK7QYBC.png)
+
+Điền subdomain "jitsi.workfromehome.vn" và click vào ô "DNS lookup"
 
 ![Imgur](https://i.imgur.com/44BXo6n.png)
 
