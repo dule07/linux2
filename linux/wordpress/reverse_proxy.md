@@ -4,11 +4,11 @@
 
 ### Cấu hình nginx làm reverse proxy cho 2 site apache
 
-Mô hình:
+**Mô hình:**
 
 ![Imgur](https://i.imgur.com/lz0PeXq.png)
 
-Thực hành với IP private
+Đầu tiên, thực hành với IP private:
 
 Server Centos 7 #1: Cài nginx làm reverse proxy
 
@@ -29,7 +29,7 @@ Mở port trên cả 3 máy:
     # firewall-cmd --permanent --add-port=443/tcp     # cổng mặc định shttps
     # firewall-cmd --reload
 
-**Cấu hình máy #1:**
+**Cấu hình máy #1 (Centos):**
 
 Cài nginx:
 
@@ -92,7 +92,7 @@ EOF
 ```
 
 
-**Cấu hình trên máy #2:**
+**Cấu hình trên máy #2 (Centos):**
 
 Cài đặt Apache
 
@@ -121,7 +121,7 @@ Dung
 
 ![Imgur](https://i.imgur.com/eas2GsQ.png)
 
-**Cấu hình trên máy #2:**
+**Cấu hình trên máy #3 (Ubuntu):**
 
 Cài apache:
 
@@ -149,7 +149,7 @@ Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz và dungdb.xy
 
 Phần bị che mờ là IP public.
 
-Kết quả:
+Kết quả khi truy cập vào 2 site: 
 
 ![Imgur](https://i.imgur.com/eas2GsQ.png)
 
@@ -159,7 +159,7 @@ Kết quả:
 
 Yêu cầu máy #1 phải cài IP public và có domain.
 
-Ở đây tôi có 2 domain là doanbadung.xyz và dungdb.xyz cùng trỏ về 1 IP public.
+Ở đây 2 domain là doanbadung.xyz và dungdb.xyz cùng trỏ về 1 IP public.
 
 Cài đặt Certbot:
 
@@ -470,3 +470,5 @@ Kết quả:
 Thông tin chứng chỉ
 
 ![Imgur](https://i.imgur.com/OvC2ZVi.png)
+
+Tham khảo: https://news.cloud365.vn/huong-dan-cau-hinh-nginx-voi-ssl-lam-reverse-proxy-cho-wordpress/
