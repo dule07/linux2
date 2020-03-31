@@ -141,7 +141,7 @@ Kiểm tra:
 
 Máy #1: 
 
-Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz và dungdb.xyz về cùng 1 IP public trên zonedns.vn. Gán Ip public này cho máy #1
+Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz và dungdb.xyz về cùng 1 IP public trên zonedns.vn. Gán Ip public này cho card mạng eth1 máy #1
 
 ![Imgur](https://i.imgur.com/8Lvw3gN.png)
 
@@ -301,10 +301,12 @@ Mô hình:
 
 Thực hành với IP private
 
-Server Centos 7 #1: 10.10.34.174 Cài nginx làm reverse proxy
+Server Centos 7 #1: Cài nginx làm reverse proxy
+- eth0: 10.10.34.174
+- eth1: 10.10.35.222 (giả sử đây là IP public)
 
-Server Centos 7 #2: 10.10.34.171 Cài wordpress trên LAMP
-
+Server Centos 7 #2:  Cài wordpress trên LAMP
+- eth0: 10.10.34.171
 Hướng dẫn cài wordpress trên Centos 7: https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/WebServer/wordpressWithLAMP
 
 Làm hoàn toàn tương tự như trên đối với máy #1.
@@ -315,7 +317,7 @@ Kết quả:
 
 **Thực hành với IP public:**
 
-Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz về IP public trên zonedns.vn. 
+Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz về IP public trên zonedns.vn. Gán IP public này cho card mạng eth1 máy #1.
 
 ![Imgur](https://i.imgur.com/8Lvw3gN.png)
 
