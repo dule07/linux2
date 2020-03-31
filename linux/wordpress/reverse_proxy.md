@@ -2,24 +2,28 @@
 
 ## Cấu hình nginx với SSL làm reverse proxy cho apache
 
-### Cấu hình nginx làm reverse proxy cho apache
+### Cấu hình nginx làm reverse proxy cho 2 site apache
 
 Mô hình:
 
-![Imgur](https://i.imgur.com/kIm88yi.png)
+![Imgur](https://i.imgur.com/lz0PeXq.png)
 
 Thực hành với IP private
 
 Server Centos 7 #1: Cài nginx làm reverse proxy
 
 - eth0: 10.10.34.174
-- eth1: 10.10.35.222
+- eth1: 10.10.35.222 (giả sử đây là IP public)
 
 Server Centos 7 #2: Cài apache
 
 - eth0: 10.10.34.171
 
-Mở port trên cả 2 máy:
+Server Ubuntu 18 #3: Cài apache 
+
+- eth0: 10.10.34.173
+
+Mở port trên cả 3 máy:
 
     # firewall-cmd --permanent --add-port=80/tcp      # cổng mặc định http
     # firewall-cmd --permanent --add-port=443/tcp     # cổng mặc định shttps
@@ -52,8 +56,9 @@ Tạo file config của địa chỉ truy cập
 Thêm dòng sau vào file C:\Windows\System32\drivers\etc\host trên Windows 
 
     # 10.10.35.222 doanbadung.xyz
+    # 10.10.34.222 dungdb.xyz
 
-Tạo file config site
+Tạo file config site trỏ về server #2
 
 ```
 cat > /etc/nginx/conf.d/doanbadung.xyz.conf << EOF
@@ -69,6 +74,23 @@ server {
 }
 EOF
 ```
+
+Tạo file config site trỏ về server #3
+```
+cat > /etc/nginx/conf.d/doanbadung.xyz.conf << EOF
+server {
+    server_name dungdb.xyz;
+
+        location / {
+            proxy_set_header X-Real-IP \$remote_addr;
+            proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_pass http://10.10.34.173;
+        }
+}
+EOF
+```
+
 
 **Cấu hình trên máy #2:**
 
@@ -99,24 +121,47 @@ Dung
 
 ![Imgur](https://i.imgur.com/eas2GsQ.png)
 
+**Cấu hình trên máy #2:**
+
+Cài apache:
+
+    # apt install apache2 -y
+
+Cho phép dịch vụ apache hoạt động
+    
+    #ufw allow 'Apache'
+
+Kiểm tra:
+
+    #systemctl status apache2
+
+![Imgur](https://i.imgur.com/9YjlQ0i.png)
 
 **Thực hành với IP public:**
 
 Máy #1: 
 
-Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz về IP public trên zonedns.vn. 
+Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz và dungdb.xyz về cùng 1 IP public trên zonedns.vn. Gán Ip public này cho máy #1
 
 ![Imgur](https://i.imgur.com/8Lvw3gN.png)
+
+![Imgur](https://i.imgur.com/HqvDiXE.png)
+
+Phần bị che mờ là IP public.
 
 Kết quả:
 
 ![Imgur](https://i.imgur.com/eas2GsQ.png)
 
+![Imgur](https://i.imgur.com/8heURg8.png)
+
 ### Cài Let's enscrypt
 
 Yêu cầu máy #1 phải cài IP public và có domain.
 
-Cài đặt Certbot
+Ở đây tôi có 2 domain là doanbadung.xyz và dungdb.xyz cùng trỏ về 1 IP public.
+
+Cài đặt Certbot:
 
     yum install epel-release -y
     yum install certbot-nginx -y
@@ -236,9 +281,23 @@ Kết quả:
 
 ![Imgur](https://i.imgur.com/oIw7uaA.png)
 
+Tương tự ta sinh SSL bằng let’s Encrypt cho site dungdb.xyz.
+
+    # certbot --nginx -d dungdb.xyz
+
+Các bước tiếp theo hoàn toàn tương tự.
+
+Kết quả:
+
+![Imgur](https://i.imgur.com/P2Tt5qY.png)
+
 ## Cấu hình nginx với SSL làm reverse proxy cho wordpress
 
 ### Cấu hình nginx làm reverse proxy cho wp
+
+Mô hình:
+
+![Imgur](https://i.imgur.com/wG12Xbr.png)
 
 Thực hành với IP private
 
