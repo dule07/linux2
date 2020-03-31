@@ -77,7 +77,7 @@ EOF
 
 Tạo file config site trỏ về server #3
 ```
-cat > /etc/nginx/conf.d/doanbadung.xyz.conf << EOF
+cat > /etc/nginx/conf.d/dungdb.xyz.conf << EOF
 server {
     server_name dungdb.xyz;
 
