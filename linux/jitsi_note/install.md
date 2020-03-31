@@ -44,8 +44,7 @@ Kiểm tra:
 
 Cấu hình môi trường JAVA_HOME
 ```
-echo "JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" | sudo tee -a /etc/profile
-source /etc/profile
+echo "JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" | sudo tee -a /etc/profile source /etc/profile
 ```
 **Bước 5:** Cài đặt Nginx
 ```
