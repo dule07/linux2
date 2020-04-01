@@ -49,11 +49,11 @@ hoặc
     # apt install curl
     # curl http://icanhazip.com
 
-### Bước 2: Cài MySQL
+### Bước 2: Cài MariaDB
 
 Dùng lệnh
 
-    # apt install mysql-server
+    # apt install mariadb-server
 
 Sau đó thiết lập các cấu hình ban đầu cho mysql 
     
