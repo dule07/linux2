@@ -10,18 +10,9 @@
 
 Đầu tiên, thực hành với IP private:
 
-Server Centos 7 #1: Cài nginx làm reverse proxy
+Thông tin IP trong bài lab:
 
-- eth0: 10.10.34.174
-- eth1: 10.10.35.222 (giả sử đây là IP public)
-
-Server Centos 7 #2: Cài apache
-
-- eth0: 10.10.34.171
-
-Server Ubuntu 18 #3: Cài apache 
-
-- eth0: 10.10.34.173
+![Imgur](https://i.imgur.com/P0cxNl7.png)
 
 Mở port trên cả 3 máy:
 
@@ -297,19 +288,15 @@ Kết quả:
 
 Mô hình:
 
-![Imgur](https://i.imgur.com/wG12Xbr.png)
+![Imgur](https://i.imgur.com/WJNvYuU.png)
 
 Thực hành với IP private
 
-Server Centos 7 #1: Cài nginx làm reverse proxy
-- eth0: 10.10.34.174
-- eth1: 10.10.35.222 (giả sử đây là IP public)
+![Imgur](https://i.imgur.com/s37XMG4.png)
 
-Server Centos 7 #2:  Cài wordpress trên LAMP
-- eth0: 10.10.34.171
-Hướng dẫn cài wordpress trên Centos 7: https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/WebServer/wordpressWithLAMP
+Hướng dẫn cài wordpress trên Ubuntu: https://github.com/lukabobo/DoanBaDung_NhanHoa/blob/master/linux/Lamp_Lemp/lamp_ubuntu18_wp.md
 
-Làm hoàn toàn tương tự như trên đối với máy #1.
+Cấu hình máy #1 (Centos) hoàn toàn tương tự như đã hướng dẫn ở trên.
 
 Kết quả:
 
@@ -317,7 +304,7 @@ Kết quả:
 
 **Thực hành với IP public:**
 
-Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz về IP public trên zonedns.vn. Gán IP public này cho card mạng eth1 máy #1.
+Xóa dòng đã thêm trong file host. Trỏ domain doanbadung.xyz và dungdb.xyz về IP public trên zonedns.vn. Gán IP public này cho card mạng eth1 máy #1.
 
 ![Imgur](https://i.imgur.com/8Lvw3gN.png)
 
@@ -445,9 +432,17 @@ Khởi động lại Nginx
 
     systemctl restart nginx
 
-**Thao tác trên web server chạy wordpress**
+**Thao tác trên web server chạy wordpress (Máy #2 Centos)**
 
-Sửa file wp-config.php
+Trên trình duyệt: vào `10.10.34.171/wp-admin`
+
+Settings > General 
+
+Sửa thông tin trông 2 ô (URL) thành: `**https://doanbadung.xyz**`
+
+Và lưu lại.
+
+Sửa file `/var/www/html/wp-config.php`:
 
 Tiến hành vào file wp-config.php tại /var/www/html/wp-config.php và thêm vào những dòng sau:
 
@@ -459,9 +454,9 @@ if ($_SERVER ['HTTP_X_FORWARDED_PROTO']=='https')
 ```
 ![Imgur](https://i.imgur.com/p8Mo3cS.png)
 
-Khởi động lại dịch vụ http
+Khởi động lại dịch vụ apache
 
-    systemctl restart httpd
+    # systemctl restart httpd
 
 Sau khi khởi động, vào lại trang web bằng địa chỉ https://doanbadung.xyz để kiểm tra kết quả với ssl.
 
@@ -472,5 +467,29 @@ Kết quả:
 Thông tin chứng chỉ
 
 ![Imgur](https://i.imgur.com/OvC2ZVi.png)
+
+**Tương tự thực hiện với server #3 (Ubuntu)**
+
+Ở bước sửa file `/var/www/html/wp-config.php`, thay vì thêm đoạn ở trên thì thêm đoạn này vào:
+```
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'){
+$_SERVER['HTTPS']='on';
+}
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+```
+
+Khởi động lại dịch vụ apache:
+
+    # systemctl restart apache2
+
+**Kết quả:**
+
+![Imgur](https://i.imgur.com/XONFvlv.png)
+
+Thông tin chứng chỉ
+
+![Imgur](https://i.imgur.com/ktxg4Wk.png)
 
 Tham khảo: https://news.cloud365.vn/huong-dan-cau-hinh-nginx-voi-ssl-lam-reverse-proxy-cho-wordpress/
