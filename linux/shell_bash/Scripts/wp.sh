@@ -22,7 +22,7 @@ CREATE DATABASE $mariadb;
 CREATE USER $mariauser@$mariahost IDENTIFIED BY '$mariapass';
 GRANT ALL PRIVILEGES ON $mariadb.* TO $mariauser IDENTIFIED BY '$mariapass';
 FLUSH PRIVILEGES;
-exit;
+exit
 EOF
 }
 create_database
@@ -47,7 +47,7 @@ cp -Rvf /root/wordpress/* /var/www/html
 chown -R apache:apache /var/www/html/*
 chmod -R 755 /var/www/html/*
 # mo port cho dich vu web
-systemctl retart firewall 
+systemctl retart firewalld
 firewall-cmd --permanent --add-port=80/tcp      # mo port http
 firewall-cmd --permanent --add-port=443/tcp     # mo port https
 firewall-cmd --reload
