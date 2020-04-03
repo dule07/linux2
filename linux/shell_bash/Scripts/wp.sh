@@ -1,43 +1,31 @@
 #!/bin/bash
-#update
-yum -y update
-yum -y upgrade
-# cai dat Apache
-yum -y install httpd
-# khoi dong apache
-systemctl start httpd
-systemctl enable httpd
-# cai dat mariadb
-yum -y update
-yum -y install mariadb mariadb-server
-# khoi dong mariadb
-systemctl start mariadb
-systemctl enable mariadb
-# cai dat repo php
-yum install -y epel-release yum-utils
-yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-# cai dat php
-yum-config-manager --enable remi-php74
-yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
-#khoi dong lai apache
-systemctl restart httpd
-echo "ban nen chay lenh `mysql_secure_installation` de cau hinh co ban database"
-#cai dat wordpress
-#nhap ten database, user, pass cho wp
-echo “Hay nhap Database Name: ”
-read -e dbname
-echo “Hay nhap Database User: ”
-read -e dbuser
-echo “Hay nhap Database Password: ”
-read -s dbpass
-#tao database va user/pass cho wordpress
+#script cai dat wordpress tren centos 7
+DIRECTORY=$(cd `dirname $0` && pwd)
+create_database(){
+    echo -n "MariaDB Host (localhost): "
+    read mariahost
+    if [ "$mariahost" = "" ]
+    then
+	mariahost="localhost"
+    fi
+    echo -n "Nhap ten DB: "
+    read mariadb
+
+    echo -n "Nhap ten user quan ly DB: "
+    read mariauser
+
+    echo -n "Nhap password cho user: "
+    read mariapass
+
 mysql -u root <<EOF
-CREATE DATABASE $dbname;
-CREATE USER $dbuser@localhost IDENTIFIED BY '$dbpass';
-GRANT ALL PRIVILEGES ON $dbname.* TO $dbuser@localhost IDENTIFIED BY '$dbpass';
+CREATE DATABASE $mariadb;
+CREATE USER $mariauser@$mariahost IDENTIFIED BY '$mariapass';
+GRANT ALL PRIVILEGES ON $mariadb.* TO $mariauser IDENTIFIED BY '$mariapass';
 FLUSH PRIVILEGES;
 exit;
 EOF
+}
+create_database
 #cai goi ho tro php-gd
 yum -y install php-gd 
 #download wordpress

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #update
 yum -y update
 yum -y upgrade
@@ -12,6 +13,7 @@ firewall-cmd --permanent --add-port=80/tcp      # mo port http
 firewall-cmd --permanent --add-port=443/tcp     # mo port https
 firewall-cmd --reload
 # cai dat mariadb
+yum -y update
 yum -y install mariadb mariadb-server
 # khoi dong mariadb
 systemctl start mariadb
@@ -22,9 +24,8 @@ yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 # cai dat php
 yum-config-manager --enable remi-php74
 yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
-#update
-yum -y update
+
 #khoi dong lai apache
 systemctl restart httpd
-echo "ban nen chay lenh `mysql_secure_installation` de cau hinh co ban database"
+
 
