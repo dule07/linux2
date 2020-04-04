@@ -94,9 +94,11 @@ systemctl restart apache2
 clear
 }
 
+printf "Cai dat LAMP\n"
 apache
 mariadb
 php
+printf "Cai dat Wordpress\n"
 create_database
 tai_wp
 cau_hinh_wp
