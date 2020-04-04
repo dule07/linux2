@@ -85,7 +85,7 @@ server {
 
     location ~ \.php$ {
             include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
     }
 
     location ~ /\.ht {
@@ -106,7 +106,7 @@ Trong đó:
 
 Tạo liên kết tượng trưng từ file cấu hình server ở trên (trong thư mục /etc/nginx/sites-available/) tới thư mục /etc/nginx/sites-enabled/
 
-    # ln -s /etc/nginx/sites-available/dangdohai.xyz /etc/nginx/sites-enabled/
+    # ln -s /etc/nginx/sites-available/dung.xyz /etc/nginx/sites-enabled/
 
 Hủy liên kết file cấu hình mặc định khỏi thư mục /sites-enabled/:
 
