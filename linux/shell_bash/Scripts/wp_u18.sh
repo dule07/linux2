@@ -1,5 +1,6 @@
 #!/bin/bash
-#cai lamp
+# Script cai dat wordpress tren Ubuntu 18, LAMP
+#Cai lamp
 
 apache(){
     # cai dat apache 

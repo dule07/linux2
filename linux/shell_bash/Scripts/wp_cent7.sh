@@ -1,4 +1,5 @@
 #!/bin/bash
+# Script cai dat wordpress tren Centos 7, LAMP
 # cai lamp
 apache(){
     #update
@@ -36,8 +37,6 @@ php(){
     systemctl restart httpd
 }
 
-
-#script cai dat wordpress tren centos 7
 #tao database va user cho wordpress
 DIRECTORY=$(cd `dirname $0` && pwd)
 create_database(){
