@@ -12,7 +12,7 @@ clear
 systemctl start httpd
 systemctl enable httpd
 }
-apache
+
 mariadb(){
 # cai dat mariadb
 yum -y update
@@ -22,7 +22,7 @@ clear
 systemctl start mariadb
 systemctl enable mariadb
 }
-mariadb
+
 php(){
 # cai dat repo php
 yum install -y epel-release yum-utils
@@ -35,7 +35,7 @@ clear
 #khoi dong lai apache
 systemctl restart httpd
 }
-php
+
 
 #script cai dat wordpress tren centos 7
 #tao database va user cho wordpress
@@ -64,7 +64,7 @@ FLUSH PRIVILEGES;
 exit
 EOF
 }
-create_database
+
 tai_wp(){
 #cai goi ho tro php-gd
 yum -y install php-gd php-mysql
@@ -73,7 +73,7 @@ clear
 yum -y install wget
 wget https://wordpress.org/latest.tar.gz
 }
-tai_wp
+
 cau_hinh_wp(){
 #unzip wordpress
 tar -zxvf latest.tar.gz
@@ -92,7 +92,7 @@ sed -i -e "s/password_here/"$mariapass"/g" wp-config.php
 chown -R apache:apache /var/www/html/*
 chmod -R 755 /var/www/html/*
 }
-cau_hinh_wp
+
 mo_port(){
 # mo port cho dich vu web
 systemctl retart firewalld
@@ -101,6 +101,15 @@ firewall-cmd --permanent --add-port=443/tcp     # mo port https
 firewall-cmd --reload
 clear
 }
+
+printf "Cai dat LAMP\n"
+apache
+mariadb
+php
+printf "Cai dat Wordpress\n"
+create_database
+tai_wp
+cau_hinh_wp
 mo_port
 
-echo “Da cai xong wordpress”
+printf "Da cai xong Wordpress \n"

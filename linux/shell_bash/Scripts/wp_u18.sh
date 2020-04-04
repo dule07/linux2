@@ -12,7 +12,7 @@ systemctl start apache2
 # mo port cho dich vu apache
 ufw allow in "Apache Full"
 }
-apache
+
 mariadb(){
 # cai mariadb
 apt install -y mariadb-server
@@ -21,7 +21,7 @@ clear
 systemctl enable mariadb
 systemctl start mariadb
 }
-mariadb
+
 php(){
 # cai dat php7.2
 sudo apt install -y php7.2 libapache2-mod-php7.2 php7.2-mysql php-common php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline
@@ -30,7 +30,6 @@ clear
 a2enmod php7.2
 systemctl restart apache2
 }
-php
 
 #tao database va user cho wordpress
 DIRECTORY=$(cd `dirname $0` && pwd)
@@ -58,7 +57,7 @@ FLUSH PRIVILEGES;
 exit
 EOF
 }
-create_database
+
 tai_wp(){
 #cai dat cac extension php can thiet
 apt update -y
@@ -70,7 +69,7 @@ systemctl restart apache2
 cd /tmp
 curl -O https://wordpress.org/latest.tar.gz
 }
-tai_wp
+
 cau_hinh_wp(){
 # giai nen
 tar xzvf latest.tar.gz
@@ -94,6 +93,11 @@ rm -rf /var/www/html/index.html
 systemctl restart apache2
 clear
 }
-cau_hinh_wp
 
+apache
+mariadb
+php
+create_database
+tai_wp
+cau_hinh_wp
 echo “Da cai xong wordpress”
