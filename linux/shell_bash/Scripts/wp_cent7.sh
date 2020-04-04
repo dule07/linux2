@@ -35,16 +35,16 @@ yum -y install wget
 wget https://wordpress.org/latest.tar.gz
 #unzip wordpress
 tar -zxvf latest.tar.gz
-#den thu muc wordpress
-cd wordpress
+# copy cac file trong thu muc wordpress toi duong dan /var/www/html
+cp -Rvf /root/wordpress/* /var/www/html
+#den thu muc /var/www/html/
+cd /var/www/html
 #copy file wp-config.php
 cp wp-config-sample.php wp-config.php
 #sua file wp-config.php voi cac thong tin da nhap
 sed -e “s/database_name_here/$mariadb/g” wp-config.php
 sed -e “s/username_here/$mariauser/g” wp-config.php
 sed “s/password_here/$mariapass/g” wp-config.php
-# copy cac file trong thu muc wordpress toi duong dan /var/www/html
-cp -Rvf /root/wordpress/* /var/www/html
 # phan quyen
 chown -R apache:apache /var/www/html/*
 chmod -R 755 /var/www/html/*
