@@ -29,7 +29,7 @@ EOF
 create_database
 
 #cai goi ho tro php-gd
-yum -y install php-gd 
+yum -y install php-gd php-mysql
 #download wordpress
 yum -y install wget
 wget https://wordpress.org/latest.tar.gz
@@ -42,9 +42,9 @@ cd /var/www/html
 #copy file wp-config.php
 cp wp-config-sample.php wp-config.php
 #sua file wp-config.php voi cac thong tin da nhap
-sed -e “s/database_name_here/$mariadb/g” wp-config.php
-sed -e “s/username_here/$mariauser/g” wp-config.php
-sed “s/password_here/$mariapass/g” wp-config.php
+sed -i -e "s/database_name_here/$mariadb/g" wp-config.php
+sed -i -e "s/username_here/"$mariauser"/g" wp-config.php
+sed -i -e "s/password_here/"$mariapass"/g" wp-config.php
 # phan quyen
 chown -R apache:apache /var/www/html/*
 chmod -R 755 /var/www/html/*

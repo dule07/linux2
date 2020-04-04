@@ -29,7 +29,7 @@ create_database
 
 #cai dat cac extension php can thiet
 apt update -y
-apt install -y php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+apt install -y php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip php-mysql
 systemctl restart apache2
 
 #tai wordpress
@@ -44,9 +44,9 @@ cd /var/www/html/
 # copy file config mac dinh
 cp wp-config-sample.php wp-config.php
 #sua file wp-config.php voi cac thong tin da nhap
-sed -e “s/database_name_here/$mariadb/g” wp-config.php
-sed -e “s/username_here/$mariauser/g” wp-config.php
-sed “s/password_here/$mariapass/g” wp-config.php
+sed -i -e "s/database_name_here/$mariadb/g" wp-config.php
+sed -i -e "s/username_here/"$mariauser"/g" wp-config.php
+sed -i -e "s/password_here/"$mariapass"/g" wp-config.php
 #cap quyen so huu thu muc va phan quyen
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/*
