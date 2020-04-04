@@ -68,12 +68,13 @@ systemctl restart apache2
 #tai wordpress
 cd /tmp
 curl -O https://wordpress.org/latest.tar.gz
-}
-
-cau_hinh_wp(){
 # giai nen
 tar xzvf latest.tar.gz
 clear
+}
+
+cau_hinh_wp(){
+
 # Copy tat ca file trong thu muc wordpress den /var/www/html
 cp -Rvf /tmp/wordpress/* /var/www/html/
 #den thu muc /var/www/html/
@@ -94,6 +95,7 @@ systemctl restart apache2
 clear
 }
 
+clear
 printf "Cai dat LAMP\n"
 apache
 mariadb

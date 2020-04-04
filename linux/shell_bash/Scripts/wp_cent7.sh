@@ -72,14 +72,15 @@ clear
 #download wordpress
 yum -y install wget
 wget https://wordpress.org/latest.tar.gz
+#unzip wordpress
+cd /tmp
+tar -zxvf latest.tar.gz
+clear
 }
 
 cau_hinh_wp(){
-#unzip wordpress
-tar -zxvf latest.tar.gz
-clear
 # copy cac file trong thu muc wordpress toi duong dan /var/www/html
-cp -Rvf /root/wordpress/* /var/www/html
+cp -Rvf /tmp/wordpress/* /var/www/html
 #den thu muc /var/www/html/
 cd /var/www/html
 #copy file wp-config.php
@@ -102,6 +103,7 @@ firewall-cmd --reload
 clear
 }
 
+clear
 printf "Cai dat LAMP\n"
 apache
 mariadb
