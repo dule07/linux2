@@ -1,5 +1,6 @@
 #!/bin/bash
 #script cai dat wordpress tren centos 7
+#tao database va user cho wordpress
 DIRECTORY=$(cd `dirname $0` && pwd)
 create_database(){
     echo -n "MariaDB Host (localhost): "
@@ -26,6 +27,7 @@ exit
 EOF
 }
 create_database
+
 #cai goi ho tro php-gd
 yum -y install php-gd 
 #download wordpress
@@ -38,9 +40,9 @@ cd wordpress
 #copy file wp-config.php
 cp wp-config-sample.php wp-config.php
 #sua file wp-config.php voi cac thong tin da nhap
-sed -e “s/database_name_here/$dbname/g” wp-config.php
-sed -e “s/username_here/$dbuser/g” wp-config.php
-sed “s/password_here/$dbpass/g” wp-config.php
+sed -e “s/database_name_here/$mariadb/g” wp-config.php
+sed -e “s/username_here/$mariauser/g” wp-config.php
+sed “s/password_here/$mariapass/g” wp-config.php
 # copy cac file trong thu muc wordpress toi duong dan /var/www/html
 cp -Rvf /root/wordpress/* /var/www/html
 # phan quyen
