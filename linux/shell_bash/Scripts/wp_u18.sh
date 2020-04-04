@@ -1,21 +1,36 @@
 #!/bin/bash
 #cai lamp
+
+apache(){
 # cai dat apache 
 apt update -y
 apt install apache2 -y
+clear
 # bat dich vu apache 
 systemctl enable apache2
 systemctl start apache2
 # mo port cho dich vu apache
 ufw allow in "Apache Full"
+}
+apache
+mariadb(){
 # cai mariadb
 apt install -y mariadb-server
+clear
+# bat dich vu mariadb
+systemctl enable mariadb
+systemctl start mariadb
+}
+mariadb
+php(){
 # cai dat php7.2
 sudo apt install -y php7.2 libapache2-mod-php7.2 php7.2-mysql php-common php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline
-
+clear
 # bat module va khoi dong lai apache
 a2enmod php7.2
 systemctl restart apache2
+}
+php
 
 #tao database va user cho wordpress
 DIRECTORY=$(cd `dirname $0` && pwd)
@@ -44,17 +59,22 @@ exit
 EOF
 }
 create_database
-
+tai_wp(){
 #cai dat cac extension php can thiet
 apt update -y
 apt install -y php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip php-mysql
+clear
 systemctl restart apache2
 
 #tai wordpress
 cd /tmp
 curl -O https://wordpress.org/latest.tar.gz
+}
+tai_wp
+cau_hinh_wp(){
 # giai nen
 tar xzvf latest.tar.gz
+clear
 # Copy tat ca file trong thu muc wordpress den /var/www/html
 cp -Rvf /tmp/wordpress/* /var/www/html/
 #den thu muc /var/www/html/
@@ -72,5 +92,8 @@ chmod -R 755 /var/www/html/*
 rm -rf /var/www/html/index.html 
 # khoi dong lai apache
 systemctl restart apache2
+clear
+}
+cau_hinh_wp
 
 echo “Da cai xong wordpress”

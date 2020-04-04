@@ -1,33 +1,41 @@
 #!/bin/bash
 # cai lamp
+apache(){
 #update
 yum -y update
 yum -y upgrade
+clear
 # cai dat Apache
 yum -y install httpd
+clear
 # khoi dong apache
 systemctl start httpd
 systemctl enable httpd
-# mo port cho dich vu web
-firewall-cmd --permanent --add-port=80/tcp      # mo port http
-firewall-cmd --permanent --add-port=443/tcp     # mo port https
-firewall-cmd --reload
+}
+apache
+mariadb(){
 # cai dat mariadb
 yum -y update
 yum -y install mariadb mariadb-server
+clear
 # khoi dong mariadb
 systemctl start mariadb
 systemctl enable mariadb
+}
+mariadb
+php(){
 # cai dat repo php
 yum install -y epel-release yum-utils
 yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+clear
 # cai dat php
 yum-config-manager --enable remi-php74
 yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
-
+clear
 #khoi dong lai apache
 systemctl restart httpd
-
+}
+php
 
 #script cai dat wordpress tren centos 7
 #tao database va user cho wordpress
@@ -57,14 +65,19 @@ exit
 EOF
 }
 create_database
-
+tai_wp(){
 #cai goi ho tro php-gd
 yum -y install php-gd php-mysql
+clear
 #download wordpress
 yum -y install wget
 wget https://wordpress.org/latest.tar.gz
+}
+tai_wp
+cau_hinh_wp(){
 #unzip wordpress
 tar -zxvf latest.tar.gz
+clear
 # copy cac file trong thu muc wordpress toi duong dan /var/www/html
 cp -Rvf /root/wordpress/* /var/www/html
 #den thu muc /var/www/html/
@@ -78,9 +91,16 @@ sed -i -e "s/password_here/"$mariapass"/g" wp-config.php
 # phan quyen
 chown -R apache:apache /var/www/html/*
 chmod -R 755 /var/www/html/*
+}
+cau_hinh_wp
+mo_port(){
 # mo port cho dich vu web
 systemctl retart firewalld
 firewall-cmd --permanent --add-port=80/tcp      # mo port http
 firewall-cmd --permanent --add-port=443/tcp     # mo port https
 firewall-cmd --reload
+clear
+}
+mo_port
+
 echo “Da cai xong wordpress”
