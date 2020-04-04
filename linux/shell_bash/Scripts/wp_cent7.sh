@@ -108,6 +108,7 @@ printf "Cai dat LAMP\n"
 apache
 mariadb
 php
+clear
 printf "Cai dat Wordpress\n"
 create_database
 tai_wp
