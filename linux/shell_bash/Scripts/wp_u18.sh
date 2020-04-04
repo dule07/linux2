@@ -39,7 +39,6 @@ curl -O https://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 # Copy tat ca file trong thu muc wordpress den /var/www/html
 cp -Rvf /tmp/wordpress/* /var/www/html/
-
 #den thu muc /var/www/html/
 cd /var/www/html/
 # copy file config mac dinh
@@ -48,7 +47,6 @@ cp wp-config-sample.php wp-config.php
 sed -e “s/database_name_here/$mariadb/g” wp-config.php
 sed -e “s/username_here/$mariauser/g” wp-config.php
 sed “s/password_here/$mariapass/g” wp-config.php
-
 #cap quyen so huu thu muc va phan quyen
 chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/*
