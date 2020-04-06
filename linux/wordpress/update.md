@@ -36,11 +36,13 @@ Chọn New session.
 
 Điền các thông tin của server wordpress và login. Lưu ý chọn giao thức SFTP và port 22 (SSH).
 
-![Imgur](https://i.imgur.com/hzG79al.png)
+![Imgur](https://i.imgur.com/aJuoKnX.png)
 
 Bên phải hiển thị danh sách thư mục máy windows. Bên tay trái hiện thị danh sách thư mục server wordpress. 
 
 Tại đây bạn có thể backup server wordpress bằng cách copy tất cả mị thứ trong thư mục `/var/www/html/` sang máy windows. Chú ý chọn nơi đủ dung lượng để backup.
+
+![Imgur](https://i.imgur.com/hzG79al.png)
 
 Tìm đến thư mục bạn đã tải phiên bản mới nhất về. Chọn tất cả các tệp tin và thư mục trong thư mục `wordpress` tại máy windows và copy sang thư mục `/var/www/html`/ tại server wordpress và chọn ghi đè tất cả (Yes to all). Việc ghi đè chỉ ảnh hưởng đến các file core của wordpress, không ảnh hưởng đến các plugin, theme, file... mà bạn đã cài đặt.
 
