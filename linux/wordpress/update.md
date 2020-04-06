@@ -44,7 +44,7 @@ Tại đây bạn có thể backup server wordpress bằng cách copy tất cả
 
 ![Imgur](https://i.imgur.com/hzG79al.png)
 
-Tìm đến thư mục bạn đã tải phiên bản mới nhất về. Chọn tất cả các tệp tin và thư mục trong thư mục `wordpress` tại máy windows và copy sang thư mục `/var/www/html`/ tại server wordpress và chọn ghi đè tất cả (Yes to all). Việc ghi đè chỉ ảnh hưởng đến các file core của wordpress, không ảnh hưởng đến các plugin, theme, file... mà bạn đã cài đặt.
+Tìm đến thư mục bạn đã tải phiên bản mới nhất về. Chọn tất cả các tệp tin và thư mục trong thư mục `wordpress` tại máy windows và copy sang thư mục `/var/www/html`/ tại server wordpress và chọn ghi đè tất cả (Yes to all). Việc ghi đè chỉ ảnh hưởng đến các file core của wordpress, không ảnh hưởng đến các plugin, theme, file... hiện có của bạn.
 
 Truy cập vào trang wp-admin để kiểm tra lại.
 
