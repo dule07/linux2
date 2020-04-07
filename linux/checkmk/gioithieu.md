@@ -6,7 +6,7 @@ https://github.com/meditechopen/meditech-ghichep-omd#1
 
 https://github.com/duckmak14/thuctapsinh/tree/master/DucNA/check_mk/docs
 
-## Tài liệu của hãng
+## Tài liệu
 
 https://check-mk-documentation.readthedocs.io/en/latest/index.html
 
@@ -46,12 +46,18 @@ Với tính năng được tích hợp với nhiều sản phẩm thì check_mk 
 Đến thời điểm hiện tại thì nagios có 3 phiên bản chính và có sẵn
 
 - Check_MK Raw Edition (CRE)
-- Check_MK Enterprise Edition (CEE)
-- Checkmk Managed Services Edition (CME)
+- Check_MK Enterprise Edition (CEE), gồm:
+    - Checkmk Enterprise - Free Edition
+    - Checkmk Enterprise - Standard Edition
+    - Checkmk Managed Services Edition (CME)
+
 
 ![Imgur](https://i.imgur.com/xVDEiCl.png)
 
-Phiên bản Check_MK Raw Edition (CRE) là phiên bản mã nguồn mở và hoàn toàn miễn phí còn 2 phiên bản còn lại chúng ta sẽ phải trả tiền nếu muốn sử dụng nó.
+[So sánh cụ thể các phiên bản](https://checkmk.com/editions.html)
+
+
+Phiên bản Check_MK Raw Edition (CRE) là phiên bản mã nguồn mở và hoàn toàn miễn phí. Phiên bản Checkmk Enterprise - Free Edition giới hạn chỉ giám sát 2 site, 10 host mỗi site. 2 phiên bản còn lại chúng ta sẽ phải trả tiền nếu muốn sử dụng nó.
 
 Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí là CRE. Và phiên bản stable hiện tại là phiên bản 1.6. Chu kỳ phát triển của check_mk là 6 tháng sẽ có một bản stable.
 
