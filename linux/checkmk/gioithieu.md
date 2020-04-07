@@ -79,7 +79,14 @@ Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí l�
 
 3. Multisite
 
-- Là GUI web được check_mk áp dụng để hiển thị thông tin trạng thái giám sát. Nó dựa trên livestatus nên hoạt động rất nhanh.
+- Là GUI web được check_mk áp dụng để hiển thị thông tin trạng thái giám sát. Nó dựa trên livestatus nên hoạt động rất nhanh. Một số tính năng:
+
+    - Lượt xem xác định của người dùng
+    - Hỗ trợ giám sát phân tán qua Livestatus
+    - Tùy chỉnh sidebar với nội dung động
+    - Tự động hóa và dịch vụ web (API)
+    - Dashboard
+    - Localization (bản địa hóa)
 
 4. WATO (Web admininstration tools)
 
