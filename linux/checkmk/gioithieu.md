@@ -8,6 +8,8 @@ https://github.com/duckmak14/thuctapsinh/tree/master/DucNA/check_mk/docs
 
 ## Tài liệu
 
+https://checkmk.com/cms.html
+
 https://check-mk-documentation.readthedocs.io/en/latest/index.html
 
 ## Lịch sử
