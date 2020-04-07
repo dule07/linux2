@@ -85,12 +85,12 @@ Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí l�
 
 Sử dụng để cấu hình check_mk. 
 
-Wato bao gồm nhiều modules. Mỗi modules có một chức năng khác nhau. Một số module phổ biến:
+WATO bao gồm nhiều modules. Mỗi modules có một chức năng khác nhau. Một số module phổ biến:
 - Main menu : chứa danh sách tất cả các loại modules cùng với một miêu tả ngắn cách dùng
-- Monitoring Agents : Tại đây sẽ tìm thấy các agent cho linux windowns và cách hệ điều hành khác
+- Monitoring Agents: Tại đây sẽ tìm thấy các agent cho Linux, Windows và các hệ điều hành khác
 - Host : Quản lý các host được theo dõi
-- Global Settings : Những cài đặt không áp dụng cho host; service và users
-- Host & Service Parameters : danh sách tất cả các cài đặt giám sát về host và service
+- Global Settings: Những cài đặt không áp dụng cho host, service và users.
+- Host & Service Parameters: danh sách tất cả các cài đặt giám sát về host và service
 
 Khi thay đổi bằng WATO thì giám sát sẽ chưa thực hiện vai trò của mình ngay lập tức. Mà sau khi nhấn nút Activate changes mới thực hiện thay đổi và mới bắt đầu thực hiện giám sát.
 
