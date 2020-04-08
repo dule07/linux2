@@ -12,11 +12,13 @@ https://checkmk.com/cms.html
 
 https://check-mk-documentation.readthedocs.io/en/latest/index.html
 
+
+
 ## Lịch sử
 
 Năm 2008 check_mk được ra mắt như là một plugins hỗ trợ và bổ sung thêm cho lõi nagios. Để có thể giúp cho giải pháp nagios hoàn thiện hơn các nhược điểm mà nagios còn mắc phải
 
-Năm 2010 dự án OMD (Open Monitoring Distribution) được khởi động bởi Mathias Kettner. Đã kết hợp nhiều sản phẩm để có thể tạo ra sự linh hoạt trong giám sát hơn. Lúc đó có 2 phiên bản distro của OMD là OMD-LABS và CHECK_MK RAW ( OMD thường) . OMD sử dụng nhân là nagios kết hợp thêm nhiều sản phẩm mã nguồn mở để tạo ra một sản phẩm tối ưu cho nhu cầu giám sát, cảnh báo và hiển thị
+Năm 2010 dự án OMD (Open Monitoring Distribution - Giám sát phân phối mở) được khởi động bởi Mathias Kettner. Đã kết hợp nhiều sản phẩm để có thể tạo ra sự linh hoạt trong giám sát hơn. Lúc đó có 2 phiên bản distro của OMD là OMD-LABS và CHECK_MK RAW ( OMD thường). OMD sử dụng nhân là nagios kết hợp thêm nhiều sản phẩm mã nguồn mở để tạo ra một sản phẩm tối ưu cho nhu cầu giám sát, cảnh báo và hiển thị
 
 Năm 2015 phiên bản đơn giản của OMD đã được ra mắt gọi là CHECK_MK vào lúc đó có 2 phiên bản của là: CHECK_MK RAW EDITION(CRE) và CHECK_MK ENTERPRISE EDITION(CEE). Hiện nay có thêm một phiên bản mới phiên bản này dựa trên phiên bản CEE được gọi là Checkmk Managed Services Edition.
 
@@ -51,7 +53,7 @@ Với tính năng được tích hợp với nhiều sản phẩm thì check_mk 
 - Check_MK Enterprise Edition, gồm:
     - Checkmk Enterprise - Free Edition (CFE)
     - Checkmk Enterprise - Standard Edition (CEE)
-    - Checkmk Managed Services Edition (CME)
+    - Checkmk Enterprise - Managed Services Edition (CME)
 
 
 ![Imgur](https://i.imgur.com/xVDEiCl.png)
@@ -63,13 +65,47 @@ Phiên bản Check_MK Raw Edition (CRE) là phiên bản mã nguồn mở và ho
 
 Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí là CRE. Và phiên bản stable hiện tại là phiên bản 1.6 phát hành ngày 24/09/2019. Chu kỳ phát triển của check_mk là 6 tháng sẽ có một bản stable.
 
+## Giới thiệu cơ bản về giám sát với checkmk
+
+### States, events, host, services.
+
+State (Trạng thái): là trạng thái của 1 host. Có thể là Up, down, unreache, pending
+
+Event (Sự kiện): là một điều xảy ra độc nhất tại một thời điểm cụ thể. Các sự kiện xảy ra tự phát. Ví dụ như một lỗi phát sinh.
+
+Host: có thể là một server, một thiết bị mạng, một thiết bị có địa chỉ IP, v.v
+
+Service: một dịch vụ có thể là bất cứ thứ gì. Dịch vụ là một phần ảnh hưởng đến việc host có OK hay không. State của dịch vụ thường được xác định chỉ khi host trong điều kiện UP. 
+
+### Group
+
+Group: Các host và sevice có thể được gom vào group thể xem tổng quan. Group không phụ thuộc vào cấu hình và hoàn toàn là tùy chỉnh.
+
+Contact và contact group: phân quyền user đến các host và service. Ví dụ: Ai được quyền xem gì? Ai có quyền cấu hình host nào, service nào?  Ai nhận thông báo về các vấn đề gì?
+
+### Users và roles
+
+3 loại user: 
+
+- Admin: Có tất cả các quyền
+- User: Xem những thứ trong phạm vi quyền. Quản lý các host trong thư mục đã được giao cho. Không được phép sửa global settings.
+- Guest: Có thể xem được tất cả. Nhưng không được cấu hình và ảnh hưởng đến việc giám sát.
+
+### Các vấn đề (problem) các sự kiện (event) và thông báo
+
+Tất cả các host và service  không ở trong trạng thái UP được checkmk xem là một vấn đề. Một vấn đề có 2 trạng thái là đã xử lý và chưa xử lý. Nếu vấn đề được một người nào đó acknowledge, nó sẽ được gắn cờ là đã xử lý. 
+
+Khi trạng thái điều kiện của host thay đổi, ví dụ từ OK sang CRIT. Checkmk sẽ đăng ký một event. Một event có thể gửi thông báo hoặc không. Thông báo gửi qua email. Điều này có thể được tùy chỉnh một cách linh hoạt. 
+
+Xem thêm: https://checkmk.com/cms_monitoring_basics.html
+
 ## Các khái niệm trong check_mk
 
 1. Livestatus
 
 - Là một phần quan trọng của check_mk. Nó giúp check_mk truy xuất dữ liệu một cách nhanh nhất.
 - Không truy xuất dữ liệu được đọc theo tốc độ I/O của disk bởi vì nó sẽ không lưu trữ thông tin trạng thái ở file.
-- Khi truy xuất nó phân biệt chữ hoa và trữ thường. Cú pháp của livestatus dựa trên giao thức HTTP
+- Khi truy xuất nó phân biệt chữ hoa và chữ thường. Cú pháp của livestatus dựa trên giao thức HTTP
 - Livestatus sẽ sử dụng một socket để lấy dữ liệu từ phía host và service
 
 2. Livecheck
@@ -81,7 +117,7 @@ Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí l�
 
 - Là GUI web được check_mk áp dụng để hiển thị thông tin trạng thái giám sát. Nó dựa trên livestatus nên hoạt động rất nhanh. Một số tính năng:
 
-    - Lượt xem xác định của người dùng
+    - Lượt view xác định của người dùng
     - Hỗ trợ giám sát phân tán qua Livestatus
     - Tùy chỉnh sidebar với nội dung động
     - Tự động hóa và dịch vụ web (API)
@@ -103,19 +139,15 @@ Khi thay đổi bằng WATO thì giám sát sẽ chưa thực hiện vai trò c�
 
 5. Event console
 
-- Ngoài việc check trạng thái theo lịch trình thì cũng có một kiểu check trạng thái theo sự việc xảy ra ( ví dụ như là việc có một host bị down)
+- Ngoài việc check trạng thái theo lịch trình thì cũng có một kiểu check trạng thái theo sự việc xảy ra (ví dụ như là việc có một host bị down)
 - Đối với event console thì check_mk có một hệ thống tích hợp để theo dõi sự kiện từ các nguồn như là syslog, SNMP traps, log file.
-- Những event xảy ra không được xử lý bởi lõi giám sát mà sẽ được sử dụng bởi dịch vụ riêng
+- Những event xảy ra không được xử lý bởi core giám sát mà sẽ được sử dụng bởi dịch vụ riêng
 
-6. Site
+6. Site (hay Instance)
 
 - Trên một server có thể tạo ra nhiều site để có thể phân chia các khu vực giám sát dành cho một hệ thống lớn.
 - Muốn có một WATO để có thể quan sát thì ta phải tạo ra một site để có thể sử dụng WATO
-- Với mỗi user có quyền khác nhau đối với 1 Site giám sát. Quyền cao nhất là user omdadmin có quyền quản lý
-- Có 3 cấu của các user được chia như sau
-    - adminstrator
-    - Guest user
-    - Normal monitoring user
+- Mỗi user có quyền khác nhau đối với 1 Site giám sát. Quyền cao nhất là user omdadmin có quyền quản lý
 
 7. RRD (Round Robin Database)
 
@@ -141,7 +173,21 @@ Khi muốn truy vấn thống kê thì có các giá trị và các toán tử �
 ![Imgur](https://i.imgur.com/rcIrS9Y.png)
 
 - Các lõi sẽ gọi xuống check_mk để thực hiện chức năng kiểm tra của nó
-- Sau khi check thì livestatus sẽ hiển thị thông tin của mk lên website
-- PNP4nagios: được sử dụng để xử lý dữ liệu để chuyển sang dạng biểu đồ
-- Nagvis : được sử dụng để vẽ lại mô hình giám sát giúp người dùng có thể nhìn một cách dễ dàng hiểu hơn
+- Sau khi check thì livestatus sẽ hiển thị thông tin lên web interface
 - Dữ liệu sẽ được lưu vào trong RRD
+- PNP4nagios: một addon được sử dụng để xử lý dữ liệu để chuyển sang dạng đồ thị
+- [Nagvis](https://checkmk.com/cms_nagvis.html): một addon được sử dụng để vẽ lại mô hình giám sát giúp người dùng có thể nhìn một cách dễ dàng hiểu hơn
+- RRDtool: dùng để hiển thị log dữ liệu và hệ thống đồ thị cho dât theo chuỗi thời gian (mã nguồn mở).
+
+## Các use case
+
+- Giám sát server
+- Giám sát ứng dụng
+- Giám sát mạng
+- Giám sát cloud
+- Giám sát lưu trữ
+- Giám sát database
+- Giám sát môi trường
+- Giám sát container 
+
+Cụ thể: https://checkmk.com/use-cases.html
