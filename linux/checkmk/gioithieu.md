@@ -91,6 +91,8 @@ Contact và contact group: phân quyền user đến các host và service. Ví 
 - User: Xem những thứ trong phạm vi quyền. Quản lý các host trong thư mục đã được giao cho. Không được phép sửa global settings.
 - Guest: Có thể xem được tất cả. Nhưng không được cấu hình và ảnh hưởng đến việc giám sát.
 
+Xem thêm: https://checkmk.com/cms_wato_user.html#files
+
 ### Các vấn đề (problem) các sự kiện (event) và thông báo
 
 Tất cả các host và service  không ở trong trạng thái UP được checkmk xem là một vấn đề. Một vấn đề có 2 trạng thái là đã xử lý và chưa xử lý. Nếu vấn đề được một người nào đó acknowledge, nó sẽ được gắn cờ là đã xử lý. 
@@ -98,6 +100,14 @@ Tất cả các host và service  không ở trong trạng thái UP được che
 Khi trạng thái điều kiện của host thay đổi, ví dụ từ OK sang CRIT. Checkmk sẽ đăng ký một event. Một event có thể gửi thông báo hoặc không. Thông báo gửi qua email. Điều này có thể được tùy chỉnh một cách linh hoạt. 
 
 Xem thêm: https://checkmk.com/cms_monitoring_basics.html
+
+### Agent
+
+Agent là một phần mềm nhỏ được cài lên host để Kiểm tra để có thể truy vấn dữ liệu từ host. Các host Windows, Linux hoặc Unix chỉ có thể được giám sát bởi Checkmk nếu bạn cài đặt một trong các CMK agent. 
+
+Các thiết bị như routers, switches, firewalls, printers, appliances, UPSs, hardware sensors... không cho phép cài checkmk agent. Tuy nhiên, chúng đã có sẵn một interface tích hợp để giám sát được cung cấp bởi nhà sản xuất là **SNMP agent**. Agent này có thể được truy cập thông qua giao thức **Simple Network Management Protocol (SNMP)**. Checkmk sử dụng SNMP để giám sát các thiết bị này. Việc đặt rất dễ dàng. 
+
+Các dịch vụ cloud như AWS hoặc Azure cũng có các tính năng tương tự như các agent, nhưng chúng được gọi là APIs và được Checkmk truy vấn thông qua HTTP.
 
 ## Các khái niệm trong check_mk
 
@@ -167,6 +177,7 @@ Khi thay đổi bằng WATO thì giám sát sẽ chưa thực hiện vai trò c�
 - Có thể sử dụng ngôn ngữ này để truy vấn dữ liệu. Lưu ý ngôn ngữ truy vấn này phân biệt chữ hoa và chữ thường.
 - Có thể sử dụng các headers để lọc thông tin hiển thị từ các truy vấn được sử dụng
 Khi muốn truy vấn thống kê thì có các giá trị và các toán tử được định nghĩa sẵn để sử dụng
+
 
 ## Cấu trúc của CHECK_MK
 
