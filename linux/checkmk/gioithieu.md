@@ -58,7 +58,7 @@ Với tính năng được tích hợp với nhiều sản phẩm thì check_mk 
 
 ![Imgur](https://i.imgur.com/xVDEiCl.png)
 
-[So sánh cụ thể các phiên bản](https://checkmk.com/editions.html)
+[So sánh cụ thể các tính năng của các phiên bản](https://checkmk.com/editions.html)
 
 
 Phiên bản Check_MK Raw Edition (CRE) là phiên bản mã nguồn mở và hoàn toàn miễn phí, có nhân giám sát là Nagios. Phiên bản Checkmk Enterprise - Free Edition giới hạn chỉ giám sát 2 site, 10 host mỗi site. 2 phiên bản còn lại chúng ta sẽ phải trả tiền nếu muốn sử dụng nó, nhân giám sát là Checkmk Microcore.
