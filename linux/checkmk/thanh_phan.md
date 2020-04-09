@@ -1,14 +1,12 @@
 ## Các thành phần chính tạo nên hệ thống giám sát checkmk
 
-### Cấu hình và check engine
+### Cấu hình và check engine (Livecheck)
 
 Checkmk cung cấp phương pháp để cấu hình nền tảng giám sát của ta một cách độc lập với core giám sát ta đang sử dụng. ta không cần xử lý trực tiếp các tệp cấu hình thông thường vì checkmk đảm nhiệm việc tìm dịch vụ tự động và cấu hình thực tế. Checkmk cung cấp một phương pháp hiệu quả cao để thực hiện kiểm tra: host của ta chỉ được liên lạc một lần cho mỗi lần kiểm tra. Kết quả sau đó được gửi đến core giám sát dưới dạng passive check. Giảm đáng kể việc sử dụng tài nguyên. 
 
 So sánh với các nền tảng giám sát khác: Đối với mỗi lần kiểm tra (thường là một lần mỗi phút), ta thăm dò host của mình cho mọi số liệu mà ta quan tâm. Vì vậy, nếu ta có một CPU và một ổ cứng, sẽ có hai lần kiểm tra mỗi phút (một cho CPU và một cho ổ cứng). Checkmk lấy được cả hai số liệu trong một lần check. Bây giờ hãy tưởng tượng rằng ta có hàng ngàn máy chủ lưu trữ và lên đến hàng trăm nghìn kiểm tra, check_mk sẽ giúp ta tiết kiệm tài nguyên đáng kể.
 
 Checkmk đảm nhiệm việc tạo dữ liệu cấu hình hoàn chỉnh cần thiết cho hệ thống giám sát của ta. Ta có thể tập trung vào việc thu thập thông tin quan trọng đối với ta và bớt phải quan tâm vào các file cấu hình. 
-
-### Livecheck
 
 - Livecheck sử dụng các helper process, các core giao tiếp với helper thông qua Unix socket (điều này không xảy ra trên file system)
 
@@ -18,7 +16,7 @@ Checkmk đảm nhiệm việc tạo dữ liệu cấu hình hoàn chỉnh cần 
 
 ### Livestatus
 
-Livestatus là interface quan trọng nhất trong Checkmk. Đây là cách nhanh nhất có thể để lấy tất cả dữ liệu của máy chủ và dịch vụ được giám sát. Dữ liệu được đọc trực tiếp từ RAM, tránh truy cập vào ổ cứng, do đó cung cấp quyền truy cập nhanh vào giám sát mà không gây quá nhiều tải cho hệ thống. Quyền truy cập vào Livestatus được thực hiện qua Unix-Socket bằng Livestatus Query Language (LQL). Cú pháp của nó dựa trên HTTP.
+Livestatus là interface quan trọng nhất trong Checkmk. Đây là cách nhanh nhất có thể để lấy tất cả dữ liệu của máy chủ và dịch vụ được giám sát. Dữ liệu được đọc trực tiếp từ RAM, tránh truy cập vào ổ cứng, do đó cung cấp quyền truy cập nhanh vào giám sát mà không gây quá nhiều tải cho hệ thống. Quyền truy cập vào Livestatus được thực hiện qua Unix-Socket (dùng loại stream socket) bằng Livestatus Query Language (LQL). Cú pháp của nó dựa trên HTTP.
 
 Để cấu trúc dữ liệu, dữ liệu được sắp xếp theo bảng và cột. Bằng cách này, dữ liệu có thể được tìm kiếm và lấy ra một cách đơn giản.
 

@@ -183,12 +183,15 @@ Khi muốn truy vấn thống kê thì có các giá trị và các toán tử �
 
 ![Imgur](https://i.imgur.com/rcIrS9Y.png)
 
-- Các lõi sẽ gọi xuống check_mk để thực hiện chức năng kiểm tra của nó
-- Sau khi check thì livestatus sẽ hiển thị thông tin lên web interface
-- Dữ liệu sẽ được lưu vào trong RRD
+- Core sẽ gọi xuống check_mk để thực hiện chức năng kiểm tra của nó
+- Livecheck bắt tay 3 bước với agent Agent nào đã kết nối thì gửi thông tin về checkmk server. Agent nào không được yêu cầu gửi thông tin thì sẽ không gửi (tiết kiệm tài nguyên). Các thông tin lúc này lưu ở RAM chứ chưa lưu vào RRD.
+- Sau khi check thì livestatus sẽ thông qua query language đẩy lên multisite web platform
+- CMK agent có port 6556
+- Các hoạt động như ping, DNS, HTTP... không thông qua agent.
+- Dữ liệu sau đó sẽ được lưu vào trong RRD
+- Event console có dịch vụ riêng, không thông qua core. Vẫn hiển thị được trên multisite web platform.
 - PNP4nagios: một addon được sử dụng để xử lý dữ liệu để chuyển sang dạng đồ thị
 - [Nagvis](https://checkmk.com/cms_nagvis.html): một addon được sử dụng để vẽ lại mô hình giám sát giúp người dùng có thể nhìn một cách dễ dàng hiểu hơn
-- RRDtool: dùng để hiển thị log dữ liệu và hệ thống đồ thị cho dât theo chuỗi thời gian (mã nguồn mở).
 
 ## Các use case
 
