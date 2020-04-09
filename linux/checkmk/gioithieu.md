@@ -65,7 +65,7 @@ Phiên bản Check_MK Raw Edition (CRE) là phiên bản mã nguồn mở và ho
 
 Chúng ta sẽ đi tìm hiểu và làm việc với phiên bản miễn phí là CRE. Và phiên bản stable hiện tại là phiên bản 1.6 phát hành ngày 24/09/2019. Chu kỳ phát triển của check_mk là 6 tháng sẽ có một bản stable.
 
-## Giới thiệu cơ bản về giám sát với checkmk
+## Giới thiệu các khái niệm cơ bản về giám sát với checkmk
 
 ### States, events, host, services.
 
