@@ -18,7 +18,7 @@ Checkmk đảm nhiệm việc tạo dữ liệu cấu hình hoàn chỉnh cần 
 
 ### Livestatus
 
-Livestatus là interface quan trọng nhất trong Checkmk. Đây là cách nhanh nhất có thể để lấy tất cả dữ liệu của máy chủ và dịch vụ được giám sát. Dữ liệu được đọc trực tiếp từ RAM, tránh truy cập vào ổ cứng, do đó cung cấp quyền truy cập nhanh vào giám sát mà không gây quá nhiều tải cho hệ thống. Cú pháp của livestatus dựa trên giao thức HTTP. 
+Livestatus là interface quan trọng nhất trong Checkmk. Đây là cách nhanh nhất có thể để lấy tất cả dữ liệu của máy chủ và dịch vụ được giám sát. Dữ liệu được đọc trực tiếp từ RAM, tránh truy cập vào ổ cứng, do đó cung cấp quyền truy cập nhanh vào giám sát mà không gây quá nhiều tải cho hệ thống. Quyền truy cập vào Livestatus được thực hiện qua Unix-Socket bằng Livestatus Query Language (LQL). Cú pháp của nó dựa trên HTTP.
 
 Để cấu trúc dữ liệu, dữ liệu được sắp xếp theo bảng và cột. Bằng cách này, dữ liệu có thể được tìm kiếm và lấy ra một cách đơn giản.
 
