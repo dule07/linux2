@@ -10,7 +10,12 @@ Các port phổ biến
 
 - Telnet - 23 is dedicated to the Telnet application server that receives connections from any Telnet client.
 
-- SMTP - 25 is dedicated to relaying messages between MTAs (mail transfer agents).
+- SMTP - 25 is dedicated to relaying messages between MTAs (mail transfer agents). SMTP (Simple Mail Transfer Protocol) là giao thức chuẩn TCP/IP được dùng để truyền tải thư điện tử (e-mail) trên mạng internet. SMTPS (có SSL) có port 465/587. 
+SMTP thiết lập kênh kết nối giữa mail client và mail server, và thiết lập kênh liên lạc giữa mail server gửi và mail server nhận. Email sẽ được đẩy từ mail client lên mail server và từ mail server nó sẽ được server này gửi đi đến mail server nhận. Nhìn hình dưới bạn sẽ thấy cách hoạt động của việc gửi mail:
+
+![Imgur](https://i.imgur.com/ui4YZQA.png)
+
+
 
 - DNS - 53 is where the DNS server runs, and one of the most famous daemons that uses this port is Bind.
 
@@ -18,9 +23,9 @@ Các port phổ biến
 
 - HTTP - 80 is the port assigned to web servers and directly associated with the Hypertext Transfer Protocol.
 
-- POP3 - 110 is the Post Office Protocol, one of the most traditional protocols used by email clients to retrieve data from remote email servers.
+- POP3 - 110 is the Post Office Protocol, one of the most traditional protocols used by email clients to retrieve data from remote email servers. POP3 (Post Office Protocol version 3) được sử dụng để kết nối tới server email và tải email xuống máy tính cá nhân thông qua một ứng dụng email như Outlook, Thunderbird, Windows Mail, Mac Mail, v.v. POP3S (có SSL) có port 995 .
 
-- IMAP - 143 is the default IMAP port for non-encrypted connections.
+- IMAP - 143 is the default IMAP port for non-encrypted connections. IMAP (Internet Message Access Protocol), POP3 cũng đều được dùng để kéo emails về emails client, tuy nhiên khác biệt với POP3 là nó chỉ kéo email headers về, nội dung email vẫn còn trên server. Đây là kênh liên lạc 2 chiều, thay đổi trên mail client sẽ được chuyển lên server. Sau này, giao thức này trở nên phổ biến nhờ nhà cung cấp mail lớn nhất thế giới, Gmail, khuyên dùng thay vì POP3. IMAPS (có SSL) có port 993.
 
 - HTTPS - 443 is the port used to serve all SSL-based requests on any website.
 
