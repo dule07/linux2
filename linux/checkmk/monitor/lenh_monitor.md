@@ -154,9 +154,9 @@ Dòng 5
 - Tổng swap đã sử dụng
 - Bộ nhớ khả dụng
 
-Swap là RAM ảo, được sử dụng khi bộ nhớ vật lý (RAM) bị đầy.
+(Swap là RAM ảo, được sử dụng khi bộ nhớ vật lý (RAM) bị đầy.)
 
-Bảng chính
+**Bảng chính**
 - ID tiến trình
 - Người dùng
 - Mức độ ưu tiên
@@ -342,3 +342,19 @@ COMMAND: Tên của lệnh bắt đầu tiến trình.
 - Chỉ hiển thị tiến trình của một người dùng bằng cách nhấn phím U
 - Hiển thị các tiến trình được sắp xếp theo một cột bất kỳ bằng cách nhấn phím F6
 - Hiển thị các tiến trình trong chế độ xem dạng cây bằng cách nhấn phím F5
+
+### 4.3.6. Các tùy chọn
+
+`–d` – delay (hiển thị độ trễ giữa các bản cập nhật, tính bằng 1/10 giây).
+
+`–C` – no-color (chế độ đơn sắc)
+
+`–h` – help (hiển thị thông báo trợ giúp và thoát)
+
+`–u` – user=USERNAME (chỉ hiển thị các tiến trình của một người dùng nhất định)
+
+`–h` – pid=PID (chỉ hiển thị các PID đã cho)
+
+`–s` – sort-key COLUMN (Sắp xếp theo cột này)
+
+`–v` – version (thông tin phiên bản đầu ra và thoát)
