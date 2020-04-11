@@ -2,7 +2,7 @@ https://haydenjames.io/
 # Các lệnh để monitor hệ thống Linux
 ## 1. Lệnh Netstat
 
-Lệnh netstat trên linux là một lệnh nằm trong số các tập lệnh để giám sát hệ thống trên linux. netstat giám sát cả chiều in và chiều out kết nối vào server, hoặc các tuyến đường route, trạng thái của card mạng. lệnh netstat rất hữu dụng trong việc giải quyết các vấn đề về sự cố liên quan đến network như là lượng connect kết nối, traffic, tốc độ, trạng thái của từng port, Ip …
+Lệnh netstat trên linux là một lệnh nằm trong số các tập lệnh để giám sát hệ thống trên linux. netstat giám sát cả chiều in và chiều out kết nối vào server, hoặc các tuyến đường route, trạng thái của card mạng. lệnh netstat rất hữu dụng trong việc giải quyết các vấn đề về sự cố liên quan đến network như là lượng connect kết nối, traffic, tốc độ, trạng thái của từng port, IP …
 
 - Kiểm tra tổng quát
 
@@ -358,3 +358,6 @@ COMMAND: Tên của lệnh bắt đầu tiến trình.
 `–s` – sort-key COLUMN (Sắp xếp theo cột này)
 
 `–v` – version (thông tin phiên bản đầu ra và thoát)
+
+Xem thêm: https://haydenjames.io/htop-quick-guide-customization/
+
