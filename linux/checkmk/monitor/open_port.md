@@ -24,11 +24,11 @@ Các port phổ biến
 
 - HTTPS - 443 is the port used to serve all SSL-based requests on any website.
 
-Các port mặc định được mở phụ thuộc vào hệ điều hành.
+Các port mặc định được mở phụ thuộc vào hệ điều hành, phiên bản.
 
-Ubuntu mặc định mở port 22 SSH 
+- Ubuntu mặc định mở port 22 SSH 
 
-Centos mặc định mở port 22 SSH, 25 SMTP, 111 rpcbind
+- Centos mặc định mở port 22 SSH, 25 SMTP, 111 rpcbind
 
 Để biết port nào đang mở:
 
@@ -40,7 +40,7 @@ Centos mặc định mở port 22 SSH, 25 SMTP, 111 rpcbind
 
 1-65535 là range. Range càng rộng thì càng tốn thời gian.
 
-Đến scan các port phổ biến
+Để scan các port phổ biến
 
     nmap --top-ports 20 X.X.X.X
 

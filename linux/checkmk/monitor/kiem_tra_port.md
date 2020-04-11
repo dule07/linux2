@@ -32,6 +32,22 @@ cupsd 17934 lp 2u IPv4 56540197 UDP *:631
 
 Dùng lệnh nmap – Công cụ kiểm tra mạng và rà soát bảo mật.
 
+Để biết port nào đang mở:
+
+    nmap -p 1-65535 localhost
+
+Đối với host không phải local
+
+    nmap -p 1-1024 X.X.X.X
+
+1-65535 là range. Range càng rộng thì càng tốn thời gian.
+
+Đến scan các port phổ biến
+
+    nmap --top-ports 20 X.X.X.X
+    
+Với 20 là số lượng port phổ biến bạn muốn scan.
+
 ## Cách 5:
 
 Dùng lệnh telnet – giao tiếp người dùng với giao thức TELNET.
