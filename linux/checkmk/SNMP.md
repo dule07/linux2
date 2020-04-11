@@ -2,6 +2,19 @@
 
 ## Giới thiệu giao thức SNMP
 
+Hiểu đơn giản:
+
+Giới thiệu SNMP (Simple Network Management Protocol)
+SNMP là một tập hợp các giao thức không chỉ cho phép kiểm tra nhằm đảm bảo các thiết bị mạng như router, switch hay server đang vận hành mà còn vận hành một cách tối ưu, ngoài ra SNMP còn cho phép quản lý các thiết bị mạng từ xa. Ví dụ: Dùng SNMP để tắt một interface nào đó trên router, theo dõi hoạt động của Card Ethernet hoặc kiểm soát nhiệt độ trên switch. Tóm lại, tất cả các thiết bị có thể chạy các phần mềm cho phép lấy được thông tin SNMP đều có thể quản lý được. Không chỉ các thiết bị vật lý mà cả những phần mềm như web server, database.
+
+![Imgur](https://i.imgur.com/vAZtbXQ.png)
+
+- Network management station: thường là một máy tính chạy phần mềm quản lý SNMP dùng để giám sát và điều khiển tập trung các Network element
+- Network element (device, host, application): là các thiết bị, máy tính hoặc phần mềm tương thích SNMP và được quản lý bởi Network management
+- Một management station có thể quản lý nhiều element và một element cũng có thể được quản lý bởi nhiều management.
+
+Cụ thể:
+
 SNMP là “giao thức quản lý mạng đơn giản”, dịch từ cụm từ “Simple Network Management Protocol”. 
 
 Giao thức là một tập hợp các thủ tục mà các bên tham gia cần tuân theo để có thể giao tiếp được với nhau. Trong lĩnh vực thông tin, một giao thức quy định cấu trúc, định dạng (format) của dòng dữ liệu trao đổi với nhau và quy định trình tự, thủ tục để trao đổi dòng dữ liệu đó. Nếu một bên tham gia gửi dữ liệu không đúng định dạng hoặc không theo trình tự thì các bên khác sẽ không hiểu hoặc từ chối trao đổi thông tin. SNMP là một giao thức, do đó nó có những quy định riêng mà các thành phần trong mạng phải tuân theo.
