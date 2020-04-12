@@ -424,8 +424,11 @@ Chú thích output của chương trình lệnh
 - TYPE :
 
         + REG : file bình thường
+
         + sock : socket.
+
         + ipv4/ipv6 : socket ipv4/v6
+        
         + DIR : thư mục
 
 - DEVICE : số đại diện của thiết bị như partition mà file nằm trên partition đó.
