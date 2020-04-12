@@ -50,6 +50,10 @@ Lệnh netstat trên linux là một lệnh nằm trong số các tập lệnh �
 
         netstat -np | grep SYN_REC | wc -l
 
+Xem thêm: 
+
+https://www.tecmint.com/20-netstat-commands-for-linux-network-management/
+
 ## 2. Lệnh ss
 
 Công cụ ss được sử dụng để giúp chúng ta cách hiển thị tất cả các thông tin của socket mạng trong hệ thống Linux. Nó cho phép hiển thị thông tin như netstat và sẽ hiển thị nhiều thông tin trạng thái hơn các công cụ khác. Lệnh ss sẽ lấy thông tin trực tiếp từ kernel.
@@ -115,6 +119,10 @@ Lệnh ss cung cấp cho chúng ta các thông tin về:
     hoặc
 
         ss -at '( dport = :ssh or sport = :ssh )'
+
+Xem thêm:
+
+https://blogd.net/linux/theo-doi-ket-noi-mang-tren-linux-dung-lenh-ss/
 
 ## 3. Lệnh top
 
@@ -245,7 +253,11 @@ Chế độ xem mặc định trong top có thể hơi lộn xộn và nếu b�
 
     top -i
 
-Xem thêm: https://quantrimang.com/dung-lenh-top-linux-xem-tien-trinh-dang-chay-162613
+Xem thêm: 
+
+https://quantrimang.com/dung-lenh-top-linux-xem-tien-trinh-dang-chay-162613
+
+https://www.tecmint.com/12-top-command-examples-in-linux/
 
 ## 4. Lệnh htop
 
@@ -365,11 +377,324 @@ COMMAND: Tên của lệnh bắt đầu tiến trình.
 
 `–v` – version (thông tin phiên bản đầu ra và thoát)
 
-Xem thêm: https://haydenjames.io/htop-quick-guide-customization/
+Xem thêm: 
 
-## 5. Lệnh vmstat
+https://haydenjames.io/htop-quick-guide-customization/
+
+https://www.tecmint.com/install-htop-linux-process-monitoring-for-rhel-centos-fedora/
+
+## 5. Lệnh lsof (LiSt Open Files)
+
+### Lệnh cơ bản và output giải thích
+
+Output của lsof có một dòng header từng cột thể hiện các nội dung tương ứng. 
+
+![Imgur](https://i.imgur.com/uCpcEUy.png)
+
+Chú thích output của chương trình lệnh
+- COMMAND : 9 kí tự đầu tiên của tên chương trình lệnh tương ứng với tiến trình.
+- PID : thông tin PID của tiến trình.
+- USER : user thực thi tiến trình đó. Có thể là UID hoặc username.
+- FD : File Descriptor của file được liệt kê, hoặc các thông tin khác hay mode (w,u,r) của file.
+
+        + cwd : là thư mục đang hoạt động của tiến trình
+
+        + txt : program text (code và data)
+
+        + mmap : memory-mapped file
+
+        + rtd : root directory
+
+        + DEL : Linux map file đã bị xoá.
+
+        + w : đang truy cập ghi xuống dữ liệu
+
+        + u : đang truy cập ghi và đọc dữ liệu
+        
+        + r : đang truy cập đọc dữ liệu
+
+- TYPE :
+
+        + REG : file bình thường
+        + sock : socket.
+        + ipv4/ipv6 : socket ipv4/v6
+        + DIR : thư mục
+
+- DEVICE : số đại diện của thiết bị như partition mà file nằm trên partition đó.
+
+- SIZE/OFF : dung lượng của file.
+- NODE : số node của file.
+- NAME : tên file.
+
+### Liệt kê các tiến trình đang mở 1 file
+
+Có thể liệt kê các tiến trình nào đang mở 1 file cụ thể bằng cách đưa đường dẫn file thành tham số sau lệnh.
+
+![Imgur](https://i.imgur.com/NFLyGcU.png)
+
+### Liệt kê các file được mở bởi 1 tiến trình
+
+Để liệt kê các file đã được mở bởi 1 tiến trình có thông tin PID cụ thể thì ta thêm option `-p` và chỉ định rõ thông tin PID của tiến trình đó.
+
+![Imgur](https://i.imgur.com/rA5CjxU.png)
+
+### Liệt kê các file đã được mở bởi 1 user cụ thể
+
+Ta chỉ cần chỉ định thêm option `-u` và tên user có tồn tại trên hệ thống.
+
+![Imgur](https://i.imgur.com/zFpXdr2.png)
+
+Cũng có liệt kê đối với user khác nhưng loại trừ 1 user cụ thể nào đó với tham số `^`.
+
+        lsof -u ^root
+
+### Liệt kê các file đã được mở trong 1 directory
+
+Với option `+D` thì lsof sẽ tìm cả các thông tin opened-files ở các sub-directory, thư mục con luôn.
+
+Còn nếu chỉ không muốn tìm cả sub-dir thì chỉ cần dùng `+d`
+
+![Imgur](https://i.imgur.com/Bu0exH5.png)
+
+### Liệt kê các file đã mở theo tên tiến trình
+
+Ta dùng option `-c` và chỉ định tên tiến trình.
+
+        lsof -c ssh
+
+        lsof -c init
+
+![Imgur](https://i.imgur.com/Ln2MiM6.png)
+
+### Kill tất cả hoạt động của 1 user cụ thể
+
+Đôi khi bạn muốn tắt hết tiến trình liên quan đến 1 user. Thì câu lệnh sau sẽ giúp bạn làm điều đó. Option `-t` sẽ liệt kê các thông tin PID và không có các output trả về khác.
+
+Ví dụ:
+
+        kill -9 `lsof -t -u thuctap`
+
+### Liệt kê các tiến trình đang lắng nghe trên port cụ thể
+
+Bạn cần chú ý option “-i” và tham số “:” cùng số port cụ thể.
+
+        lsof -i :25
+
+        lsof -i TCP:80
+
+![Imgur](https://i.imgur.com/1atZ62t.png)
+
+### Liệt kê tất cả kết nối TCP/UDP hay IPv4/v6
+
+Ta dùng option `-i` để liệt kê tất cả các kết nối của giao thức TCP hay UDP.
+
+        lsof -i tcp
+
+        lsof -i udp
+
+![Imgur](https://i.imgur.com/EnOAbmL.png)
+
+Để hiển thị tất cả các kết nối của hệ thống. Cũng như muốn chỉ định riêng việc liệt kê kết nối từ IPv4 hay v6.
+
+        lsof -i
+
+        lsof -i 4
+
+        lsof -i 6
+
+### Liệt kê tất cả các file network đang được sử dụng bởi 1 tiến trình
+
+Ta làm theo câu lệnh sau bằng cách kết hợp các option tương ứng
+
+        lsof -i -a -p 5252
+
+        lsof -i -a -c ssh
+
+![Imgur](https://i.imgur.com/tsb1Q6W.png)
+
+Xem thêm: 
+
+https://www.tecmint.com/10-lsof-command-examples-in-linux/
+
+## 6. Lệnh vmstat
+
+`vmstat` là một công cụ thập thập và báo cáo dữ liệu về tài nguyên sử dụng memory, swap và processer trong thời gian thực. `vmstat` có thể được sử dụng để xác định các vấn đề liên quan đến hiệu suất, memory sử dụng.
+
+Nếu bạn gõ lệnh vmstat không có tham số, nó sẽ hiển thị cho bạn một tập hợp các giá trị. Các giá trị này là mức trung bình cho mỗi thống kê, kể từ khi máy tính được khởi động lại lần cuối. Những số liệu này không phải là các giá trị ở thời điểm hiện tại.
+
+![Imgur](https://i.imgur.com/coHMnFK.png)
+
+### Phân tích output
+
+Có các cột Procs, Memory, Swap, IO, System và CPU. Cột cuối cùng (cột ngoài cùng bên phải) chứa dữ liệu liên quan đến CPU.
+
+**Procs**
+
+- r: Số lượng các tiến trình có thể chạy được. Đây là những tiến trình đã và đang chạy hoặc chờ đợi một chu kỳ CPU mới.
+        
+- b: Số lượng tiến trình trong trạng thái sleep liên tục. Thực chất thì những tiến trình này không “ngủ”, mà chúng chỉ đang chặn system call (là khi chương trình gọi một hàm hoặc một service nào đó nằm trong kernel của hệ điều hành) và không thể bị gián đoạn cho đến khi hành động hiện tại được hoàn thành. Thông thường, những tiến trình này diễn ra khi driver thiết bị đang chờ một số tài nguyên “rảnh rỗi”. Bất kỳ sự gián đoạn nào xảy ra đối với những quy trình này khi đang trong hàng đợi đều được xử lý khi quy trình tiếp tục hoạt động như bình thường.
+
+**Memory**
+
+- swpd: Dung lượng bộ nhớ ảo được sử dụng. Nói cách khác, đây là số lượng bộ nhớ đã bị hoán đổi.
+- free: Dung lượng bộ nhớ nhàn rỗi (hiện không sử dụng).
+- buff: Dung lượng bộ nhớ được sử dụng làm buffer.
+- cache: Dung lượng bộ nhớ được sử dụng làm cache.
+Swap
+- si: Lượng bộ nhớ ảo được swap in từ không gian hoán đổi.
+- so: Lượng bộ nhớ ảo được swap out vào không gian hoán đổi.
+
+**IO**
+
+- bi: Các khối nhận được từ một thiết bị khối. Số lượng khối dữ liệu được sử dụng để trao đổi bộ nhớ ảo trở lại RAM.
+- bo: Các khối gửi đến một thiết bị khối. Số lượng khối dữ liệu được sử dụng để trao đổi bộ nhớ ảo ra khỏi RAM và vào không gian hoán đổi.
+
+**System**
+
+- in: Số lượng gián đoạn mỗi giây, bao gồm cả xung nhịp.
+- cs: Số lượng context switch mỗi giây. Context switch là khi kernel hoán đổi từ xử lý chế độ hệ thống sang xử lý chế độ người dùng.
+
+**CPU**
+
+Các giá trị này là tất cả tỷ lệ phần trăm của tổng thời gian CPU.
+
+- us: Thời gian chạy code không phải kernel.
+- sy: Thời gian chạy code kernel.
+- id: Thời gian nhàn rỗi.
+- wa: Thời gian chờ đợi đầu vào hoặc đầu ra.
+- st: Thời gian có được từ một máy ảo. Đây là thời gian một máy ảo phải chờ hypervisor (phần mềm giám sát máy ảo) hoàn thành việc phục vụ các máy ảo khác trước khi nó có thể quay lại và xử lý máy ảo này.
+
+### Sử dụng một khoảng thời gian
+
+Bạn có thể yêu cầu vmstat cung cấp cập nhật thường xuyên cho những số liệu này bằng cách sử dụng giá trị delay. Giá trị delay được cung cấp trong vài giây. Để cập nhật số liệu thống kê cứ sau 5 giây, hãy sử dụng lệnh sau:
+
+        vmstat 5
+
+`Ctrl + C` để dừng
+
+![Imgur](https://i.imgur.com/mktnn5L.png)
+
+### Sử dụng giá trị count
+
+Sử dụng giá trị delay quá thấp sẽ gây thêm áp lực cho hệ thống. Nếu bạn cần có các bản cập nhật nhanh để cố gắng chẩn đoán sự cố, bạn nên sử dụng giá trị count cũng như giá trị delay.
+
+Giá trị count cho vmstat cho biết có bao nhiêu lần cập nhật cần thực hiện trước khi thoát và đưa bạn trở lại Command Prompt. Nếu bạn không cung cấp giá trị count, vmstat sẽ chạy cho đến khi nó bị dừng bởi tổ hợp phím Ctrl+C.
+
+Để vmstat cung cấp một bản cập nhật cứ sau 5 giây, nhưng chỉ trong 4 lần cập nhật, hãy sử dụng lệnh sau:
+
+        vmstat 5 4
+
+Sau 4 lần cập nhật, vmstat sẽ dừng lại.
+
+![Imgur](https://i.imgur.com/hirInZ0.png)
+
+### Thay đổi các đơn vị
+
+
+Bạn có thể chọn hiển thị số liệu thống kê bộ nhớ và hoán đổi theo kilobyte hoặc megabyte bằng tùy chọn `-S` (ký tự đơn vị). Tùy chọn này phải được theo sau bởi một trong các đơn vị `k`, `K`, `m` hoặc `M`. Chúng đại diện cho:
+
+- k: 1000 byte
+- K: 1024 byte
+- m: 1000000 byte
+- M: 1048576 byte
+
+Để cập nhật số liệu thống kê bộ nhớ và hoán đổi cứ sau 10 giây, hiển thị bằng megabyte, hãy sử dụng lệnh sau:
+
+        vmstat 10 -S M
+
+Số liệu thống kê bộ nhớ và hoán đổi hiện được hiển thị bằng megabyte. Lưu ý rằng tùy chọn -S không ảnh hưởng đến thống kê khối IO. Chúng luôn được hiển thị trong các khối.
+
+![Imgur](https://i.imgur.com/2pxsgDi.png)
+
+### Bộ nhớ hoạt động và không hoạt động
+
+Nếu bạn sử dụng tùy chọn `-a` (active), các cột bộ nhớ buff và cache được thay thế bằng các cột “**inact**” và “**active**”. Như bạn có thể đoán, những cột này cho thấy lượng bộ nhớ không hoạt động và hoạt động.
+
+Để xem hai cột này thay vì cột buff và cache, hãy bao gồm tùy chọn `-a`, như được hiển thị:
+
+        vmstat 5 -a -S M
+
+Các cột “inact” và “active” bị ảnh hưởng bởi tùy chọn `-S` (ký tự đơn vị).
+
+![Imgur](https://i.imgur.com/HeHFHPo.png)
+
+### Hiển thị bộ đếm sự kiện và thống kê bộ nhớ
+
+
+Để hiển thị một trang của bộ đếm sự kiện và thống kê bộ nhớ, hãy sử dụng tùy chọn `-s` (stats). Lưu ý rằng, chữ s viết thường
+
+        vmstat -s
+
+Mặc dù số liệu thống kê được báo cáo phần lớn giống như thông tin được tạo ra từ lệnh vmstat mặc định, một số dữ liệu trong đó được phân chia chi tiết hơn.
+
+Ví dụ, đầu ra mặc định kết hợp cả thời gian CPU của user nice và non-nice vào cột us. Còn tùy chọn -s (stats) liệt kê các thống kê này một cách riêng biệt.
+
+![Imgur](https://i.imgur.com/4JbvhoF.png)
+
+### Hiển thị thống kê ổ đĩa
+
+Bạn có thể có được một danh sách thống kê ổ đĩa tương tự bằng cách sử dụng tùy chọn `-d` (disk).
+
+        vmstat -d
+
+![Imgur](https://i.imgur.com/gIe4WOZ.png)
+
+Đối với mỗi ổ đĩa, có 3 cột được hiển thị, đó là **Reads**, **Writes** và **IO**.
+
+**IO** là cột ngoài cùng bên phải. Lưu ý rằng cột sec trong **IO** được đo bằng giây nhưng thống kê dựa trên thời gian trong cột **Reads** và **Writes** được đo bằng mili giây.
+
+Đây là ý nghĩa của các cột:
+
+**Reads**
+
+- total: Tổng số lần đọc ổ đĩa.
+- merged: Tổng số lần đọc được nhóm.
+- sectors: Tổng số các sector đã được đọc.
+- ms: Tổng số thời gian tính bằng mili giây đã được sử dụng để đọc dữ liệu từ ổ đĩa.
+
+**Writes**
+
+- total: Tổng số lần ghi ổ đĩa.
+- merged: Tổng số các lần ghi được nhóm lại.
+- sectors: Tổng số các sector được ghi.
+- ms = Tổng số thời gian, tính bằng mili giây, đã được sử dụng ghi dữ liệu vào ổ đĩa.
+
+**IO**
+
+- cur: Số lượng lần đọc hoặc ghi ổ đĩa hiện tại.
+- sec: Thời gian tính bằng giây cho bất kỳ việc đọc hoặc ghi nào đang được thực hiện.
+
+### Hiển thị số liệu thống kê ổ đĩa tóm tắt
+
+Sử dụng tùy chọn `-D` để hiển thị nhanh số liệu thống kê tóm tắt cho hoạt động của ổ đĩa
+
+        vmstat -D
+
+Số lượng ổ đĩa có thể trông cao bất thường. Máy tính được sử dụng làm ví dụ trong bài viết này đang chạy Ubuntu. Với Ubuntu, mỗi khi bạn cài đặt một ứng dụng từ Snap, một hệ thống file pseudo-filesystem squashfs được tạo ra sẽ gắn vào thiết bị /dev/loop.
+
+Điều khó chịu là các mục thiết bị này được tính là thiết bị ổ cứng bởi nhiều lệnh và tiện ích Linux.
+
+![Imgur](https://i.imgur.com/xMrdnqL.png)
+
+### Hiển thị thống kê phân vùng
+
+Để xem số liệu thống kê liên quan đến một phân vùng cụ thể, hãy sử dụng tùy chọn `-p` (partition) và cung cấp định danh phân vùng làm tham số dòng lệnh.
+
+Ở đây chúng ta sẽ xem xét phân vùng sda1. Chữ số một cho biết đây là phân vùng đầu tiên trên thiết bị sda, đây là ổ cứng chính cho máy tính này.
+
+Ví dụ:
+
+        vmstat -p sda1
+
+Thông tin trả về cho thấy tổng số lần đọc, ghi ổ đĩa vào và từ phân vùng đó, cũng như số lượng các sector có trong các hành động đọc và ghi ổ đĩa.
+
+Xem thêm: 
+
+https://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-commands/
 
 https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
-## 6. Lệnh lsof (LiSt Open Files)
+
+
+
 
