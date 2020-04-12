@@ -6,7 +6,15 @@ https://haydenjames.io/
 
 https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/
 
-## 1. Lệnh Netstat
+## Mục lục
+1. [Lệnh Netstat](#netstat)
+2. [Lệnh ss](#ss)
+3. [Lệnh top](#top)
+4. [Lệnh htop](#htop)
+5. [Lệnh lsof](#lsof)
+6. [Lệnh vmstat](#vmstat)
+
+## 1. Lệnh Netstat <a name="netstat"></a>
 
 Lệnh netstat trên linux là một lệnh nằm trong số các tập lệnh để giám sát hệ thống trên linux. netstat giám sát cả chiều in và chiều out kết nối vào server, hoặc các tuyến đường route, trạng thái của card mạng. lệnh netstat rất hữu dụng trong việc giải quyết các vấn đề về sự cố liên quan đến network như là lượng connect kết nối, traffic, tốc độ, trạng thái của từng port, IP …
 
@@ -54,7 +62,7 @@ Xem thêm:
 
 https://www.tecmint.com/20-netstat-commands-for-linux-network-management/
 
-## 2. Lệnh ss
+## 2. Lệnh ss <a name="ss"></a>
 
 Công cụ ss được sử dụng để giúp chúng ta cách hiển thị tất cả các thông tin của socket mạng trong hệ thống Linux. Nó cho phép hiển thị thông tin như netstat và sẽ hiển thị nhiều thông tin trạng thái hơn các công cụ khác. Lệnh ss sẽ lấy thông tin trực tiếp từ kernel.
 
@@ -124,7 +132,7 @@ Xem thêm:
 
 https://blogd.net/linux/theo-doi-ket-noi-mang-tren-linux-dung-lenh-ss/
 
-## 3. Lệnh top
+## 3. Lệnh top <a name="top"></a>
 
 Lệnh top trong Linux được sử dụng để hiển thị tất cả các tiến trình đang chạy trong môi trường Linux.
 
@@ -259,7 +267,7 @@ https://quantrimang.com/dung-lenh-top-linux-xem-tien-trinh-dang-chay-162613
 
 https://www.tecmint.com/12-top-command-examples-in-linux/
 
-## 4. Lệnh htop
+## 4. Lệnh htop <a name="htop"></a>
 
 ### 4.1. Cài đặt:
 
@@ -383,7 +391,7 @@ https://haydenjames.io/htop-quick-guide-customization/
 
 https://www.tecmint.com/install-htop-linux-process-monitoring-for-rhel-centos-fedora/
 
-## 5. Lệnh lsof (LiSt Open Files)
+## 5. Lệnh lsof (LiSt Open Files) <a name="lsof"></a>
 
 ### Lệnh cơ bản và output giải thích
 
@@ -516,7 +524,7 @@ Xem thêm:
 
 https://www.tecmint.com/10-lsof-command-examples-in-linux/
 
-## 6. Lệnh vmstat
+## 6. Lệnh vmstat <a name="vmstat"></a>
 
 `vmstat` là một công cụ thập thập và báo cáo dữ liệu về tài nguyên sử dụng memory, swap và processer trong thời gian thực. `vmstat` có thể được sử dụng để xác định các vấn đề liên quan đến hiệu suất, memory sử dụng.
 
