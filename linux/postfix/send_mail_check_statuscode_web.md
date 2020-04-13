@@ -110,6 +110,7 @@ main
 
 exit
 ```
+Thêm quyền thực thi cho script
 
     chmod u+x send_mail.sh
 
