@@ -72,3 +72,5 @@ Thay thế favico của ta vào file `/usr/share/jitsi-meet/images/favicon.ico`
     cd /usr/share/jitsi-meet/images/
     mv favicon.ico favicon.ico.bak
     wget https://cloud365.vn/images/favicon.ico -O favicon.ico
+
+![Imgur](https://i.imgur.com/uJhPoiA.png)
