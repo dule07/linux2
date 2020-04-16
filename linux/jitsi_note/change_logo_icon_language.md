@@ -137,3 +137,17 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, tìm đến mục `lo
 Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` trong phần `TOOLBAR_BUTTONS` thêm `'localrecording'` (để ý dấu phẩy).
 
 Chỉ có quản trị viên được quyền record.
+
+## Trên mobile xem trên chrome được 
+
+Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` uncomment và sửa `disableDeepLinking`
+
+    disableDeepLinking: true,
+
+## Thêm lịch họp tích hợp Google hoặc Microsoft 
+
+Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` sửa `enableCalendarIntegration`
+
+    googleApiApplicationClientID: "39065779381-bbhnkrgibtf4p0j9ne5vsq7bm49t1tlf.apps.googleusercontent.com",
+    microsoftApiApplicationClientID: "00000000-0000-0000-0000-000040240063",
+    enableCalendarIntegration: true,

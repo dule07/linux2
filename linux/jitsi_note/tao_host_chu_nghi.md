@@ -17,7 +17,7 @@ Sau đây sẽ là hướng dẫn tạo một chủ nghị cho trang Jitsi của
 
 ### Bước 1:
 
-Sửa file `/etc/prosody/conf.avail/<IP_OR_DOMAIN>.cfg.lua3`
+Sửa file `/etc/prosody/conf.avail/<IP_OR_DOMAIN>.cfg.lua`
 
 Cụ thể trong bài này là `/etc/prosody/conf.avail/meeting1.workfromhome.vn.cfg.lua`
 
@@ -32,8 +32,6 @@ VirtualHost "guest.meeting1.workfromhome.vn"
         authentication = "anonymous"
         c2s_require_encryption = false
 ```
-
-
 
 ### Bước 2: 
 
@@ -110,3 +108,11 @@ Sau khi vào phòng bằng user chủ nghị sẽ thấy thông báo quyền đi
 
 **Lưu ý:** Chủ nghị là người điều hành cuộc họp. Nếu chủ nghị thoát khỏi phòng thì cuộc họp sẽ chấm dứt ngay lập tức.
 
+Thay đổi dòng `user@domain.net` tại khung đăng nhập chủ trì thành `user@dangdohai.xyz`
+
+![Imgur](https://i.imgur.com/uDnoFh2.png)
+
+Sửa file `app.bundle.min.map` và `app.bundle.min.js` tại thư mục `/usr/share/jitsi-meet/libs`
+
+    sed -i 's/user@domain.net/user@daotao.thanhhoaict.gov.vn/g' /usr/share/jitsi-meet/libs/app.bundle.min.map
+    sed -i 's/user@domain.net/user@daotao.thanhhoaict.gov.vn/g' /usr/share/jitsi-meet/libs/app.bundle.min.js
