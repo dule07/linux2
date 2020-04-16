@@ -74,3 +74,62 @@ Thay thế favico của ta vào file `/usr/share/jitsi-meet/images/favicon.ico`
     wget https://cloud365.vn/images/favicon.ico -O favicon.ico
 
 ![Imgur](https://i.imgur.com/uJhPoiA.png)
+
+## Giảm độ phân giải để đỡ ngốn mạng và không mở file 
+
+`/etc/jitsi/meet/<domain>-config.js` và sửa resolution
+
+    vi /etc/jitsi/meet/jitsi.dangdohai.xyz-config.js
+
+Uncomment và sửa lại cac dòng sau:
+
+```
+    // Sets the preferred resolution (height) for local video. Defaults to 720.
+    resolution: 180,
+
+    constraints: {
+       video: {
+            aspectRatio: 16 / 9,
+             height: {
+                ideal: 180,
+                 max: 180,
+                 min: 180
+            }
+         }
+     },
+```
+
+## Tắt tự động đặt tên phòng
+
+Vào file `/usr/share/jitsi-meet/interface_config.js`, tìm đến dòng `GENERATE_ROOMNAMES_ON_WELCOME_PAGE` sửa từ `true` thành `false`.
+
+    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: false,
+
+## Sửa title trang
+
+Vào file `/usr/share/jitsi-meet/interface_config.js` sửa các dòng
+
+    APP_NAME: 'Họp trực tuyến - Nhân hòa',
+    NATIVE_APP_NAME: 'Họp trực tuyến - Nhân Hòa',
+
+## Yêu cầu người dùng nhập tên trước khi vào phòng họp
+
+Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, Uncomment dòng sau:
+
+    requireDisplayName: true
+
+## Ghi âm phía client
+
+Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, tìm đến mục `localRecording` sửa thành
+
+    localRecording: {
+    // Enables local recording.
+    // Additionally, 'localrecording' (all lowercase) needs to be added to
+    // TOOLBAR_BUTTONS in interface_config.js for the Local Recording
+    // button to show up on the toolbar.
+         enabled: true,
+    // The recording format, can be one of 'ogg', 'flac' or 'wav'.
+         format: 'flac'
+     },
+
+Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` trong phần `TOOLBAR_BUTTONS` thêm `'localrecording'` (để ý dấu phẩy).
