@@ -77,7 +77,9 @@ Thay thế favico của ta vào file `/usr/share/jitsi-meet/images/favicon.ico`
 
 ## Giảm độ phân giải để đỡ ngốn mạng và không mở file 
 
-`/etc/jitsi/meet/<domain>-config.js` và sửa resolution
+Độ phân giải mặc định sẽ là HD (720p). Bạn có thể giảm độ phân giải mặc định xuống thấp hơn để tiết kiệm lưu lượng mạng.
+
+Vào thư mục `/etc/jitsi/meet/<domain>-config.js` để chỉnh resolution
 
     vi /etc/jitsi/meet/jitsi.dangdohai.xyz-config.js
 
@@ -133,3 +135,5 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, tìm đến mục `lo
      },
 
 Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` trong phần `TOOLBAR_BUTTONS` thêm `'localrecording'` (để ý dấu phẩy).
+
+Chỉ có quản trị viên được quyền record.
