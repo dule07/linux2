@@ -138,13 +138,13 @@ Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` tron
 
 Chỉ có quản trị viên được quyền record.
 
-## Trên mobile xem trên chrome được 
+## Cấu hình để người dùng trên mobile vào phòng bằng chrome được 
 
 Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` uncomment và sửa `disableDeepLinking`
 
     disableDeepLinking: true,
 
-## Thêm lịch họp tích hợp Google hoặc Microsoft 
+## Thêm lịch họp tích hợp Google hoặc Microsoft (Cần xác thực, chưa được)
 
 Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` sửa `enableCalendarIntegration`
 

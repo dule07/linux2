@@ -114,5 +114,5 @@ Thay đổi dòng `user@domain.net` tại khung đăng nhập chủ trì thành 
 
 Sửa file `app.bundle.min.map` và `app.bundle.min.js` tại thư mục `/usr/share/jitsi-meet/libs`
 
-    sed -i 's/user@domain.net/user@daotao.thanhhoaict.gov.vn/g' /usr/share/jitsi-meet/libs/app.bundle.min.map
-    sed -i 's/user@domain.net/user@daotao.thanhhoaict.gov.vn/g' /usr/share/jitsi-meet/libs/app.bundle.min.js
+    sed -i 's/user@domain.net/user@dangdohai.xyz/g' /usr/share/jitsi-meet/libs/app.bundle.min.map
+    sed -i 's/user@domain.net/user@dangdohai.xyz/g' /usr/share/jitsi-meet/libs/app.bundle.min.js
