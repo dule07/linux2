@@ -1,4 +1,4 @@
-# Jitsi - Hướng dẫn đổi ngôn ngữ mặc định, đổi logo, favico trên 
+# Jitsi - Hướng dẫn đổi ngôn ngữ mặc định, đổi logo, favicon trên 
 
 ## Hướng dẫn đổi ngôn ngữ mặc định
 
@@ -41,7 +41,7 @@ Bổ sung thêm text Vận hành bởi cloud365:
 
 Sửa css bổ sung thêm đoạn sau vào cuối file (chỗ này đã minify)
 
-    .watermark::after{content:"Hạ tầng vận hành bởi Cloud365";color:#fff;font-weight:400;position:relative;left:.1rem;top:3.2rem}
+    .watermark::after{content:"Hạ tầng cloud để triển khai";color:#fff;font-weight:400;position:relative;left:.1rem;top:3.2rem}
     #largeVideoContainer > div:nth-child(3) > a > .watermark::after{left: -0.3rem}
     .leftwatermark{height: 3rem;}
 
@@ -63,11 +63,11 @@ Thay thế logo của ta vào file `/usr/share/jitsi-meet/images/watermark.png`
     cd /usr/share/jitsi-meet/images/
     wget https://cloud365.vn/images/logo-white.png -O watermark.png
 
-## Đổi favico
+## Đổi favicon
 
 Favicon của Nhân Hòa: https://cloud365.vn/images/favicon.ico
 
-Thay thế favico của ta vào file `/usr/share/jitsi-meet/images/favicon.ico`
+Thay thế favicon của ta vào file `/usr/share/jitsi-meet/images/favicon.ico`
 
     cd /usr/share/jitsi-meet/images/
     mv favicon.ico favicon.ico.bak
@@ -136,7 +136,13 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, tìm đến mục `lo
 
 Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` trong phần `TOOLBAR_BUTTONS` thêm `'localrecording'` (để ý dấu phẩy).
 
-Chỉ có quản trị viên được quyền record.
+Chỉ có quản trị viên được quyền record. Lưu trên local.
+
+![Imgur](https://i.imgur.com/TEVer78.png)
+
+![Imgur](https://i.imgur.com/QJoyZj9.png)
+
+![Imgur](https://i.imgur.com/JpG5qLq.png)
 
 ## Cấu hình để người dùng trên mobile vào phòng bằng chrome được 
 
