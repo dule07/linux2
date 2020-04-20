@@ -4,7 +4,7 @@
 
 ### 1. Truy cập hệ thống
 
-Truy cập vào trang Jitsi của bạn
+Truy cập vào trang Jitsi của bạn. Ở đây trang của chúng tôi là: https://meet.workfromhome.vn/
 
 Màn hình giao diện ban đầu của hệ thống hiển thị:
 
