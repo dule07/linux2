@@ -214,7 +214,7 @@ Nhập tên hiển thị trong cuộc họp.
 
 ![Imgur](https://i.imgur.com/gTag86q.png)
 
-Góc dưới giữa màn hình là 3 nút. Chức năng lần lượt từ trái sang phải là: Bật / Tắt micro. Bật / Tắt camera và Thoát cuộc họp.
+Góc dưới giữa màn hình là 3 nút. Chức năng lần lượt từ trái sang phải là: Bật / Tắt micro, Thoát cuộc họp và Bật / Tắt camera.
 
 #### 2.2. Tính năng chat
 
