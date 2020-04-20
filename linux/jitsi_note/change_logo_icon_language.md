@@ -157,3 +157,46 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` sửa `enableCalendarI
     googleApiApplicationClientID: "39065779381-bbhnkrgibtf4p0j9ne5vsq7bm49t1tlf.apps.googleusercontent.com",
     microsoftApiApplicationClientID: "00000000-0000-0000-0000-000040240063",
     enableCalendarIntegration: true,
+
+## Tắt âm thanh của người vào phòng khi họ mới vào
+
+    // Start calls with audio muted. Unlike the option above, this one is only
+    // applied locally. FIXME: having these 2 options is confusing.
+    startWithAudioMuted: true,
+
+## Tắt cam của người vào phòng khi họ mới vào
+
+    // Start calls with video muted. Unlike the option above, this one is only
+    // applied locally. FIXME: having these 2 options is confusing.
+    startWithVideoMuted: true,
+
+## Giảm mức độ sử dụng CPU trên client chậm
+
+    // Disable measuring of audio levels.
+    disableAudioLevels: true,
+
+## crontab, restart lúc 12h trưa và 12h đêm mỗi ngày (Xóa user ảo)
+
+vi /bin/restartJitsiService.sh
+
+---
+#!/bin/bash
+DATE=$(date "+%T %d/%m/%Y")
+
+/etc/init.d/jicofo restart
+/etc/init.d/prosody restart
+/etc/init.d/jitsi-videobridge restart
+/etc/init.d/jitsi-videobridge2 restart
+
+echo "Da thuc hien Script restart vao luc $DATE" >> /var/log/jitsi/scriptRestart.log
+----
+
+chmod 755 /bin/restartJitsiService.sh
+
+ll /bin/ | grep restartJitsiService.sh
+
+crontab -e
+
+---
+00 00,12 * * * /bin/restartJitsiService.sh
+---
