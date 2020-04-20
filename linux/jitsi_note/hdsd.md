@@ -98,7 +98,22 @@ Người dùng có thể Tắt micro của tất cả những người tham gia 
 
 ![Imgur](https://i.imgur.com/jObgOcA.png)
 
-#### 5.2. Tính năng ghi âm 
+#### 5.2. Các thao tác với người khác trong phòng họp
+
+Để thực hiện các thao tác với một người bất kỳ trong phòng họp, chọn ký hiệu dấu ba chấm tương ứng với người đó
+
+Người có quyền chủ trì sẽ thấy:
+
+![Imgur](https://i.imgur.com/HMkZbv1.png)
+
+- Nếu người đó đang bật mic, có thể tắt mic của họ bằng
+cách bấm vào ký hiệu này.
+- Nếu trong phòng có nhiều người đang bật mic, chọn lựa chọn này để tắt mic của tất cả mọi người, trừ người này.
+- Đẩy ra khỏi phòng
+- Gửi tin nhắn riêng
+- Điều chỉnh âm lượng của người đó
+
+#### 5.3. Tính năng ghi âm 
 
 Tính năng này cần phải cấu hình thêm.
 
@@ -132,7 +147,7 @@ Xem hướng dẫn cụ thể về tính năng ghi âm tại đây:
 
 https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817930
 
-#### 5.3. Tính năng ghi hình
+#### 5.4. Tính năng ghi hình
 
 Tính năng này cần phải cấu hình thêm. Ở đây tôi đã thêm API app Dropbox để lưu file record video trên Dropbox.
 
@@ -274,22 +289,11 @@ Nhập đường dẫn của video youtube rồi Click chọn Chia sẻ
 
 Để thực hiện các thao tác với một người bất kỳ trong phòng họp, chọn ký hiệu dấu ba chấm tương ứng với người đó
 
-Người có quyền chủ trì sẽ thấy:
-
-![Imgur](https://i.imgur.com/HMkZbv1.png)
-
-- Nếu người đó đang bật mic, có thể tắt mic của họ bằng
-cách bấm vào ký hiệu này.
-- Nếu trong phòng có nhiều người đang bật mic, chọn lựa chọn này để tắt mic của tất cả mọi người, trừ người này.
-- Đẩy ra khỏi phòng
-- Gửi tin nhắn riêng
-- Điều chỉnh âm lượng của người đó
-
 Người dùng thường được mời vào phòng sẽ thấy:
 
 ![Imgur](https://i.imgur.com/tKqfwyW.png)
 
-Người dùng bình thường chỉ có quyenf Gủi tin nhắn riêng và điều chỉnh âm lượng người khác.
+Người dùng bình thường chỉ có quyền Gửi tin nhắn riêng và điều chỉnh âm lượng người khác.
 
 Lưu ý: Khi ta điều chỉnh âm lượng của người khác thì điều đó chỉ áp dụng lên loa hoặc tai nghe của ta chứ không ảnh hưởng đến người khác.
 
