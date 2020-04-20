@@ -178,7 +178,7 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` sửa `enableCalendarI
 ## crontab, restart lúc 12h trưa và 12h đêm mỗi ngày (Xóa user ảo)
 
 vi /bin/restartJitsiService.sh
-
+```
 ---
 #!/bin/bash
 DATE=$(date "+%T %d/%m/%Y")
@@ -200,3 +200,4 @@ crontab -e
 ---
 00 00,12 * * * /bin/restartJitsiService.sh
 ---
+```
