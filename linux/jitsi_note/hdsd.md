@@ -92,7 +92,7 @@ Những người tham gia cuộc họp sẽ truy cập vào đường dẫn và 
 
 ## II. Dành cho người dùng
 
-1. Truy cập phòng họp
+### 1. Truy cập phòng họp
 
 Để tham gia vào cuộc họp bất kỳ, người dùng truy cập đường dẫn vào phòng họp rồi nhập mật khẩu (nếu có) và bấm OK.
 
