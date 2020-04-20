@@ -90,6 +90,98 @@ Phòng họp đã có mật khẩu, những ai truy cập vào phòng họp này
 
 Những người tham gia cuộc họp sẽ truy cập vào đường dẫn và nhập mật khẩu để tham gia cuộc họp.
 
+### 5. Các tính năng chỉ người chủ trì có thể dùng
+
+#### 5.1. Tắt micro của mọi người
+
+Người dùng có thể Tắt micro của tất cả những người tham gia phòng họp:
+
+![Imgur](https://i.imgur.com/jObgOcA.png)
+
+#### 5.2. Tính năng ghi âm 
+
+Tính năng này cần phải cấu hình thêm.
+
+Click vào nút REC ở góc phải bên dưới màn hình.
+
+![Imgur](https://i.imgur.com/rjs1uIJ.png)
+
+Sau đó ta sẽ thấy khung Kiểm soát ghi âm cục bộ xuất hiện. Click vào chữ Bắt đầu ghi âm để thực hiện ghi âm. Sau đó Click và thảo luận trong phòng như bình thường. Tất cả âm thanh trong cuộc họp đều sẽ được ghi âm lại.
+
+![Imgur](https://i.imgur.com/kOi5KZv.png)
+
+Khi muốn dừng ghi âm, bạn chỉ cần click lại vào nút REC và click Dừng ghi âm.
+
+![Imgur](https://i.imgur.com/DK5EJXk.png)
+
+Hệ thống sẽ tự động tải xuống cho mọi người trong phòng một file âm thanh.
+
+![Imgur](https://i.imgur.com/fi1pmmm.png)
+
+Bạn có thể mở file này với các phần mềm nghe nhạc hay xem phim thông dụng như Windows media player, VLC, Media Player Classic - HC, v.v...
+
+Để biết file này được lưu ở đâu trên máy tính của bạn, click vào ô **Show all**.
+
+![Imgur](https://i.imgur.com/kZRuixK.png)
+
+Sau đó click vào **Show in folder** tại file vừa tải xuống.
+
+![Imgur](https://i.imgur.com/VK7RawI.png)
+
+Xem hướng dẫn cụ thể về tính năng ghi âm tại đây:
+
+https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817930
+
+#### 5.3. Tính năng ghi hình
+
+Tính năng này cần phải cấu hình thêm. Ở đây tôi đã thêm API app Dropbox để lưu file record video trên Dropbox.
+
+Để ghi hình lại cuộc họp, chọn ký hiệu góc dưới bên phải màn hình rồi chọn Bắt đầu ghi hình.
+
+![Imgur](https://i.imgur.com/n8d00kd.png)
+
+Chọn đăng nhập Dropbox với tài khoản Dropbox
+
+![Imgur](https://i.imgur.com/qfRMryO.png)
+
+Click Continue để tiếp tục
+
+![Imgur](https://i.imgur.com/qeSpDWL.png)
+
+Click Alow để xác nhận cho phép API App lưu trên tài khoản Dropbox của bạn.
+
+![Imgur](https://i.imgur.com/1bLdqDQ.png)
+
+Đăng nhập thành công. Click vào Bắt đầu ghi hình
+
+![Imgur](https://i.imgur.com/UOAcyqK.png)
+
+Sau đó cuộc họp sẽ được ghi hình. Khi muốn kết thúc ghi hình bạn thực hiện như trong hình dưới.
+
+![Imgur](https://i.imgur.com/Oytaqht.png)
+
+Bây giờ kiểm tra trong tài khoản Dropbox của bạn tại https://www.dropbox.com/. Bạn sẽ thấy có một thư mục Recording mới được thêm.
+
+![Imgur](https://i.imgur.com/KV0zlkh.png)
+
+Kiểm tra thư mục này bạn sẽ thấy có file ghi hình cuộc họp của bạn với định dạng .mp4.
+
+![Imgur](https://i.imgur.com/3RlBDCR.png)
+
+Nếu bạn không muốn dùng Dropbox, bạn có thể xem hướng dẫn sử dụng để lưu video trực tiếp trên server Jitsi tại đây:
+
+https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817959#Jitsi-C%E1%BA%A5uh%C3%ACnht%C3%ADnhn%C4%83ngRecordVideotr%C3%AAnJitsi-5.Ki%E1%BB%83mtrath%C6%B0m%E1%BB%A5cl%C6%B0ufilerecord
+
+Xem thêm hướng dẫn cụ thể về tính năng ghi hình tại đây:
+
+https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817959
+
+và tại đây:
+
+https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817998
+
+**Lưu ý:** Ngoài các tính năng này. Người chủ trì còn có thể sử dụng tất cả các tính năng khác sẽ được trình bày ở dưới.
+
 ## II. Dành cho người dùng
 
 ### 1. Truy cập phòng họp
@@ -201,7 +293,7 @@ Người dùng bình thường chỉ có quyenf Gủi tin nhắn riêng và đi�
 
 Lưu ý: Khi ta điều chỉnh âm lượng của người khác thì điều đó chỉ áp dụng lên loa hoặc tai nghe của ta chứ không ảnh hưởng đến người khác.
 
-#### 2.7. Chỉnh sửa tên hiển thị trong cuộc họp
+#### 2.7. Chỉnh sửa tên hiển thị của bản thân trong cuộc họp
 
 Để chỉnh sửa lại tên hiển thị trong cuộc họp, người dùng click vào tên trong khung ảnh của bản thân và chỉnh sửa tên hiển thị.
 
@@ -241,38 +333,23 @@ Nhập key trực tuyến trên Youtube rồi bấm chọn Bắt đầu phát tr
 
 ![Imgur](https://i.imgur.com/ZSwdo1o.png)
 
-#### 2.11. Chức năng ghi hình
-Để ghi hình lại cuộc họp, chọn ký hiệu góc dưới bên phải màn hình rồi chọn Bắt đầu ghi hình.
-
-![Imgur](https://i.imgur.com/n8d00kd.png)
-
-Hướng dẫn cụ thể về tính năng ghi hình:
-
-https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817959
-
-#### 2.12. Chức năng xoá phông nền
+#### 2.11. Chức năng xoá phông nền
 
 Người dùng có thể xoá phông nền đằng sau bằng cách lựa chọn ký hiệu ba chấm rồi chọn Chế độ làm mờ video
 
 ![Imgur](https://i.imgur.com/FU8r0L1.png)
 
-#### 2.13. Tắt micro của mọi người
-
-Người dùng có thể Tắt micro của tất cả những người tham gia phòng họp:
-
-![Imgur](https://i.imgur.com/jObgOcA.png)
-
-#### 2.14. Thống kê người tham gia
+#### 2.12. Thống kê thời gian nói của người tham gia
 
 Để xem có bao nhiêu người tham gia và thời gian nói của mỗi người, lựa chọn ký hiệu ba chấm rồi chọn Thống kê về diễn giả.
 
 ![Imgur](https://i.imgur.com/G7o2J6M.png)
 
-Thống kê về những người tham gia sẽ hiển thị:
+Thống kê về thời gian nói của những người tham gia sẽ hiển thị:
 
 ![Imgur](https://i.imgur.com/Tysj5oi.png)
 
-#### 2.15. Xem phím tắt
+#### 2.13. Xem phím tắt
 
 Để xem phím tắt để thao tác trong cuộc họp, chọn Xem phím tắt
 
@@ -282,12 +359,3 @@ Danh sách các thao tác tương ứng với phím tắt hiển thị, người
 
 ![Imgur](https://i.imgur.com/SLluIgL.png)
 
-#### 2.16. Tính năng ghi âm
-
-Click vào nút REC ở góc phải bên dưới màn hình.
-
-![Imgur](https://i.imgur.com/rjs1uIJ.png)
-
-Xem hướng dẫn cụ thể về tính năng ghi âm tại đây
-
-https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817930
