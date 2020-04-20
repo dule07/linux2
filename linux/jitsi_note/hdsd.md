@@ -191,7 +191,7 @@ Xem thêm hướng dẫn cụ thể về tính năng ghi hình tại đây:
 
 https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817959
 
-và tại đây:
+Xem hướng dẫn tạo API app Dropbox để lưu video record tại đây:
 
 https://kb.nhanhoa.com/pages/viewpage.action?pageId=33817998
 
