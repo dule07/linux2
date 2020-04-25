@@ -10,7 +10,7 @@ Vào thư mục `/etc/jitsi/meet/`, backup file `<domain>-config.js`. Ở đây 
 
 Vào file jitsi.dangdohai.xyz-config.js tìm đến dòng 256. Đổi `defaultLanguage: 'en'` thành `defaultLanguage: 'vi'`. Hoặc chạy lệnh:
 
-    sed -i 's|defaultLanguage: 'vi',|defaultLanguage: 'en',|g' /etc/jitsi/meet/jitsi.dangdohai.xyz-config.js
+    sed -i "s|// defaultLanguage: 'en',|defaultLanguage: 'vi',|g" /etc/jitsi/meet/jitsi.dangdohai.xyz-config.js
 
 Mở trình duyệt ẩn danh và kiểm tra lại kết quả.
 
@@ -116,9 +116,9 @@ Vào file `/usr/share/jitsi-meet/interface_config.js` sửa các dòng
 
 ## Yêu cầu người dùng nhập tên trước khi vào phòng họp
 
-Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, Uncomment dòng sau:
+Vào file `/etc/jitsi/meet/<domain>-config.js`. Ví dụ `/etc/jitsi/meet/jitsi.dungdb.xyz-config.js` Uncomment dòng sau:
 
-    requireDisplayName: true
+    requireDisplayName: true,
 
 ## Ghi âm phía client
 
@@ -136,7 +136,7 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js`, tìm đến mục `lo
 
 Sau đó tìm đến thư mục `/usr/share/jitsi-meet/interface_config.js` trong phần `TOOLBAR_BUTTONS` thêm `'localrecording'` (để ý dấu phẩy).
 
-Chỉ có quản trị viên được quyền record. Lưu trên local.
+Chỉ có quản trị viên được quyền record. Lưu trên máy local của tất cả mọi người trong phòng họp.
 
 ![Imgur](https://i.imgur.com/TEVer78.png)
 
@@ -170,7 +170,7 @@ Vào file `/etc/jitsi/meet/jitsi.dangdohai.xyz-config.js` sửa `enableCalendarI
     // applied locally. FIXME: having these 2 options is confusing.
     startWithVideoMuted: true,
 
-## Giảm mức độ sử dụng CPU trên client chậm
+## Tắt nút "Tôi đang phát biểu". Giảm mức độ sử dụng CPU trên client chậm
 
     // Disable measuring of audio levels.
     disableAudioLevels: true,
@@ -201,3 +201,34 @@ crontab -e
 00 00,12 * * * /bin/restartJitsiService.sh
 ---
 ```
+
+## Tắt làm mờ background
+
+Vào file `/usr/share/jitsi-meet/interface_config.js`, sửa dòng:
+    
+    DISABLE_VIDEO_BACKGROUND: true,
+
+
+## Tắt hoạt ảnh feedback
+
+Vào file `/usr/share/jitsi-meet/interface_config.js`. Sửa các dòng
+
+    // Enables feedback star animation.
+    ENABLE_FEEDBACK_ANIMATION: false,
+    DISABLE_FOCUS_INDICATOR: true,
+    DISABLE_DOMINANT_SPEAKER_INDICATOR: true,
+
+## Tắt thông báo khi có người vào phòng, thoát khỏi phòng
+
+Cân nhắc dùng nếu có quá nhiều người vào phòng.
+
+Vào file `/usr/share/jitsi-meet/interface_config.js`. Sửa dòng
+
+    DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
+
+    
+## Xem các dòng sau (k thấy)
+
+Vào file `/usr/share/jitsi-meet/interface_config.js`. Sửa các dòng
+
+    SET_FILMSTRIP_ENABLED: false

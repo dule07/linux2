@@ -25,7 +25,19 @@ Sau đó restart service và kiểm tra như trên.
 
     service jitsi-videobridge restart
 
+![Imgur](https://i.imgur.com/5EwnM54.png)
+
+
+
+```
+{"inactive_endpoints":0,"inactive_conferences":0,"total_ice_succeeded_relayed":0,"total_loss_degraded_participant_seconds":0,"bit_rate_download":0,"muc_clients_connected":1,"total_participants":0,"total_packets_received":0,"rtt_aggregate":0.0,"packet_rate_upload":0,"p2p_conferences":0,"total_loss_limited_participant_seconds":0,"octo_send_bitrate":0,"total_dominant_speaker_changes":0,"receive_only_endpoints":0,"total_colibri_web_socket_messages_received":0,"octo_receive_bitrate":0,"loss_rate_upload":0.0,"version":"2.1.169-ga28eb88e","total_ice_succeeded":0,"total_colibri_web_socket_messages_sent":0,"total_bytes_sent_octo":0,"total_data_channel_messages_received":0,"loss_rate_download":0.0,"total_conference_seconds":0,"bit_rate_upload":0,"total_conferences_completed":0,"octo_conferences":0,"num_eps_no_msg_transport_after_delay":0,"endpoints_sending_video":0,"packet_rate_download":0,"muc_clients_configured":1,"conference_sizes":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"total_packets_sent_octo":0,"conferences_by_video_senders":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"videostreams":0,"jitter_aggregate":0.0,"total_ice_succeeded_tcp":0,"octo_endpoints":0,"current_timestamp":"2020-04-18 07:16:15.544","total_packets_dropped_octo":0,"conferences":0,"participants":0,"largest_conference":0,"total_packets_sent":0,"total_data_channel_messages_sent":0,"total_bytes_received_octo":0,"octo_send_packet_rate":0,"conferences_by_audio_senders":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"total_conferences_created":0,"total_ice_failed":0,"threads":36,"videochannels":0,"total_packets_received_octo":0,"graceful_shutdown":false,"octo_receive_packet_rate":0,"total_bytes_received":0,"rtp_loss":0.0,"total_loss_controlled_participant_seconds":0,"total_partially_failed_conferences":0,"endpoints_sending_audio":0,"total_bytes_sent":0,"mucs_configured":1,"total_failed_conferences":0,"mucs_joined":1}
+```
+
+
+
 ## Các thông số và ý nghĩa
+
+https://github.com/jitsi/jitsi-videobridge/blob/master/doc/statistics.md
 
 - `current_timestamp` : Giá trị là ngày và thời gian khi số liệu thống kê được tạo (múi giờ UTC).
 
@@ -80,3 +92,4 @@ Sau đó restart service và kiểm tra như trên.
 - `total_colibri_web_socket_messages_received` / `total_colibri_web_socket_messages_sent` : Tổng số tin nhắn nhận được và gửi qua COLIBRI web sockets.
 
 - `version` : Phiên bản hiện tại của Jitsi
+

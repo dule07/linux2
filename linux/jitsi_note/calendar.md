@@ -101,6 +101,8 @@ Bổ sung 2 dòng sau nếu chưa có
 
 Trong đó `809480196179-sdhdve6jnf15l6iv1vclbmc9ca1v3tgl.apps.googleusercontent.com` là mã Your Client ID vừa copy ở trên.
 
+## Bước 3: Đăng nhập tài khoản google và tạo thời gian biểu trên lịch
+
 Truy cập vào trang Jitsi. Chọn **Kết nối lịch của bạn**.
 
 ![Imgur](https://i.imgur.com/rCOTTo3.png)

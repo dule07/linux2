@@ -20,6 +20,10 @@ Nếu đây là lần đầu bạn dùng trình duyệt, bạn cần cấp quy�
 
 ![Imgur](https://i.imgur.com/303j7cA.jpg)
 
+Một vài trình duyệt còn cho phép bạn chọn dùng máy ảnh và micro nào cho cuộc họp.
+
+![Imgur](https://i.imgur.com/RBct2Sl.jpg)
+
 Nếu trước đó bạn đã không cho phép ứng dụng các quyền này, bạn có thể làm theo các bước sau đây để Cho phép. Vì trên trình duyệt mobile không có tính năng bật tắt camera giữa cuộc họp, nên bạn cũng có thể dùng cách này để hủy quyền dùng camera nếu bạn cảm thấy cần thiết. 
 
 - Vào **Cài đặt**
@@ -46,10 +50,6 @@ Nếu trước đó bạn đã không cho phép ứng dụng các quyền này, 
 
 ![Imgur](https://i.imgur.com/G8W18xb.jpg)
 
-Một vài trình duyệt còn cho phép bạn chọn dùng máy ảnh và micro nào cho cuộc họp.
-
-![Imgur](https://i.imgur.com/RBct2Sl.jpg)
-
 ## Hướng dẫn tạo phòng
 
 Truy cập vào trang Jitsi của ta. Nhập tên phòng và nhấn **Go**
@@ -59,6 +59,10 @@ Truy cập vào trang Jitsi của ta. Nhập tên phòng và nhấn **Go**
 Giao diện bên trong phòng
 
 ![Imgur](https://i.imgur.com/6C0YmB2.jpg)
+
+Ở đây ta có thể thấy giao diện khá giống với giao diện khi sử dụng trên máy tính.
+
+**Lưu ý:** Không có tính năng bật tắt camera trong cuộc họp nếu sử dụng trình duyệt
 
 Click vào dấu 3 chấm để xem các tính năng trong phòng
 

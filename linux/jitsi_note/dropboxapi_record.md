@@ -4,8 +4,13 @@ https://www.evernote.com/shard/s499/client/snv?noteGuid=27116723-bb7d-e78e-8e71-
 
 Sau khi câú hình Jitsi Video recording thành công chúng ta mới thực hiện bài này
 
-Tạo tài khoản dropbox và đăng nhập
-Lấy appKey
+**Bước 1:** Truy cập vào https://dropbox.com và đăng nhập vào tài khoản của bạn. Nếu chưa có tài khoản hãy tạo cho mình một tài khoản, sau đó đăng nhập. 
+
+**Lưu ý:** Phải xác nhận email đăng ký tài khoản
+
+![Imgur](https://i.imgur.com/6zOz0Y8.png)
+
+**Bước 2:** Lấy appKey
 
 Truy cập đường dẫn sau để tạo API APP
 https://www.dropbox.com/developers/apps/create 
@@ -18,19 +23,17 @@ Tạo API APP như sau
 
 Ở phần (3) name your app. Có thể sẽ bị trùng tên. Ở đây tôi đặt lại tên app là **jitsitestdungdbxyz**
 
-Sau đó chúng ta được chuyển đến màn app
+Sau đó chúng ta được chuyển đến trang app đã tạo.
 
-Tại đây lưu lại phần Appkey là  **uh64i9l0uo54geh**
+Tại đây, ta lưu lại phần Appkey. Cụ thể như ví dụ ở đây thì AppKey là:  **uh64i9l0uo54geh**
 
-Ở phần Redirect URIs, nhập vào nội dung https://jitsi.dungdb.xyz/static/oauth.html sau đó click nút `Add` bên cạnh
+Ở phần *Redirect URIs*, nhập vào nội dung https://jitsi.dungdb.xyz/static/oauth.html sau đó click nút `Add` bên cạnh. (Nhập thay đổi domain ở trên với dommain trang Jitsi của bạn.)
 
 ![Imgur](https://i.imgur.com/IshhJ77.png)
 
-Quản lý app tại 
+Quản lý app tại trang: https://www.dropbox.com/developers/apps/
 
-https://www.dropbox.com/developers/apps/
-
-## Cấu hình Jitsi
+**Bước 3:** Cấu hình trên server Jitsi
 
 Cài đặt gói jq
 
@@ -38,7 +41,7 @@ Cài đặt gói jq
 
 Cấu hình tích hợp dropbox
 
-Sửa file `/etc/jitsi/meet/jitsi.dungdb.xyz-config.js`. Dán appKey đã copy vào.
+Sửa file `/etc/jitsi/meet/<domain>-config.js`. Trong ví dụ này sẽ là `/etc/jitsi/meet/jitsi.dungdb.xyz-config.js`. Dán appKey đã copy ở trên vào.
 
 ```
 dropbox: {
@@ -50,7 +53,7 @@ dropbox: {
 },
 ```
 
-**Để ý dấu phẩy**
+**Chú ý dấu phẩy**
 
 ![Imgur](https://i.imgur.com/mPHVmge.png)
 
@@ -86,7 +89,9 @@ Restart Jibri
 
     service jibri restart
 
-Truy cập vào Jitsi thực hiện ghi hình
+## Hướng dẫn sử dụng
+
+Truy cập vào trang Jitsi và thực hiện ghi hình
 
 ![Imgur](https://i.imgur.com/DHN7XwS.png)
 

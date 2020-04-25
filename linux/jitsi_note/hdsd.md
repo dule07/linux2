@@ -113,7 +113,7 @@ cách bấm vào ký hiệu này.
 - Gửi tin nhắn riêng
 - Điều chỉnh âm lượng của người đó
 
-#### 5.3. Tính năng ghi âm 
+#### 5.3. Tính năng ghi âm
 
 Tính năng này cần phải cấu hình thêm.
 
