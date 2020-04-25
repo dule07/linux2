@@ -1,12 +1,12 @@
-## Thao tác của sinh viên khi tham gia phòng
+# [BigBlueButton][HDSD-3]Thao tác của sinh viên khi tham gia phòng
 
-### Tham gia phòng
+## 1. Tham gia phòng
 
-Sau khi nhận được đường lick vào phòng và code để vào phòng từ giảng viên. Sinh viên click vào đường link sẽ dẫn đến giao diện sau:
+Sau khi nhận được đường link vào phòng và code để vào phòng từ giảng viên. Sinh viên click vào đường link sẽ dẫn đến giao diện sau:
 
 ![Imgur](https://i.imgur.com/7clD3uf.png)
 
-Nhập đoạn code vào và nhấn **Enter**.
+Nhập đoạn code vào (Mật khẩu phòng) và nhấn **Enter**.
 
 Tiếp tục nhập họ tên sinh viên và nhấn **Join**.
 
@@ -14,7 +14,7 @@ Tiếp tục nhập họ tên sinh viên và nhấn **Join**.
 
 ### Cài đặt microphone
 
-Khi vào phòng sẽ thấy giao diện như trong hình
+Khi vào phòng sẽ thấy giao diện như trong hình. Ta sẽ tùy chọn hình thức âm thanh: **Nghe và nói** hoặc **Chỉ nghe**
 
 ![Imgur](https://i.imgur.com/xVXrijt.png)
 
@@ -22,27 +22,43 @@ Chọn phần **Microphone** để có thể sử dụng microphone trong phòng
 
 Ta cần phải cho phép trình duyệt sử dụng microphone của mình. Nhấn **Allow**
 
-![Imgur](https://i.imgur.com/wnaDn2K.png)
+![Imgur](https://i.imgur.com/KgwoYpo.png)
 
-Hệ thống sẽ tiến hành kiểm tra microphoen của bạn
+Đợi một chút để hệ thống kiểm tra thiết bị âm thanh của bạn
 
 ![Imgur](https://i.imgur.com/xXJssyV.png)
 
-Nếu đã nghe thấy âm thanh, chọn **Yes**. Nếu không nghe thấy âm thanh, chọn **No**. 
+Sau khi kiểm tra âm thanh, sẽ xuất hiện một thông báo như sau:
 
-![Imgur](https://i.imgur.com/wjP81BW.png)
+![Imgur](https://i.imgur.com/RkioG6I.png)
 
-Ở đây, nếu xong bước này mà bạn vẫn chưa nghe thấy hoặc người khác không nghe thấy bạn nói gì. Hãy kiểm tra lại volume. Nếu vẫn không được. Vào phần **Microphone setup** tại mục **Speech** trong phần **Settings** của Windows 10 để cài đặt lại microphone của bạn.
+Nếu bạn đã nghe rõ hãy click **Yes**. Sau đó bạn có thể bắt đầu hoạt động trong phòng.
 
-![Imgur](https://i.imgur.com/lOIsTMq.png)
+Nếu chưa nghe thấy gì, hãy click **No**. Sẽ có một khung cài đặt âm thanh như sau:
 
-![Imgur](https://i.imgur.com/l3yTwxh.png)
+![Imgur](https://i.imgur.com/phADLDK.png)
 
-Chọn vấn đề bạn gặp phải, hệ điều hành sẽ troubleshoot cho bạn.
+Bạn chọn đúng micro và loa mà bạn đang sử dụng. Sau đó click **Retry**. Hệ thống sẽ thực hiện kiểm tra lại cho bạn.
 
-![Imgur](https://i.imgur.com/zrheqov.png)
+Nếu vì một lý do nào đó mà bạn vẫn chưa thể nghe được. Hãy vào **Windows Settings**
 
-### Hoạt động của sinh viên trong phòng
+![Imgur](https://i.imgur.com/2Q5Rx24.png)
+
+Tại đây, bạn gõ "Microphone setup" và chọn **Microphone setup**
+
+![Imgur](https://i.imgur.com/e4ZW7ei.png)
+
+Click vào ô **Get started**
+
+![Imgur](https://i.imgur.com/VjD9UEg.png)
+
+Sau đó chọn vấn đề mà bạn gặp phải (2 khung đỏ bên dưới tương ứng với Người khác không thể nghe thấy tôi và Tôi không thể nghe thấy gì). Windows sẽ troubleshoot cho bạn.
+
+![Imgur](https://i.imgur.com/BXCoXAu.png)
+
+## 2. Hoạt động của sinh viên trong phòng
+
+### 2.1. Giao diện phòng
 
 Giao diện sau khi tham gia phòng:
 
@@ -50,7 +66,7 @@ Giao diện sau khi tham gia phòng:
 
 Có thể thấy những người đang tham gia phòng họp tại phần User ở khung bên tay trái. Các profile có hình vuông là những người có quyền điều hành (giảng viên). Các profile có hình tròn là những người không có quyền điều hành (sinh viên).
 
-![Imgur](https://i.imgur.com/wNW83FD.png)
+![Imgur](https://i.imgur.com/ZeDMyCB.png)
 
 Có thể dùng mục Public chat để trao đổi với mọi người trong phòng
 
@@ -79,13 +95,13 @@ Có thể xem các phím tắt khác bằng cách click vào biểu tượng 3 c
 
 ![Imgur](https://i.imgur.com/ZiKrRQZ.png)
 
-**Lưu ý:** Sinh viên phải bật webcam trong toàn thời gian cuộc họp. Micro của sinh viên có thể bị giáo viên tắt. Chỉ dùng micro khi được giáo viên cho phép phát biểu.
+**Lưu ý:** Giảng viên nên yêu cầu sinh viên bật webcam trong toàn bộ cuộc họp để tiện việc quản lý. Micro của sinh viên có thể bị giảng viên tắt. Chỉ dùng micro khi được giáo viên cho phép phát biểu.
 
-Có thể sử dụng phần **Shared note** để chia sẻ link tài liệu hoặc truy cập vào link tài liệu do người khác chia sẻ. Hoặc có thể dùng nó như một note để làm việc nhóm.
+Có thể sử dụng phần **Shared note** để chia sẻ link tài liệu, note hoặc truy cập vào link tài liệu, note do người khác chia sẻ.
 
 ![Imgur](https://i.imgur.com/d454PMN.png)
 
-### Hoạt động nhóm
+### 2.2. Hoạt động nhóm
 
 Khi được giảng viên phân vào một nhóm sẽ xuất hiện giao diện.
 
@@ -103,11 +119,11 @@ Tại đây Sinh viên 01 và Sinh viên 02 được giảng viên phân vào m�
 
 **Lưu ý:** Tất cả hoạt động của sinh viên trong room này, giáo viên đều có thể nhìn thấy và record lại được.
 
-### Thuyết trình
+### 2.3. Thuyết trình
 
 Khi một sinh viên được giảng viên giao cho quyền thuyết trình. Ta sẽ thấy biểu tượng của sinh viên như sau
 
-![Imgur](https://i.imgur.com/HskCYxi.png)
+![Imgur](https://i.imgur.com/xlBPL2v.png)
 
 Lúc này sinh viên thuyết trình có thể tạo một thăm dò ý kiến, tải lên một slide hoặc tài liệu để thuyết trình, chia sẻ một video phục vụ phần thuyết trình.
 
@@ -127,4 +143,4 @@ File đang được tải lên
 
 - Chia sẻ một video. Dán link video vào khung bên dưới.
 
-![Imgur](https://i.imgur.com/iEXwGOc.png)
+![Imgur](https://i.imgur.com/olBNojj.png)
