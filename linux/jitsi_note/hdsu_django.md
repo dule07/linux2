@@ -96,6 +96,8 @@ Tại đây có một số tính năng như:
 - Thay đổi độ phân giải video: Bạn có thể thay đổi tùy ý giữa các chất lượng 720p, 480p, 360p, 240p, 180p 
 - Thay đổi ngôn ngữ mặc định: vi là Tiếng Việt, en là Tiếng Anh.
 
+Để chỉnh sửa cấu hình, bạn click vào biểu tượng cây bút chì và thực hiện thay đổi.
+
 **Lưu ý:** Sau khi thay đổi bạn phải click vào nút **Cập nhật cấu hình** để thay đổi được áp dụng.
 
 ### Khôi phục cấu hình gốc
