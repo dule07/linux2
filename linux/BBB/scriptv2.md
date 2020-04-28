@@ -433,7 +433,7 @@ Click vào **Admin** > **Organization**
 
 Click vào **Pending**
 
-![Imgur](https://i.imgur.com/rQW32sx.png)
+![Imgur](https://i.imgur.com/VbE5Swm.png)
 
 Ở đây ta thấy có một người đã đăng ký sử dụng trên trang của ta.
 
