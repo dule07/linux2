@@ -284,7 +284,7 @@ Stopping BigBlueButton
 Starting BigBlueButton
 ```
 
-**Mẫu:** Nếu nhập đúng format email. Quá trình trỏ domain và cài đặt SSL sẽ bắt đầu. Script sẽ tự động tạo một tài khoản admin với email quản trị đã nhập cho chúng ta. Ví dụng ở đây tài khoản admin bạn có thể thấy ở dưới là dungz1207@gmail.com / ZmMxMTgxOD
+**Mẫu:** Nếu nhập đúng format email. Quá trình trỏ domain và cài đặt SSL sẽ bắt đầu. Script sẽ tự động tạo một tài khoản admin với email quản trị đã nhập cho chúng ta. Ví dụ ở đây tài khoản admin bạn có thể thấy ở dưới là dungz1207@gmail.com / ZmMxMTgxOD
 
 ```
 root@bbb1:~# bash bbb-letcert-v2.sh bbbv2.workfromhome.vn
