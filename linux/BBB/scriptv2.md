@@ -6,7 +6,7 @@ Cài đặt certbot
 
     sudo apt-get install certbot
 
-Thực hiện cấu hình HTTPS cho server sử dụng let's
+Thực hiện cấu hình HTTPS cho server sử dụng Let's Enscrypt. Nhập đúng domain của bạn ở bước này. Ví dụ ở đây domain là **bbbv2.workfromhome.vn**
 
     cd /root
     wget https://scripts.cloud365.vn/bbb-letcert-v2.sh
