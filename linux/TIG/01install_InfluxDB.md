@@ -1,4 +1,4 @@
-# Cài TIG
+# Cài TIG stack
 
 https://devconnected.com/how-to-setup-telegraf-influxdb-and-grafana-on-linux/#I_Installing_InfluxDB
 
@@ -11,10 +11,9 @@ source /etc/lsb-release
 
 echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 
-apt-get update
+apt-get update -y
 
 apt-get install -y influxdb
-
 
 systemctl start influxdb.service
 
@@ -23,52 +22,154 @@ systemctl status influxdb.service
 systemctl enable influxdb.service
 ```
 
-### Cài InfluxDB 2.0
+Kiểm tra port đang mở :
 
-https://v2.docs.influxdata.com/v2.0/get-started/
+    netstat -plntu
 
-Copy được link:
+Kiểm tra version hiện tại của Influx :
 
-https://dl.influxdata.com/influxdb/releases/influxdb_2.0.0-beta.9_linux_amd64.tar.gz
+    influx -version
 
-    wget https://dl.influxdata.com/influxdb/releases/influxdb_2.0.0-beta.9_linux_amd64.tar.gz
+Để lưu trữ dữ liệu cho Telegraf agents, ta sẽ setup trước database và user trên Influxdb:
 
-    tar xvzf influxdb_2.0.0-beta.9_linux_amd64.tar.gz
+    influx
 
-    cp influxdb_2.0.0-beta.9_linux_amd64/{influx,influxd} /usr/local/bin/
+Tạo database và user cho Telegraf:
 
-    useradd -rs /bin/false influxdb
+    > create database telegraf
+    > create user telegraf with password 'P@ssw0rd'
 
-    cd /lib/systemd/system
+Kiểm tra lại database và user vừa tạo:
 
-    nano influxdb2.service
+    > show databases
+    > show users
 
-Dán vào file `influxdb2.service` các dòng
+## Cài Telegraf agent
 
 ```
-[Unit]
-Description=InfluxDB 2.0 service file.
-Documentation=https://v2.docs.influxdata.com/v2.0/get-started/
-After=network-online.target
+apt install telegraf -y
 
-[Service]
-User=influxdb
-Group=influxdb
-ExecStart=/usr/local/bin/influxd 
-Restart=on-failure
+systemctl start telegraf
 
-[Install]
-WantedBy=multi-user.target
+systemctl enable telegraf
+
+systemctl status telegraf
+
+telegraf --version
 ```
 
-    systemctl start influxdb2
+Backup file cấu hình mặc định của Telegraf :
 
-    systemctl status influxdb2
+    cd /etc/telegraf/
 
-    systemctl enable influxdb2
+    cp telegraf.conf telegraf.conf.bak
 
-    ufw allow 9999/tcp
+## Configure InfluxDB Authentication
 
-Truy cập vào:
+Enable HTTP authentication on your InfluxDB server
 
-http://localhost:9999.
+Sửa file `/etc/influxdb/influxdb.conf`
+```
+[http]
+  # Determines whether HTTP endpoint is enabled.
+  enabled = true
+  
+  # The bind address used by the HTTP service.
+  bind-address = ":8086"
+
+  # Determines whether user authentication is enabled over HTTP/HTTPS.
+  auth-enabled = true
+```
+
+    nano /etc/telegraf/telegraf.conf
+
+Sửa các dòng:
+
+```
+hostname = "tig"
+
+urls = ["http://127.0.0.1:8086"]
+
+database = "telegraf"
+
+username = "telegraf"
+
+password = "P@ssw0rd"
+
+[[inputs.cpu]]
+
+percpu = true
+
+totalcpu = true
+
+collect_cpu_time = false
+
+report_active = false
+
+[[inputs.disk]]
+
+ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+
+[[inputs.diskio]]
+
+[[inputs.kernel]]
+
+[[inputs.mem]]
+
+[[inputs.processes]]
+
+[[inputs.swap]]
+
+[[inputs.system]]
+
+[[inputs.net]]
+
+[[inputs.netstat]]
+```
+
+    systemctl restart telegraf
+
+Kiểm tra trạng thái của các input :
+
+Kiểm tra cpu input :
+    telegraf -test -config /etc/telegraf/telegraf.conf --input-filter cpu
+
+Kiểm tra net input :
+    telegraf -test -config /etc/telegraf/telegraf.conf --input-filter net
+
+Kiểm tra mem input :
+    telegraf -test -config /etc/telegraf/telegraf.conf --input-filter mem
+
+## Cài đặt Grafana
+
+```
+# apt-get install -y adduser libfontconfig1
+# wget https://dl.grafana.com/oss/release/grafana_6.7.3_amd64.deb
+# dpkg -i grafana_6.7.3_amd64.deb
+# systemctl start grafana-server
+# systemctl enable grafana-server
+# systemctl status grafana-server
+# netstat -plntu
+# grafana-server -v
+```
+
+Truy cập `http://<ip-grafana-server>:3000`
+
+Tài khoản mặc định admin / admin
+
+Đổi mật khẩu
+
+Add data source: Thêm influxDB vào.
+
+Import dashboard, tìm trên trang này các dashboard có sẵn để thêm: https://grafana.com/grafana/dashboards
+
+Hoặc tự thêm bằng tay.
+
+Đọc thêm: https://kb.nhanhoa.com/pages/viewpage.action?pageId=33818099
+
+https://community.jitsi.org/t/how-to-to-setup-grafana-dashboards-to-monitor-jitsi-my-comprehensive-tutorial-for-the-beginner/38696
+
+https://vuvangiap.com/huong-dan-cai-dat-thong-monitor-voi-grafana-influxdb-va-telegraf-tren-centos-7.html
+
+Cài trên centos: https://namlee.net/huong-dan-cai-dat-thong-monitor-voi-grafana-influxdb-va-telegraf-tren-centos-7/
+
