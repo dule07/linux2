@@ -72,3 +72,4 @@ Sử dụng influxDB trong grafana: https://grafana.com/docs/grafana/latest/feat
 
 Template và biến: https://grafana.com/docs/grafana/latest/variables/templates-and-variables/
 
+![Imgur](https://i.imgur.com/iByNzgl.png)
