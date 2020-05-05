@@ -93,3 +93,12 @@ https://github.com/jitsi/jitsi-videobridge/blob/master/doc/statistics.md
 
 - `version` : Phiên bản hiện tại của Jitsi
 
+## Đổi port giám sát
+
+https://github.com/jitsi/jitsi-videobridge/blob/master/doc/rest.md
+
+Sửa dòng 
+
+    org.jitsi.videobridge.rest.private.jetty.port = <số port>
+
+tại file `/etc/jitsi/videobridge/sip-communicator.properties`

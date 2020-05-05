@@ -38,11 +38,11 @@ Click vào chọn file và chọn file ảnh logo của bạn. Lưu ý rằng b�
 
 ### Bật tắt tính năng chủ trì cuộc họp
 
-Đầu tiên cần làm rõ vấn đề sau:
+Đầu tiên ta cần làm rõ:
 
-Ta có 3 loại uer:
+Có 3 loại user khác nhau:
 
-- **User Admin**: Đây là user quản trị hệ thống. Chính là user bạn dung để đăng nhập vào trang này và bật tắt các tính năng.
+- **User Admin**: Đây là user quản trị hệ thống. Chính là user bạn dung để đăng nhập vào trang này và bật tắt các tính năng. User admin không thể dùng để đăng nhập vào cuộc họp và quản lý cuộc họp.
 - **User chủ trì** (user host): Đây là user quản lý cuộc họp. Có đầy đủ các quyền trong một cuộc họp.
 - **User thường của người sử dụng cuộc họp**: Khi chưa bật tính năng chủ trì thì user này có đầy đủ các quyền trong cuộc họp. Nhưng khi đã bật tính năng chủ trì rồi thì user này sẽ bị hạn chế các quyền như ghi âm, ghi hình, v.v...
 
@@ -70,7 +70,7 @@ Nhập tên và mật khẩu cho user chủ trì rồi click **Tạo mới**.
 
 Dùng để thay đổi domain hiện tại sang một domain khác. Hãy đọc kỹ trước khi thực hiện. Bạn cần xóa bản ghi đã trỏ đến domain cũ và thực hiện trỏ lại IP của trang đến domain mới. Sau đó mới thực hiện thay đổi domain ở đây.
 
-![Imgur](https://i.imgur.com/TNtPcMp.png)
+ 
 
 Để thực hiện đổi domain. Nhập domain mới bạn đã trỏ vào ô **Domain mới**, sau đó click **Thay đổi**.
 
