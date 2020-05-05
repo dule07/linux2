@@ -131,13 +131,16 @@ ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squash
 
 Kiểm tra trạng thái của các input :
 
-Kiểm tra cpu input :
+Kiểm tra cpu input:
+
     telegraf -test -config /etc/telegraf/telegraf.conf --input-filter cpu
 
-Kiểm tra net input :
+Kiểm tra net input:
+
     telegraf -test -config /etc/telegraf/telegraf.conf --input-filter net
 
-Kiểm tra mem input :
+Kiểm tra mem input:
+
     telegraf -test -config /etc/telegraf/telegraf.conf --input-filter mem
 
 ## Cài đặt Grafana
