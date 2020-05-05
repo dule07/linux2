@@ -706,6 +706,6 @@ https://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-comm
 https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
 
-
+## 7. Lệnh iostat
 
 

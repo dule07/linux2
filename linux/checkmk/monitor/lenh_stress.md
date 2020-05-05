@@ -58,7 +58,7 @@ Lúc này mỗi tiến trình sẽ chỉ sử dụng 50% CPU đồng nghĩa vớ
 
 Câu lệnh này sẽ sử dụng hàm `malloc()` để cấp phát vùng nhớ cho 1 process ở đây sẽ cấp là 256M. Hoặc ta có thể chỉ ra dung lượng cấp phát cho một process bằng option `--vm-bytes`. Ví dụ cấp cho mỗi process là `500M` thì dùng lệnh:
 
-    stress -m --vm-bytes 500M
+    stress -m 1 --vm-bytes 500M
 
 Mức độ sử dụng RAM trước khi sử dụng lệnh `stress`
 
