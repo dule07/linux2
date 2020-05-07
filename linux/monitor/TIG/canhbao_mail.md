@@ -66,6 +66,10 @@ Tạo một graph và edit như sau:
 
 ![Imgur](https://i.imgur.com/cUSEY0i.png)
 
+Khi RAM sử dụng trên 50% sẽ gửi cảnh báo
+
 Kết quả:
 
 ![Imgur](https://i.imgur.com/p1m1oe7.png)
+
+https://www.techiescorner.in/grafana-mail-alert-configuration/
