@@ -20,7 +20,7 @@ Ví dụ với trường hợp của tôi là:
 
 https://api.telegram.org/bot1203313564:AAHa7Sb5Yd0Ty5aOuS6criY-cHLW9BY0ym0/getUpdates
 
-Chat với bot và refresh trang để lấy Chat ID
+Chat 1 câu với bot và refresh trang để lấy Chat ID
 
 ![Imgur](https://i.imgur.com/IXKTINF.png)
 
