@@ -72,4 +72,8 @@ Sử dụng influxDB trong grafana: https://grafana.com/docs/grafana/latest/feat
 
 Template và biến: https://grafana.com/docs/grafana/latest/variables/templates-and-variables/
 
+Thêm biến:
+
 ![Imgur](https://i.imgur.com/iByNzgl.png)
+
+**Lưu ý:** Không thể sử dụng cảnh báo khi dùng biến. Phải chỉ định host cụ thể.
