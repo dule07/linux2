@@ -13,6 +13,8 @@ https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/
 4. [Lệnh htop](#htop)
 5. [Lệnh lsof](#lsof)
 6. [Lệnh vmstat](#vmstat)
+7. [Lệnh nload](#nload)
+8. [Lệnh iperf](#iperf)
 
 ## 1. Lệnh Netstat <a name="netstat"></a>
 
@@ -705,7 +707,33 @@ https://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-comm
 
 https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
+## 7. Lệnh nload
 
-## 7. Lệnh iostat
+https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
+
+Cài đặt:
+```
+-------- On CentOS and RHEL -------- 
+# yum install epel-release
+# yum install nload
+
+-------- On Fedora 22+ --------
+# dnf install nload
+-------- On Ubuntu / Debian --------
+$ sudo apt install nload
+```
+
+Sử dụng:
+```
+$ nload
+Or
+$ nload eth0
+```
+
+## 8. Lệnh iperf
+
+
+
+## 9. Lệnh iostat
 
 

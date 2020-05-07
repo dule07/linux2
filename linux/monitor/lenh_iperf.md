@@ -1,0 +1,131 @@
+# Iperf
+
+## Kiểm tra tốc độ của card mạng
+
+ethtool 
+
+vd:
+
+    ethtool ens33
+
+## Giới thiệu    
+
+Iperf là một công cụ miễn phí, dùng để đo lường lượng dữ liệu mạng (throughput) tối đa mà một server có thể xử lý. Công cụ này rất hữu ích để truy tìm ra các vấn đề đối với hệ thống mạng bởi Iperf có thể xác định được server nào không xử lý được lượng dữ liệu mạng (throughput) mà người quản trị mạng mong đợi.
+
+Iperf rất hữu ích và có thể được sử dụng để đo lường throughput giữa hai máy chủ có sự khác biệt về vị trí địa lý.
+
+## Cài đặt
+
+Trên Debian/Ubuntu
+
+    apt-get install iperf
+
+Trên CentOS/Fedora
+
+    yum install epel-release -y
+    yum install iperf -y
+
+## Sử dụng Iperf
+
+Iperf phải được cài đặt trên hai máy chủ sử dụng cho việc kiểm tra network throughput. Trong trường hợp bạn sử dụng Iperf để kiểm tra giữa máy chủ tại vHost và máy tính cá nhân của bạn, bạn phải cài đặt Iperf trên máy tính của bạn. Bạn nên sử dụng Iperf để kiểm tra giữa máy chủ của vHost và một máy chủ tại đặt tại nhiều vị trí khác nhau để có đánh giá chính xác nhất bởi kết quả của việc kiểm tra có thể bị tác động bởi sự giới hạn của các nhà mạng (ISP)
+
+## TCP Clients & Servers
+
+Iperf yêu cầu cần có hai máy chủ để kiểm tra, một sẽ đóng vai trò và hoạt động như server, máy chủ còn lại sẽ là client kết nối tới máy chủ mà bạn đang kiểm tra tốc độ mạng.
+
+### 1. Trên máy chủ tại vHost, bạn cho chạy Iperf như là Server
+
+    iperf -s
+
+Bạn sẽ thấy kết quả xuất ra trên màn hình như sau:
+
+![Imgur](https://i.imgur.com/gGCunCP.png)
+
+### 2. Trên máy chủ còn lại đóng vài trò là client, kết nối tới máy chủ thứ nhất. Thay thế IP "10.10.34.173" với IP của server mà bạn đang kiểm tra
+
+    iperf -c 10.10.34.173
+
+Bạn sẽ thấy kết quả xuất ra gần giống như sau:
+
+![Imgur](https://i.imgur.com/eAWCvTK.png)
+
+### 3. Bạn cũng sẽ thấy kết quả tương tự trên Iperf server
+
+![Imgur](https://i.imgur.com/l1yhvCs.png)
+
+### 4. Để stop Iperf trên server, nhấn `CTRL + C`
+
+## UDP Clients & Servers
+
+### 1. Chạy Iperf trên server
+
+    iperf -s -u
+
+![Imgur](https://i.imgur.com/QAwfXPu.png)
+
+### 2 Kết nối client tới Iperf server, thay thế "10.10.34.173" với IP của server mà bạn kiểm tra. Tham số -u mang ý nghĩa chỉ định thực hiện kết nối thông qua giao thức UDP
+
+    iperf -c 10.10.34.173 -u
+
+![Imgur](https://i.imgur.com/CK3BNME.png)
+
+Kết quả trả về là 1.05 Mbits/sec thấp hơn khá nhiều so với việc kiểm tra với kết nối TCP trước đó. Có điều này là bởi mặc định Iperf giới hạn băng thông cho kết nối UDP là 1 Mb/s
+
+### 3. Bạn có thể tùy chỉnh kết quả trên với tham số `-b`, thay thế với giá trị băng thông tối đa mà bạn muốn kiểm tra
+
+    iperf -c 10.10.34.173 -u -b 100m
+
+Câu lệnh trên thực hiện kiểm tra với băng thông 100Mb nếu có thể đạt được. Tham số -b chỉ sử dụng cho kết nối UDP, bởi mặc định Iperf không giới hạn với việc kiểm tra bằng kết nối TCP
+
+![Imgur](https://i.imgur.com/H0d3LaX.png)
+
+## Kiểm tra kết nối 2 chiều
+
+Với tham số -d bạn có thể thực hiện kiểm tra tốc độ mạng hai chiều, sau khi kiểm tra tốc mạng lần nhất giữa client và server, thì hai máy chủ này sẽ đổi vai trò cho nhau và thực hiện lại việc kiểm tra lần hai.
+
+    iperf -c 10.10.34.173 -d
+
+![Imgur](https://i.imgur.com/SJToKqq.png)
+
+Xem thêm:
+
+https://docs.vhost.vn/article.php?id=232
+
+## Kết hợp với nload để kiểm tra băng thông
+
+Mô hình:
+
+![Imgur](https://i.imgur.com/ROC39F3.png)
+
+Client: 10.10.34.177
+
+Server: 10.10.34.173
+
+### Thực hiện
+
+Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card 10G của Client.
+Thực hiện đẩy iperf TCP
+
+    iperf -c 10.10.34.173 -i1 -t 100 -m
+
+Giải thích tham số câu lệnh :
+
+`-c` : địa chỉ host của iperf server (192.168.20.159)
+`-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
+`-t` : thời gian thực hiện đẩy traffic theo giây (100s)
+`-m` : in ra MTU header
+
+Bandwidth được đẩy lên ~11 Gbits/sec
+
+Kiểm tra trên network traffic của cả client và server. Sử dụng câu lệnh để nload để xem traffic network trên port p1p2. Để chỉ rõ port p1p2, sử dụng option -d như bên dưới :
+
+    nload -d p1p2
+
+Trên client, interface sẽ có Outgoing traffic ~11 Gbits/sec.
+
+![Imgur](https://i.imgur.com/zixHmdX.png)
+
+Trên server, interface sẽ có Incoming traffic ~11 Gbits/sec.
+
+![Imgur](https://i.imgur.com/hXRxOLX.png)
+

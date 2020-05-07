@@ -26,7 +26,7 @@ CPU trước khi sử dụng câu lệnh `stress`
 
 ![Imgur](https://i.imgur.com/W6rUjsi.png)
 
-Tiến hành chạy câu lênh stress
+Tiến hành chạy câu lệnh stress
 
 ![Imgur](https://i.imgur.com/mMvzka0.png)
 
