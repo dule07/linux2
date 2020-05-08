@@ -117,8 +117,12 @@ Thực hiện đẩy iperf TCP
 Giải thích tham số câu lệnh :
 
 `-c` : địa chỉ host của iperf server (10.10.34.173)
-`-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
+
+`-i` : khoảng thời gian giữa 2 lần report kết quả 
+theo giây (1s)
+
 `-t` : thời gian thực hiện đẩy traffic theo giây (100s)
+
 `-m` : in ra MTU header
 
 Bandwidth được đẩy lên ~11 Gbits/sec
@@ -155,8 +159,11 @@ Thực hiện đẩy iperf TCP
 Giải thích tham số câu lệnh :
 
 `-c` : địa chỉ host của iperf server (10.10.34.173)
+
 `-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
+
 `-t` : thời gian thực hiện đẩy traffic theo giây (100s)
+
 `-m` : in ra MTU header
 
 Bandwidth được đẩy lên ~900 Mbits/sec
