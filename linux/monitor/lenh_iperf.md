@@ -101,7 +101,13 @@ Client: 10.10.34.177
 
 Server: 10.10.34.173
 
+2 máy ảo ở đây cùng cụm KVM2
+
 ### Thực hiện
+
+Trên server
+
+    iperf -s
 
 Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card 10G của Client.
 Thực hiện đẩy iperf TCP
@@ -110,7 +116,7 @@ Thực hiện đẩy iperf TCP
 
 Giải thích tham số câu lệnh :
 
-`-c` : địa chỉ host của iperf server (192.168.20.159)
+`-c` : địa chỉ host của iperf server (10.10.34.173)
 `-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
 `-t` : thời gian thực hiện đẩy traffic theo giây (100s)
 `-m` : in ra MTU header
@@ -128,4 +134,42 @@ Trên client, interface sẽ có Outgoing traffic ~11 Gbits/sec.
 Trên server, interface sẽ có Incoming traffic ~11 Gbits/sec.
 
 ![Imgur](https://i.imgur.com/hXRxOLX.png)
+
+### Thực hiện với 2 máy ảo khác cụm KVM
+
+Client: 10.10.34.179 (Cụm KVM1)
+
+Server: 10.10.34.173 (Cụm KVM2)
+
+### Thực hiện
+
+Trên server
+
+    iperf -s
+
+Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card 10G của Client.
+Thực hiện đẩy iperf TCP
+
+    iperf -c 10.10.34.173 -i1 -t 100 -m
+
+Giải thích tham số câu lệnh :
+
+`-c` : địa chỉ host của iperf server (10.10.34.173)
+`-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
+`-t` : thời gian thực hiện đẩy traffic theo giây (100s)
+`-m` : in ra MTU header
+
+Bandwidth được đẩy lên ~900 Mbits/sec
+
+Kiểm tra trên network traffic của cả client và server. Sử dụng câu lệnh để nload để xem traffic network trên port p1p2. Để chỉ rõ port p1p2, sử dụng option -d như bên dưới :
+
+    nload -d p1p2
+
+Trên client, interface sẽ có Outgoing traffic ~900 Mbits/sec.
+
+![Imgur](https://i.imgur.com/4780VFq.png)
+
+Trên server, interface sẽ có Incoming traffic ~900 Mbits/sec.
+
+![Imgur](https://i.imgur.com/AOJHeIR.png)
 
