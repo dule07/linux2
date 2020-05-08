@@ -14,7 +14,7 @@ https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/
 5. [Lệnh lsof](#lsof)
 6. [Lệnh vmstat](#vmstat)
 7. [Lệnh nload](#nload)
-8. [Lệnh iperf](#iperf)
+
 
 ## 1. Lệnh Netstat <a name="netstat"></a>
 
@@ -711,6 +711,8 @@ https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
 https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
 
+https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
+
 Cài đặt:
 ```
 -------- On CentOS and RHEL -------- 
@@ -730,9 +732,31 @@ Or
 $ nload eth0
 ```
 
-## 8. Lệnh iperf
+![Imgur](https://i.imgur.com/GzaeSUV.png)
 
+Key Shortcuts:
 
+- Use left and right arrow keys or Enter/Tab key to switch the display to the next network device or when started with the -m flag, to the next page of devices.
+- Use `F2` to show the option window.
+- Use `F5` to save current settings to the user’s config file.
+- Use `F6` to reload settings from the config files.
+- Use `q` or `Ctrl+C` to quit nload.
+
+Các option:
+
+`-m`: Hiển thị nhiều interface cùng lúc
+
+        nload -m
+
+![Imgur](https://i.imgur.com/a9X8iWw.png)
+
+`-a`: đặt độ dài tính bằng giây của cửa sổ thời gian để tính trung bình. Mặc định là 300
+
+        nload -a 400
+
+`-t`: Thay đổi thời gian làm mới interval theo mili giây. Mặc định là 500. Nếu giảm xuống dưới 100 thì giá trị sẽ không chính xác.
+
+        nload -ma 400 -t 600
 
 ## 9. Lệnh iostat
 
