@@ -139,11 +139,15 @@ Trên server, interface sẽ có Incoming traffic ~11 Gbits/sec.
 
 ![Imgur](https://i.imgur.com/hXRxOLX.png)
 
-### Thực hiện với 2 máy ảo khác cụm KVM
+Vậy ở đây ta thấy được tốc độ tối đa mà KVM support cho 2 máy cùng 1 cụm kết nối với nhau là ~11 Gbits/sec
+
+### Thực hiện với 2 máy ảo khác cụm KVM (TCP)
 
 Client: 10.10.34.179 (Cụm KVM1)
 
 Server: 10.10.34.173 (Cụm KVM2)
+
+2 máy khác cụm KVM có thể mô phỏng truyền tải giữa 2 máy vật lý.
 
 ### Thực hiện
 
@@ -180,3 +184,45 @@ Trên server, interface sẽ có Incoming traffic ~900 Mbits/sec.
 
 ![Imgur](https://i.imgur.com/AOJHeIR.png)
 
+### Thực hiện với 2 máy ảo khác cụm KVM (UDP)
+
+Client: 10.10.34.179 (Cụm KVM1)
+
+Server: 10.10.34.173 (Cụm KVM2)
+
+2 máy khác cụm KVM có thể mô phỏng truyền tải giữa 2 máy vật lý.
+
+### Thực hiện
+
+Trên server
+
+    iperf -s -u
+
+Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card ens3 của Client.
+Thực hiện đẩy iperf TCP
+
+    iperf -c 10.10.34.173 -u -b 1000m -i1 -t 100 -m
+
+Giải thích tham số câu lệnh :
+
+`-c` : địa chỉ host của iperf server (10.10.34.173)
+
+`-i` : khoảng thời gian giữa 2 lần report kết quả theo giây (1s)
+
+`-t` : thời gian thực hiện đẩy traffic theo giây (100s)
+
+`-m` : in ra MTU header
+
+Bandwidth được đẩy lên ~900 Mbits/sec
+
+Kiểm tra trên network traffic của cả client và server. Sử dụng câu lệnh để nload để xem traffic network trên port p1p2. Để chỉ rõ port p1p2, sử dụng option -d như bên dưới :
+
+    nload -d p1p2
+
+Trên client, interface sẽ có Outgoing traffic ~900 Mbits/sec.
+
+![Imgur](https://i.imgur.com/QnOJqjh.png)
+
+Trên server, interface sẽ có Incoming traffic ~900 Mbits/sec.
+
+![Imgur](https://i.imgur.com/44GZxh7.png)
