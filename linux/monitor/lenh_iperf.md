@@ -109,7 +109,7 @@ Trên server
 
     iperf -s
 
-Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card 10G của Client.
+Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card ens3 của Client.
 Thực hiện đẩy iperf TCP
 
     iperf -c 10.10.34.173 -i1 -t 100 -m
@@ -151,7 +151,7 @@ Trên server
 
     iperf -s
 
-Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card 10G của Client.
+Trên Client, thực hiện đẩy gói TCP tới server, kiểm tra traffic network trên card ens3 của Client.
 Thực hiện đẩy iperf TCP
 
     iperf -c 10.10.34.173 -i1 -t 100 -m
