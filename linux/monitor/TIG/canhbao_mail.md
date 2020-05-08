@@ -62,7 +62,7 @@ Tạo một graph và edit như sau:
 
 ![Imgur](https://i.imgur.com/8PjQukN.png)
 
-![Imgur](https://i.imgur.com/FUoV9XS.png)
+![Imgur](https://i.imgur.com/59FcYk6.png)
 
 ![Imgur](https://i.imgur.com/cUSEY0i.png)
 
