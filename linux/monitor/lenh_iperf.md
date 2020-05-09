@@ -28,15 +28,25 @@ Trên CentOS/Fedora
 ## Các option
 
 `-c`: chỉ ra địa chỉ IP của server để iperf kết nối đến
+
 `-f`, `--format`: Chỉ ra định dạng của kết quả hiển thị. 'b' = bps, 'B' = Bps, 'k' = Kbps, 'K' = KBps,...
+
 `-i`, `--interval`: Thời gian lấy mẫu để hiển thị kết quả tại thời điểm đó ra màn hình
+
 `-p`, `--port`: Định ra cổng để nghe, mặc định nếu không sử dụng tham số này là cổng 5001
+
 `-u`, `--udp`: Sử dụng giao thức UDP, mặc định iperf sử dụng TCP
+
 `-P`, `--parallel`: Chỉ ra số kết nối song song được tạo, nếu là Server mode thì đây là giới hạn số kết nối mà server chấp nhận
+
 `-b`: Định ra băng thông tối ta có thể truyền, chỉ sử dụng với UDP, client mode
+
 `-t`: Tổng thời gian của kết nối, tính bằng giây
+
 `-M`: Max segment size
+
 `-l`: Buffer size
+
 `-w`, `--window`: Trường Windows size của TCP
 
 ## Sử dụng Iperf
