@@ -25,6 +25,20 @@ Trên CentOS/Fedora
     yum install epel-release -y
     yum install iperf -y
 
+## Các option
+
+`-c`: chỉ ra địa chỉ IP của server để iperf kết nối đến
+`-f`, `--format`: Chỉ ra định dạng của kết quả hiển thị. 'b' = bps, 'B' = Bps, 'k' = Kbps, 'K' = KBps,...
+`-i`, `--interval`: Thời gian lấy mẫu để hiển thị kết quả tại thời điểm đó ra màn hình
+`-p`, `--port`: Định ra cổng để nghe, mặc định nếu không sử dụng tham số này là cổng 5001
+`-u`, `--udp`: Sử dụng giao thức UDP, mặc định iperf sử dụng TCP
+`-P`, `--parallel`: Chỉ ra số kết nối song song được tạo, nếu là Server mode thì đây là giới hạn số kết nối mà server chấp nhận
+`-b`: Định ra băng thông tối ta có thể truyền, chỉ sử dụng với UDP, client mode
+`-t`: Tổng thời gian của kết nối, tính bằng giây
+`-M`: Max segment size
+`-l`: Buffer size
+`-w`, `--window`: Trường Windows size của TCP
+
 ## Sử dụng Iperf
 
 Iperf phải được cài đặt trên hai máy chủ sử dụng cho việc kiểm tra network throughput. Trong trường hợp bạn sử dụng Iperf để kiểm tra giữa máy chủ tại vHost và máy tính cá nhân của bạn, bạn phải cài đặt Iperf trên máy tính của bạn. Bạn nên sử dụng Iperf để kiểm tra giữa máy chủ của vHost và một máy chủ tại đặt tại nhiều vị trí khác nhau để có đánh giá chính xác nhất bởi kết quả của việc kiểm tra có thể bị tác động bởi sự giới hạn của các nhà mạng (ISP)

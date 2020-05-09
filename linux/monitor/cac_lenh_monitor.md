@@ -768,4 +768,3 @@ https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
 
 ## 9. Lệnh iostat
 
-
