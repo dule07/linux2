@@ -709,9 +709,7 @@ https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
 ## 7. Lệnh nload
 
-https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
-
-https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
+Lệnh nload hiển thị mức sử dụng mạng hiện tại
 
 Cài đặt:
 ```
@@ -744,7 +742,7 @@ Key Shortcuts:
 
 Các option:
 
-`-m`: Hiển thị nhiều interface cùng lúc
+`-m`: Hiển thị nhiều card cùng lúc
 
         nload -m
 
@@ -757,6 +755,16 @@ Các option:
 `-t`: Thay đổi thời gian làm mới interval theo mili giây. Mặc định là 500. Nếu giảm xuống dưới 100 thì giá trị sẽ không chính xác.
 
         nload -ma 400 -t 600
+
+`devices`: Có thể chỉ định card mạng cụ thể bằng lệnh sau: (Mặc định là tất cả các card mạng)
+
+        nload devices ens33
+
+https://linux.die.net/man/1/nload
+
+https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
+
+https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
 
 ## 9. Lệnh iostat
 

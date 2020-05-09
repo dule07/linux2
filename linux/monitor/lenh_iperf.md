@@ -226,3 +226,5 @@ Trên client, interface sẽ có Outgoing traffic ~900 Mbits/sec.
 Trên server, interface sẽ có Incoming traffic ~900 Mbits/sec.
 
 ![Imgur](https://i.imgur.com/44GZxh7.png)
+
+https://github.com/ducnc/iperf
