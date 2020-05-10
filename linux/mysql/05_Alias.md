@@ -22,5 +22,19 @@ Truy vấn sau đây chọn tên và họ của nhân viên. Nó sử dụng hà
 
 ![Imgur](https://i.imgur.com/KYsEcmS.png)
 
-## alias table
+## Alias table
+
+Cú pháp
+
+    table_name AS table_alias
+
+Alias table thường được sử dụng trong câu lệnh có chứa `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`.
+
+Đặt employese Alias table là e.
+
+![Imgur](https://i.imgur.com/xSBpZwI.png)
+
+Sử dụng bảng employese. Truy vấn danh sách nhân viên sắp xếp theo firstName:
+
+![Imgur](https://i.imgur.com/4IK3xT3.png)
 
