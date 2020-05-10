@@ -4,11 +4,11 @@
 
     mysql -u root -p
 
-1. Thư mục chứa database
+## 1. Thư mục chứa database
 
 Trên CentOS, toàn bộ file raw database được lưu trong thư mục `/var/lib/mysql`
 
-2. Quản lý tài khoản và phân quyền
+## 2. Quản lý tài khoản và phân quyền
 
 Hiển thị toàn bộ users:
 
@@ -51,7 +51,7 @@ Cuối cùng reload user
     mysql> FLUSH PRIVILEGES;
     mysql> exit;
 
-3. Các thao tác database
+## 3. Các thao tác database
 
 Hiển thị toàn bộ databases:
 
@@ -79,7 +79,7 @@ Single Database:
 
     $ sudo mysqlcheck -o db_schema_name -u root -p
 
-4. Các thao tác table
+## 4. Các thao tác table
 
 Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
 
@@ -103,7 +103,7 @@ Xóa table:
 
     mysql> DROP TABLE mytable;
 
-5. Các thao tác cột và hàng
+## 5. Các thao tác cột và hàng
 
 Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
 
@@ -134,7 +134,7 @@ Cập nhật dữ liệu trong table:
 
     mysql> UPDATE mytable SET column1="mydata" WHERE column2="mydata";
 
-6. Các thao tác sao lưu và phục hồi
+## 6. Các thao tác sao lưu và phục hồi
 
 Sao lưu toàn bộ database bằng lệnh (chú ý không có khoảng trắng giữa -p và mật khẩu):
 

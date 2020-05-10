@@ -32,3 +32,82 @@ Theo mặc định, mệnh đề ORDER BY sử dụng ASC
     select * from customers order by customerNumber DESC;
 
 ![Imgur](https://i.imgur.com/KQEVUrd.png)
+
+    SELECT
+        contactLastname,
+        contactFirstname
+    FROM
+        customers
+    ORDER BY
+        contactLastname DESC,
+        contactFirstname ASC;
+
+![Imgur](https://i.imgur.com/vSNytXq.png)
+
+Sắp xếp kết quả của một phép tính:
+
+Sử dụng bảng orderdetails
+
+![Imgur](https://i.imgur.com/Ey0iDxq.png)
+
+Sắp xếp dựa trên phép tính quantityOrdered * priceEach
+
+    SELECT 
+        orderNumber, 
+        orderlinenumber, 
+        quantityOrdered * priceEach
+    FROM
+        orderdetails
+    ORDER BY 
+    quantityOrdered * priceEach DESC;
+
+![Imgur](https://i.imgur.com/9utUeIf.png)
+
+Để kết quả truy vấn dễ đọc hơn, ta có thể gán cột quantityOrdered * priceEach bằng tên khác ngắn hơn, sử dụng AS:
+
+    SELECT 
+        orderNumber, 
+        orderlinenumber, 
+        quantityOrdered * priceEach as total
+    FROM
+        orderdetails
+    ORDER BY 
+    total DESC;
+
+![Imgur](https://i.imgur.com/x0VOdc6.png)
+
+Sử dụng FIELD()
+
+Sử dụng bảng orders
+
+![Imgur](https://i.imgur.com/2rGXyuA.png)
+
+Sắp xếp đơn hàng theo thứ tự trạng thái như sau:
+
+In Process
+
+On Hold
+
+Canceled
+
+Resolved
+
+Disputed
+
+Shipped
+
+    SELECT 
+        orderNumber, 
+        status
+    FROM
+        orders
+    ORDER BY 
+        FIELD(status,
+            'In Process',
+            'On Hold',
+            'Cancelled',
+            'Resolved',
+            'Disputed',
+            'Shipped');
+
+![Imgur](https://i.imgur.com/ck4TVLZ.png)

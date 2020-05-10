@@ -33,3 +33,21 @@ Khi truy vấn dữ liệu từ một bảng, bạn có thể nhận được c�
         select_list
     FROM
         table_name;
+
+    SELECT lastname FROM employees ORDER BY lastname;
+
+![Imgur](https://i.imgur.com/cP7OuhQ.png)
+
+Có kết quả trùng
+
+    SELECT DISTINCT lastname FROM employees ORDER BY lastname;
+
+![Imgur](https://i.imgur.com/Ako9Qpt.png)
+
+Không có kết quả trùng
+
+**Chú ý:**
+
+Các toán tử AND, OR, NOT, BETWEEN, ... đều sử dụng như bình thường.
+
+Các giá NULL thì coi như cùng một giá trị.

@@ -100,3 +100,71 @@ Lọc ra các kết quả có jobtitle không phải là Sales Rep
 Lọc các kết quả có office code lớn hơn 5
 
 ![Imgur](https://i.imgur.com/EbxoURi.png)
+
+## Câu lệnh WHERE với toán tử limit
+
+Dùng để hạn chế số lượng kết quả trả về bởi một truy vấn.
+
+Dùng bảng customers 
+
+Lấy một số lượng nhất định có giá trị cao nhất hoặc thấp nhất Lấy ra 5 khách hàng có mức tín dụng cao nhất
+
+    SELECT 
+        customerNumber, 
+        customerName, 
+        creditLimit
+    FROM
+        customers
+    ORDER BY creditLimit DESC
+    LIMIT 5;
+
+![Imgur](https://i.imgur.com/A0fBBel.png)
+
+Truy vấn này sử dụng mệnh đề LIMIT để lấy các hàng của trang 1 chứa 10 khách hàng đầu tiên được sắp xếp theo tên khách hàng:
+
+    SELECT 
+        customerNumber, 
+        customerName
+    FROM
+        customers
+    ORDER BY customerName    
+    LIMIT 10;
+
+![Imgur](https://i.imgur.com/lRMSYcE.png)
+
+Truy vấn này sử dụng mệnh đề LIMIT để lấy các hàng của trang thứ hai bao gồm hàng 11 - 20:
+
+    SELECT 
+        customerNumber, 
+        customerName
+    FROM
+        customers
+    ORDER BY customerName    
+    LIMIT 10, 10;
+
+![Imgur](https://i.imgur.com/2KAg5Uj.png)
+
+Lấy giá trị cao thứ 3 tín dụng:
+
+    SELECT 
+        customerName, 
+        creditLimit
+    FROM
+        customers
+    ORDER BY 
+        creditLimit DESC    
+    LIMIT 2,1;
+
+![Imgur](https://i.imgur.com/GztIaBs.png)
+
+Kiểm tra lại danh sách đầy đủ:
+
+    SELECT 
+        customerName, 
+        creditLimit
+    FROM
+        customers
+    ORDER BY 
+        creditLimit DESC;
+
+![Imgur](https://i.imgur.com/zJy6vU1.png)
