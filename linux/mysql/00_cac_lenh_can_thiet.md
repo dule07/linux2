@@ -1,4 +1,4 @@
-# Commands
+# Các lệnh và các hàm sử dụng trong mysql
 
 Đăng nhập MySQL bạn dùng lệnh: 
 
@@ -8,66 +8,129 @@
 
 Trên CentOS, toàn bộ file raw database được lưu trong thư mục `/var/lib/mysql`
 
+Các lệnh phổ biến nhất
+
+SELECT - extracts data from a database
+
+UPDATE - updates data in a database
+
+DELETE - deletes data from a database
+
+INSERT INTO - inserts new data into a database
+
+CREATE DATABASE - creates a new database
+
+ALTER DATABASE - modifies a database
+
+CREATE TABLE table_name - creates a new table
+
+ALTER TABLE table_name- modifies a table
+
+DROP TABLE table_name - deletes a table
+
+DESC table_name - show table
+
+TRUNCATE TABLE table_name - Xóa data của table nhưng không xóa table
+
+ALTER TABLE table_name change old_column_name new_column_name datatype; - Thay đổi tên cột trong bảng
+
+CREATE INDEX - creates an index (search key)
+
+DROP INDEX - deletes an index
+
+Ví dụ: 
+```SQL
+    create database test;
+
+    show databases;
+
+    use test;
+
+    CREATE TABLE test_table (
+    ID int,
+    ho varchar(255),
+    ten varchar(255),
+    dia_chi varchar(255),
+    );
+
+    show tables;
+
+    desc test_table;
+
+    alter table test_table add email varchar(255);
+
+    alter table test_table drop column email;
+
+    alter table test_table modify column ten varchar(25);
+
+    desc test_table;
+
+    alter table test_table add ngay_sinh date;
+
+    alter table test_table modify column ngay_sinh year;
+```
+
+
 ## 2. Quản lý tài khoản và phân quyền
 
 Hiển thị toàn bộ users:
 
-    mysql> SELECT * FROM mysql.user;
+    mysql SELECT * FROM mysql.user;
 
 Xóa null user:
 
-    mysql> DELETE FROM mysql.user WHERE user = ' ';
+    mysql DELETE FROM mysql.user WHERE user = ' ';
 
 Xóa tất cả user mà không phải root:
 
-    mysql> DELETE FROM mysql.user WHERE NOT (host="localhost" AND user="root");
+    mysql DELETE FROM mysql.user WHERE NOT (host="localhost" AND user="root");
 
 Đổi tên tài khoản root (giúp bảo mật):
 
-    mysql> UPDATE mysql.user SET user="mydbadmin" WHERE user="root";
+    mysql UPDATE mysql.user SET user="mydbadmin" WHERE user="root";
 
 Gán full quyền cho một user mới:
 
-    mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
+    mysql GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
 
 Phân quyền chi tiết cho một user mới:
 
-    mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass';
+    mysql GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass';
 
 Gán full quyền cho một user mới trên một database nhất định:
 
-    mysql> GRANT ALL PRIVILEGES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
+    mysql GRANT ALL PRIVILEGES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
 
 Thay đổi mật khẩu user:
 
-    mysql> UPDATE mysql.user SET password=PASSWORD("newpass") WHERE User='username';
+    mysql UPDATE mysql.user SET password=PASSWORD("newpass") WHERE User='username';
 
 Xóa user:
 
-    mysql> DELETE FROM mysql.user WHERE user="username";
+    mysql DELETE FROM mysql.user WHERE user="username";
 
 Cuối cùng reload user
 
-    mysql> FLUSH PRIVILEGES;
-    mysql> exit;
+    mysql FLUSH PRIVILEGES;
+    mysql exit;
 
 ## 3. Các thao tác database
 
 Hiển thị toàn bộ databases:
 
-    mysql> SHOW DATABASES;
+    mysql SHOW DATABASES;
 
 Tạo database:
 
-    mysql> CREATE DATABASE mydatabase;
+    mysql CREATE DATABASE mydatabase;
 
 Sử dụng một database:
 
-    mysql> USE mydatabase;
+    mysql USE mydatabase;
 
 Xóa một database:
 
-    mysql> DROP DATABASE mydatabase;
+    mysql DROP DATABASE mydatabase;
 
 Tối ưu database:
 
@@ -81,85 +144,118 @@ Single Database:
 
 ## 4. Các thao tác table
 
-Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
+Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql USE mydatabase;
 
 Hiển thị toàn bộ table:
 
-    mysql> SHOW TABLES;
+    mysql SHOW TABLES;
 
 Hiển thị dữ liệu của table:
 
-    mysql> SELECT * FROM tablename;
+    mysql SELECT * FROM tablename;
 
 Đổi tên table:
 
-    mysql> RENAME TABLE first TO second;
+    mysql RENAME TABLE first TO second;
 
 hoặc
 
-    mysql> ALTER TABLE mytable rename as mynewtable;
+    mysql ALTER TABLE mytable rename as mynewtable;
 
 Xóa table:
 
-    mysql> DROP TABLE mytable;
+    mysql DROP TABLE mytable;
 
 ## 5. Các thao tác cột và hàng
 
-Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
+Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql USE mydatabase;
 
 Hiển thị các column trong table:
 
-    mysql> DESC mytable;
+    mysql DESC mytable;
 
 hoặc
-    mysql> SHOW COLUMNS FROM mytable;
+    mysql SHOW COLUMNS FROM mytable;
 
 Đổi tên column:
 
-    mysql> UPDATE mytable SET mycolumn="newinfo" WHERE mycolumn="oldinfo";
+    mysql UPDATE mytable SET mycolumn="newinfo" WHERE mycolumn="oldinfo";
 
 Select dữ liệu:
 
-    mysql> SELECT * FROM mytable WHERE mycolumn='mydata' ORDER BY mycolumn2;
+    mysql SELECT * FROM mytable WHERE mycolumn='mydata' ORDER BY mycolumn2;
 
 Insert dữ liệu vào table:
 
-    mysql> INSERT INTO mytable VALUES('column1data','column2data','column3data','column4data','column5data','column6data','column7data','column8data','column9data');
+    mysql INSERT INTO mytable VALUES('column1data','column2data','column3data','column4data','column5data','column6data','column7data','column8data','column9data');
 
 Xóa dữ liệu trong table:
 
-    mysql> DELETE FROM mytable WHERE mycolumn="mydata";
+    mysql DELETE FROM mytable WHERE mycolumn="mydata";
 
 Cập nhật dữ liệu trong table:
 
-    mysql> UPDATE mytable SET column1="mydata" WHERE column2="mydata";
+    mysql UPDATE mytable SET column1="mydata" WHERE column2="mydata";
 
 ## 6. Các thao tác sao lưu và phục hồi
 
 Sao lưu toàn bộ database bằng lệnh (chú ý không có khoảng trắng giữa -p và mật khẩu):
 
-    mysqldump -u root -pmypass --all-databases > alldatabases.sql
+    mysqldump -u root -pmypass --all-databases  alldatabases.sql
 
 Sao lưu một database bất kỳ:
 
-    mysqldump -u username -pmypass databasename > database.sql
+    mysqldump -u username -pmypass databasename  database.sql
 
 Khôi phục toàn bộ database bằng lệnh:
 
-    mysql -u username -pmypass < alldatabases.sql (no space in between -p and mypass)
+    mysql -u username -pmypass  alldatabases.sql (no space in between -p and mypass)
 
 Khôi phục một database bất kỳ:
 
-    mysql -u username -pmypass databasename < database.sql
+    mysql -u username -pmypass databasename  database.sql
 
 Chỉ sao lưu cấu trúc database:
 
-    mysqldump --no-data --databases databasename > structurebackup.sql
+    mysqldump --no-data --databases databasename  structurebackup.sql
 
 Chỉ sao lưu cấu trúc nhiều database:
 
-    mysqldump --no-data --databases databasename1 databasename2 databasename3 > structurebackup.sql
+    mysqldump --no-data --databases databasename1 databasename2 databasename3  structurebackup.sql
 
 Sao lưu một số table nhất định:
 
-    mysqldump --add-drop-table -u username -pmypass databasename table_1 table_2 > databasebackup.sql
+    mysqldump --add-drop-table -u username -pmypass databasename table_1 table_2  databasebackup.sql
+
+# Hàm
+
+SQL có nhiều hàm có sẵn để thực thi tiến trình xử lý trên dữ liệu dạng chuỗi hoặc số. Dưới đây là danh sách tất cả hàm hữu ích mà có sẵn trong SQL.
+
+Hàm COUNT trong SQL - Hàm tập hợp COUNT trong SQL được sử dụng để đếm số hàng trong một bảng của cơ sở dữ liệu.
+
+Hàm MAX trong SQL - Hàm tập hợp MAX trong SQL cho phép chúng ta lựa chọn giá trị lớn nhất cho một cột cụ thể.
+
+Hàm MIN trong SQL - Hàm tập hợp MIN trong SQL cho phép chúng ta lựa chọn giá trị nhỏ nhất cho một cột cụ thể.
+
+Hàm AVG trong SQL - Hàm tập hợp AVG trong SQL cho giá trị trung bình cho một cột cụ thể trong bảng.
+
+Hàm SUM trong SQL - Hàm tập hợp SUM trong SQL tính tổng một cột dạng giá trị số.
+
+Hàm SQRT trong SQL - Hàm này được sử dụng để cho căn bậc hai của một số đã cho.
+
+Hàm RAND trong SQL - Hàm này được sử dụng để tạo một số ngẫu nhiên bởi sử dụng lệnh SQL.
+
+Hàm CONCAT trong SQL - Hàm này được sử dụng để nối chuỗi bên trong bất kỳ lệnh SQL nào.
+
+Hàm xử lý date trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với Date trong SQL.
+
+Hàm xử lý số trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với số trong SQL.
+
+Hàm xử lý chuỗi trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với chuỗi trong SQL.
+
+https://vietjack.com/sql/ham_xu_ly_date_trong_sql.jsp
+
+https://vietjack.com/sql/ham_xu_ly_chuoi_trong_sql.jsp
+
+https://vietjack.com/sql/ham_xu_ly_so_trong_sql.jsp
+
