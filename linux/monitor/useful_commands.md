@@ -194,9 +194,11 @@ Output mẫu:
 
 Giải thích tham số trong câu lệnh:
 
-`-b`: chạy lệnh top ở batch mode
-`-o`: chỉ định trường hoặc phân loại các tiến trình
-`head -n 22`: hiển thị 22 dòng đầu tiên của kết quả
+- `-b`: chạy lệnh top ở batch mode
+
+- `-o`: chỉ định trường hoặc phân loại các tiến trình
+
+- `head -n 22`: hiển thị 22 dòng đầu tiên của kết quả
 
 Lưu kết quả vào 1 file:
 
