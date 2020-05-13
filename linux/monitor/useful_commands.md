@@ -18,23 +18,23 @@ https://news.cloud365.vn/ps-command-nhung-tuy-chon-huu-ich-khi-su-dung-lenh-ps/
 
 1. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo %mem sử dụng
 
-    ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head
+        ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head
 
 2. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo dung lượng RAM đang sử dụng (mặc định đơn vị KB)
 
-    ps -aux --sort=-rss | head
+        ps -aux --sort=-rss | head
 
 3. Để đổi sang đơn vị MB, sử dụng lệnh
 
-    ps -aux --sort=-rss | head | awk 'NR>1 {$6=int($6/1024)"M";}{ print;}'
+        ps -aux --sort=-rss | head | awk 'NR>1 {$6=int($6/1024)"M";}{ print;}'
 
 4. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo %cpu sử dụng
 
-    ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head
+        ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head
 
 5. Xem lệnh chạy realtime, đặt các lệnh trên trong lệnh watch
 
-    watch -n 1 'ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head'
+        watch -n 1 'ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head'
 
 Ouput mẫu:
 
