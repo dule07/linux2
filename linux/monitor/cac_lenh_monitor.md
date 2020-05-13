@@ -1,5 +1,7 @@
 # Các lệnh để monitor hệ thống Linux
 
+http://www.netinstructions.com/how-to-monitor-your-linux-machine/
+
 ## Tham khảo
 
 https://haydenjames.io/
@@ -393,6 +395,8 @@ https://haydenjames.io/htop-quick-guide-customization/
 
 https://www.tecmint.com/install-htop-linux-process-monitoring-for-rhel-centos-fedora/
 
+https://tech.bizflycloud.vn/giam-sat-thong-voi-htop-833.htm
+
 ## 5. Lệnh lsof (LiSt Open Files) <a name="lsof"></a>
 
 ### Lệnh cơ bản và output giải thích
@@ -707,7 +711,7 @@ https://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-comm
 
 https://quantrimang.com/cach-su-dung-lenh-vmstat-tren-linux-164611
 
-## 7. Lệnh nload
+## 7. Lệnh nload <a name="nload"></a>
 
 Lệnh nload hiển thị mức sử dụng mạng hiện tại
 
@@ -766,5 +770,9 @@ https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
 
 https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
 
-## 9. Lệnh iostat
+## 8. Lệnh ps
+
+https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/
+
+https://quantrimang.com/cong-dung-cua-lenh-ps-trong-linux-163904
 
