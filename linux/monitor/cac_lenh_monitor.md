@@ -16,6 +16,7 @@ https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/
 5. [Lệnh lsof](#lsof)
 6. [Lệnh vmstat](#vmstat)
 7. [Lệnh nload](#nload)
+7. [Lệnh ps](#ps)
 
 
 ## 1. Lệnh Netstat <a name="netstat"></a>
@@ -770,9 +771,22 @@ https://blog.cloud365.vn/linux/kiem-tra-bang-thong-mang-voi-nload-va-iperf/
 
 https://www.tecmint.com/nload-monitor-linux-network-traffic-bandwidth-usage/
 
-## 8. Lệnh ps
+## 8. Lệnh ps <a name="ps"></a>
 
 https://news.cloud365.vn/ps-command-tim-hieu-va-huong-dan-su-dung/
 
 https://quantrimang.com/cong-dung-cua-lenh-ps-trong-linux-163904
 
+https://blogd.net/linux/cac-vi-du-ve-lenh-ps-theo-doi-tien-trinh-tren-linux/
+
+https://news.cloud365.vn/ps-command-nhung-tuy-chon-huu-ich-khi-su-dung-lenh-ps/
+
+`ps` (hay Process Status) là một tiện ích của Unix/Linux dùng để xem thông tin của các tiến trình đang chạy trong hệ thống. Đây có thể nói là một tiện ích quan trọng giúp bạn hiểu chuyện gì đang diễn ra trên hệ thống
+
+Tiện ích ps sẽ đọc thông tin tiến trình từ một file ảo nằm trong thư mục /proc. Nó sẽ cung cấp một số tuỳ chọn để cho bạn dễ dàng xem thông tin của các tiến trình
+
+Sử dụng:
+
+        ps [option]
+
+Dùng lệnh `man ps` để xem các option 

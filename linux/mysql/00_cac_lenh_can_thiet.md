@@ -50,7 +50,7 @@ Ví dụ:
     ID int,
     ho varchar(255),
     ten varchar(255),
-    dia_chi varchar(255),
+    dia_chi varchar(255)
     );
 
     show tables;

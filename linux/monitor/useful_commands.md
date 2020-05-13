@@ -18,7 +18,7 @@ https://news.cloud365.vn/ps-command-nhung-tuy-chon-huu-ich-khi-su-dung-lenh-ps/
 
 1. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo %mem sử dụng
 
-    ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+    ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head
 
 2. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo dung lượng RAM đang sử dụng (mặc định đơn vị KB)
 
@@ -30,7 +30,11 @@ https://news.cloud365.vn/ps-command-nhung-tuy-chon-huu-ich-khi-su-dung-lenh-ps/
 
 4. Hiển thị các tiến trình đang sử dụng nhiều RAM nhất sắp xếp theo %cpu sử dụng
 
-    ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+    ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head
+
+5. Xem lệnh chạy realtime, đặt các lệnh trên trong lệnh watch
+
+    watch -n 1 'ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head'
 
 Ouput mẫu:
 
@@ -92,13 +96,47 @@ Giải thích tham số trong câu lệnh:
 
 `aux` Hiển thị toàn bộ thông tin (theo cú pháp BSD). Xem khác biệt giữa cú pháp tiêu chuẩn và cú pháp BSD (https://askubuntu.com/questions/484982/what-is-the-difference-between-standard-syntax-and-bsd-syntax)
 
+**Test:**
+
+Sử dụng lệnh stress để đẩy mức sử dụng RAM lên
+
+    stress -m 1 --vm-bytes 1.5G
+
+Kiểm tra:
+
+    root@tig:~# ps aux --sort=-%mem | head
+    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+    root     24456  100 26.4 1056820 538924 pts/2  R+   11:58   0:13 stress -m 1 --vm-bytes 1.5G
+    influxdb 16374  0.6  9.3 1349364 190580 ?      Ssl  09:09   1:04 /usr/bin/influxd -config /etc/influxdb/influxdb.conf
+    root       385  0.0  4.6 201760 94320 ?        S<s  May08   3:33 /lib/systemd/systemd-journald
+    grafana    610  0.1  2.6 1047948 54036 ?       Ssl  May08   9:03 /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini --pidfile=/var/run/grafana/grafana-server.pid --packaging=deb cfg:default.paths.logs=/var/log/grafana cfg:default.paths.data=/var/lib/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins cfg:default.paths.provisioning=/etc/grafana/provisioning
+    telegraf 16472  0.5  2.4 1070632 49908 ?       Ssl  09:11   0:58 /usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d
+    root       536  0.0  0.9 187164 18952 ?        Ssl  May08   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+    root       528  0.0  0.7 170440 16276 ?        Ssl  May08   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+    root         1  0.0  0.4  77964  9024 ?        Ss   May08   0:36 /sbin/init
+    thuctap  14865  0.0  0.3  76620  7548 ?        Ss   08:07   0:00 /lib/systemd/systemd --user
+    root@tig:~# ps aux --sort=-%cpu | head
+    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+    root     24456 98.7 19.0 1056820 389480 pts/2  R+   11:58   0:27 stress -m 1 --vm-bytes 1.5G
+    influxdb 16374  0.6  9.3 1349364 190580 ?      Ssl  09:09   1:04 /usr/bin/influxd -config /etc/influxdb/influxdb.conf
+    root     18547  0.6  0.2  33612  4248 pts/3    S+   11:11   0:17 htop
+    telegraf 16472  0.5  2.4 1070632 49908 ?       Ssl  09:11   0:58 /usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d
+    grafana    610  0.1  2.6 1047948 54036 ?       Ssl  May08   9:03 /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini --pidfile=/var/run/grafana/grafana-server.pid --packaging=deb cfg:default.paths.logs=/var/log/grafana cfg:default.paths.data=/var/lib/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins cfg:default.paths.provisioning=/etc/grafana/provisioning
+    root         1  0.0  0.4  77964  9024 ?        Ss   May08   0:36 /sbin/init
+    root         2  0.0  0.0      0     0 ?        S    May08   0:00 [kthreadd]
+    root         4  0.0  0.0      0     0 ?        I<   May08   0:00 [kworker/0:0H]
+    root         6  0.0  0.0      0     0 ?        I<   May08   0:00 [mm_percpu_wq]
+    root@tig:~#
+
+Ta thấy tiến trình do lệnh stress đang sử dụng nhiều RAM và CPU nhất.
+
 ### Sử dụng `top`
 
-Hiển thị 15 tiến trình đang dùng nhiều RAM nhất
+Hiển thị 15 tiến trình đang dùng nhiều RAM nhất (Shift + M)
 
     top -b -o +%MEM | head -n 22
 
-Hiển thị 15 tiến trình đang dùng nhiều CPU nhất
+Hiển thị 15 tiến trình đang dùng nhiều CPU nhất (Shift + P)
 
     top -b -o +%CPU | head -n 22
 
