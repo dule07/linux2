@@ -58,7 +58,7 @@ Trên Centos
 
     [root@localhost ~]#
 
-Chú ý dòng total time:
+Bạn chú ý vào dòng `total time: 10.0012s`
 
 ## 3. File IO Benchmark
 
@@ -69,6 +69,8 @@ Tạo 1 file lớn hơn nhiều so với RAM
 Chạy benchmark
 
     sysbench --test=fileio --file-total-size=150G --file-test-mode=rndrw --init-rng=on --max-time=300 --max-requests=0 run
+
+Dòng bạn cần quan tâm là `Read 9.375Mb  Written 6.25Mb  Total transferred 15.625Mb  (53.316Kb/sec)`
 
 Xóa file 150 GB đã tạo
 
@@ -195,6 +197,66 @@ Kiểm tra DB vừa tạo
 
     [root@localhost ~]#
 
+Thông số bạn cần quan tâm là `transactions: 82667 (8218.14 per sec.)`
+
 Làm sạch DB sau khi test xong
 
     sysbench /usr/share/sysbench/oltp_read_write.lua --db-driver=mysql --mysql-db=sysbench --mysql-user=root --mysql-password='thuctap@2020' --tables=1 cleanup
+
+Lệnh sysbench chỉ xóa table chứ không xóa database. Để ý xóa các table
+
+## Benchmark RAM
+
+Dùng lệnh:
+
+    sysbench --test=memory --num-threads=4 run
+
+Output mẫu:
+```
+[root@localhost ~]# sysbench --test=memory --num-threads=4 run
+WARNING: the --test option is deprecated. You can pass a script name or path on the command line without any options.
+WARNING: --num-threads is deprecated, use --threads instead
+sysbench 1.0.17 (using system LuaJIT 2.0.4)
+
+Running the test with following options:
+Number of threads: 4
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 47007331 (4699425.66 per second)
+
+45905.60 MiB transferred (4589.28 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0006s
+    total number of events:              47007331
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                   22.02
+         95th percentile:                        0.00
+         sum:                                19982.18
+
+Threads fairness:
+    events (avg/stddev):           11751832.7500/122424.02
+    execution time (avg/stddev):   4.9955/0.08
+
+[root@localhost ~]#
+```
+Bạn cần chú ý đến dòng:
+
+`Total operations: 47007331 (4699425.66 per second)`
+
+`45905.60 MiB transferred (4589.28 MiB/sec)`
