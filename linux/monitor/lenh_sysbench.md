@@ -4,6 +4,8 @@ https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-s
 
 https://minervadb.com/index.php/2018/03/13/benchmarking-mysql-using-sysbench-1-1/
 
+https://wiki.gentoo.org/wiki/Sysbench#Using_the_memory_workload
+
 ## 1. Cài đặt
 
 Trên Ubuntu

@@ -790,3 +790,7 @@ Sử dụng:
         ps [option]
 
 Dùng lệnh `man ps` để xem các option 
+
+
+iostat
+iotop
