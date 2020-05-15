@@ -70,3 +70,4 @@ CPU đã bị sử dụng hết (từ 2% lên 100%)
 RAM sử dụng tăng từ 26% lên 33% (không đáng kể)
 
 ![Imgur](https://i.imgur.com/uZdzpEE.png)
+
