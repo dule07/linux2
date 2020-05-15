@@ -12,8 +12,7 @@ Việc sử dụng AS (Alias) trong MySQL khi viết câu truy vấn giúp câu 
 
 Cú pháp:
 
-    SELECT 
-    [column_1 | expression] AS 'descriptive_name'
+    SELECT column_name AS alias_name
     FROM table_name;
 
 Truy vấn sau đây chọn tên và họ của nhân viên. Nó sử dụng hàm `CONCAT_WS ()` để ghép tên và họ thành tên đầy đủ.
@@ -26,7 +25,8 @@ Truy vấn sau đây chọn tên và họ của nhân viên. Nó sử dụng hà
 
 Cú pháp
 
-    table_name AS table_alias
+    SELECT column_name(s)
+    FROM table_name AS alias_name;
 
 Alias table thường được sử dụng trong câu lệnh có chứa `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`.
 
@@ -38,3 +38,14 @@ Sử dụng bảng employese. Truy vấn danh sách nhân viên sắp xếp theo
 
 ![Imgur](https://i.imgur.com/4IK3xT3.png)
 
+Ví dụ khác:
+
+    SELECT o.OrderID, o.OrderDate, c.CustomerName
+    FROM Customers AS c, Orders AS o
+    WHERE c.CustomerName='Around the Horn' AND c.CustomerID=o.CustomerID;
+
+là cách viết ngắn gọn cho 
+
+    SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
+    FROM Customers, Orders
+    WHERE Customers.CustomerName='Around the Horn' AND Customers.CustomerID=Orders.CustomerID;

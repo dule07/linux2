@@ -1,4 +1,8 @@
-Checklist https://www.mysqltutorial.org/basic-mysql-tutorial.aspx
+Checklist
+
+https://www.w3schools.com/sql/default.asp
+
+https://www.mysqltutorial.org/basic-mysql-tutorial.aspx
 
 https://github.com/TuongICTU/ThuctapNhanHoa/blob/master/SQL/01_Getting-started-with-MySQL.md
 

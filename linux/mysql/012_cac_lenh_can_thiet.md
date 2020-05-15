@@ -1,42 +1,42 @@
-# Các lệnh và các hàm sử dụng trong mysql
+# Các lệnh sử dụng trong mysql làm việc với database, table., cột hàng, quản lý users
 
 Đăng nhập MySQL bạn dùng lệnh: 
 
     mysql -u root -p
 
-## 1. Thư mục chứa database
+Thư mục chứa database
 
 Trên CentOS, toàn bộ file raw database được lưu trong thư mục `/var/lib/mysql`
 
-Các lệnh phổ biến nhất
+## 1. Các lệnh phổ biến nhất
 
-SELECT - extracts data from a database
+`SELECT` - extracts data from a database
 
-UPDATE - updates data in a database
+`UPDATE` - updates data in a database
 
-DELETE - deletes data from a database
+`DELETE` - deletes data from a database
 
-INSERT INTO - inserts new data into a database
+`INSERT INTO` - inserts new data into a database
 
-CREATE DATABASE - creates a new database
+`CREATE DATABASE` - creates a new database
 
-ALTER DATABASE - modifies a database
+`ALTER DATABASE` - modifies a database
 
-CREATE TABLE table_name - creates a new table
+`CREATE TABLE table_name` - creates a new table
 
-ALTER TABLE table_name- modifies a table
+`ALTER TABLE table_name`- modifies a table
 
-DROP TABLE table_name - deletes a table
+`DROP TABLE table_name` - deletes a table
 
-DESC table_name - show table
+`DESC table_name` - show table
 
-TRUNCATE TABLE table_name - Xóa data của table nhưng không xóa table
+`TRUNCATE TABLE table_name` - Xóa data của table nhưng không xóa table
 
-ALTER TABLE table_name change old_column_name new_column_name datatype; - Thay đổi tên cột trong bảng
+`ALTER TABLE table_name change old_column_name new_column_name datatype`; - Thay đổi tên cột trong bảng
 
-CREATE INDEX - creates an index (search key)
+`CREATE INDEX` - creates an index (search key)
 
-DROP INDEX - deletes an index
+`DROP INDEX` - deletes an index
 
 Ví dụ: 
 ```SQL
@@ -76,6 +76,18 @@ Ví dụ:
 Hiển thị toàn bộ users:
 
     mysql SELECT * FROM mysql.user;
+
+Tạo user 
+
+    CREATE USER 'admin'@'%' IDENTIFIED BY 'password';
+
+    CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+
+Gán quyền
+
+    GRANT ALL PRIVILEGES ON testdbwp.* TO admin@localhost IDENTIFIED BY 'password';
+
+    GRANT ALL PRIVILEGES ON *.* TO 'dung'@'%' IDENTIFIED BY 'password';
 
 Xóa null user:
 
@@ -227,35 +239,5 @@ Sao lưu một số table nhất định:
 
     mysqldump --add-drop-table -u username -pmypass databasename table_1 table_2  databasebackup.sql
 
-# Hàm
 
-SQL có nhiều hàm có sẵn để thực thi tiến trình xử lý trên dữ liệu dạng chuỗi hoặc số. Dưới đây là danh sách tất cả hàm hữu ích mà có sẵn trong SQL.
-
-Hàm COUNT trong SQL - Hàm tập hợp COUNT trong SQL được sử dụng để đếm số hàng trong một bảng của cơ sở dữ liệu.
-
-Hàm MAX trong SQL - Hàm tập hợp MAX trong SQL cho phép chúng ta lựa chọn giá trị lớn nhất cho một cột cụ thể.
-
-Hàm MIN trong SQL - Hàm tập hợp MIN trong SQL cho phép chúng ta lựa chọn giá trị nhỏ nhất cho một cột cụ thể.
-
-Hàm AVG trong SQL - Hàm tập hợp AVG trong SQL cho giá trị trung bình cho một cột cụ thể trong bảng.
-
-Hàm SUM trong SQL - Hàm tập hợp SUM trong SQL tính tổng một cột dạng giá trị số.
-
-Hàm SQRT trong SQL - Hàm này được sử dụng để cho căn bậc hai của một số đã cho.
-
-Hàm RAND trong SQL - Hàm này được sử dụng để tạo một số ngẫu nhiên bởi sử dụng lệnh SQL.
-
-Hàm CONCAT trong SQL - Hàm này được sử dụng để nối chuỗi bên trong bất kỳ lệnh SQL nào.
-
-Hàm xử lý date trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với Date trong SQL.
-
-Hàm xử lý số trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với số trong SQL.
-
-Hàm xử lý chuỗi trong SQL - Danh sách đầy đủ các hàm trong SQL để thao tác với chuỗi trong SQL.
-
-https://vietjack.com/sql/ham_xu_ly_date_trong_sql.jsp
-
-https://vietjack.com/sql/ham_xu_ly_chuoi_trong_sql.jsp
-
-https://vietjack.com/sql/ham_xu_ly_so_trong_sql.jsp
 
