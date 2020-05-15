@@ -91,5 +91,4 @@ Cấp quyền cho user:
 
     >grant all on *.* to 'demo'@'%';
 
-
-
+Dùng Mysql workbench để lab: https://news.cloud365.vn/mariadb-cac-thao-tac-co-ban-voi-mysql-workbench/
