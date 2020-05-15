@@ -71,4 +71,4 @@ RAM sử dụng tăng từ 26% lên 33% (không đáng kể)
 
 ![Imgur](https://i.imgur.com/uZdzpEE.png)
 
-alo
+loo
