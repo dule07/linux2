@@ -1,5 +1,7 @@
 # Gửi mail bằng postfix
 
+https://news.cloud365.vn/huong-dan-gui-mail-dung-postfix/
+
 Postfix là một phầm mềm nguồn mở được dùng để gửi mail (Mail Transfer Agent-MTA). Được phát hành bởi IBM với mục tiêu thay thế trình gửi mail phổ biến là sendmail. Trong bài viết này tôi sẽ hướng dẫn bạn cách cài đặt postfix để gửi mail trên Centos7.
 
 ## Remove Sendmail
