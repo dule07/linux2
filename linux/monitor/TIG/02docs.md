@@ -14,11 +14,17 @@ File cấu hình:
 
 `/etc/influxdb/influxdb.conf`
 
+https://docs.influxdata.com/influxdb/v1.8/administration/config/
+
 https://docs.influxdata.com/influxdb/v1.8/administration/config/#configuration-overview
 
 Query influxDB:
 
 https://docs.influxdata.com/influxdb/v1.8/query_language/explore-data/
+
+Kiểm tra log:
+
+    journalctl -u influxdb.service
 
 Logs:
 
