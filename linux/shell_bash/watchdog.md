@@ -17,13 +17,13 @@ URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 
 for SERVICE in ${SERVICES}
  do
-   service $SERVICE status 2>&1>/dev/null
+   /etc/init.d/$SERVICE status 2>&1>/dev/null
     if [ $? -ne 0 ];
       then
-        service $SERVICE restart
+        /etc/init.d/$SERVICE restart
         echo -e "Khởi động dịch vụ $SERVICE"
         (echo -e "Subject:Khởi động lại dịch vụ  $SERVICE\n\$DATE Dịch vụ $SERVICE không hoạt động trên host $HOSTNAME! Khởi động lại.";) | /usr/sbin/ssmtp -v  dungz1207@gmail.com
-        curl -s -X POST $URL -d chat_id=$ID -d text="$DATE Dịch vụ $SERVICE không hoạt động trên host $HOSTNAME! Khởi động lại."
+        /usr/bin/curl -s -X POST $URL -d chat_id=$ID -d text="$DATE Dịch vụ $SERVICE không hoạt động trên host $HOSTNAME! Khởi động lại."
       else
         echo -e "$SERVICE OK"
     fi
@@ -42,4 +42,4 @@ Kết quả:
 
     crontab -e
 
-    0,30 * * * * /opt/watchdog.sh
+    0,30 * * * * /opt/watchdog.sh > /dev/null 2>&1
